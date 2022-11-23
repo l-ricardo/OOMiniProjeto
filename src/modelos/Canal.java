@@ -8,10 +8,9 @@ public class Canal {
     Programa[] programas;
 
     // Construtor
-    public Canal(String nome, int numero, Programa[] programas) {
+    public Canal(String nome, int numero) {
         this.nome = nome;
         this.numero = numero;
-        this.programas = programas;
     }
 
     // Gets e Sets
@@ -35,13 +34,13 @@ public class Canal {
         return programas;
     }
 
-    public void setProgramas(Programa[] programas) {
+    public void setProgramas(Programa... programas) {
         this.programas = programas;
     }
 
     @Override
     public String toString() {
-        return "Canal [nome=" + nome + ", numero=" + numero + ", programas=" + Arrays.toString(programas) + "]";
+        return "\n###################### Canal " + numero + ": " + nome+ " ######################\n" + Arrays.toString(programas);
     }
 
 }

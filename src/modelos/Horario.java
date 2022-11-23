@@ -39,7 +39,7 @@ public class Horario {
 
     @Override
     public String toString() {
-        return "Horario [horaInicio=" + horaInicio + ", horaFim=" + horaFim + ", diaSemana=" + diaSemana + "]";
+        return diaSemana +" das "+ horaInicio + " as " + horaFim;
     }
 
 }

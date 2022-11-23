@@ -2,17 +2,16 @@ package modelos;
 
 import java.util.Arrays;
 
-public class Programa {
+public class Programa { // ToDo: Fazer isso ser uma classe pai e ter classses filhas para programa de
+                        // apresentador, programa de filme e de novela
     String nome;
     Horario[] horarios;
     Apresentador[] apresentadores;
     int canal; // Doubt? Como colocar o objeto aqui evitando um relacionamento bidirecional?
 
     // Contrutor
-    public Programa(String nome, Horario[] horarios, Apresentador[] apresentadores, int canal) {
+    public Programa(String nome, int canal) {
         this.nome = nome;
-        this.horarios = horarios;
-        this.apresentadores = apresentadores;
         this.canal = canal;
     }
 
@@ -21,7 +20,7 @@ public class Programa {
         return horarios;
     }
 
-    public void setHorarios(Horario[] horarios) {
+    public void setHorarios(Horario... horarios) {
         this.horarios = horarios;
     }
 
@@ -43,8 +42,8 @@ public class Programa {
 
     @Override
     public String toString() {
-        return nome + "\nApresentado por: " + Arrays.toString(apresentadores) + " no canal: " + canal
-                + "\nNos horarios: " + Arrays.toString(horarios);
+        return "------------------" + nome + "------------------" + "\nApresentado por: " + Arrays.toString(apresentadores)
+                + "\nNos horarios: "+ Arrays.toString(horarios)+ "\n";
     }
 
 }
