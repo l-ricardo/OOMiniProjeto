@@ -19,9 +19,11 @@ public class main {
         apresentadores[2] = new Apresentador("Rodrigo Faro", 'M');
         apresentadores[3] = new Apresentador("Silvio Santos", 'M');
         apresentadores[4] = new Apresentador("Marcos Mion", 'M');
+
         canais[0] = new Canal("Globo", 8);
         canais[1] = new Canal("Record", 10);
         canais[2] = new Canal("SBT", 2);
+
         programas[0] = new Programa("Mais Você", 8);
         programas[1] = new Programa("Hora do Faro", 10);
         programas[2] = new Programa("Caldeirao", 8);
@@ -65,7 +67,6 @@ public class main {
         canais[0].setProgramas(programas[0], programas[2]);
         canais[1].setProgramas(programas[1]);
         canais[2].setProgramas(programas[3], programas[4]);
-
 
         // Teste
         System.out.println(canais[0].toString());
