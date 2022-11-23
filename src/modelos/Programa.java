@@ -9,9 +9,9 @@ public class Programa {
     int canal; // Doubt? Como colocar o objeto aqui evitando um relacionamento bidirecional?
 
     // Contrutor
-    public Programa(String nome, Apresentador[] apresentadores, int horaInicio, int horaFim, String[] diasSemana,
-            int canal) {
+    public Programa(String nome, Horario[] horarios, Apresentador[] apresentadores, int canal) {
         this.nome = nome;
+        this.horarios = horarios;
         this.apresentadores = apresentadores;
         this.canal = canal;
     }
