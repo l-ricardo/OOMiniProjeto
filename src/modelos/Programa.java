@@ -1,25 +1,30 @@
 package modelos;
 
+import java.util.Arrays;
+
 public class Programa {
     String nome;
-    String[] apresentadores; // ToDo: talvez tirar isso daqui pra um novo objeto
-    int horaInicio;
-    int horaFim;
-    String[] diasSemana;
-    Canal canal;
+    Horario[] horarios;
+    Apresentador[] apresentadores;
+    int canal; // Doubt? Como colocar o objeto aqui evitando um relacionamento bidirecional?
 
     // Contrutor
-    public Programa(String nome, String[] apresentadores, int horaInicio, int horaFim, String[] diasSemana,
-            Canal canal) {
+    public Programa(String nome, Apresentador[] apresentadores, int horaInicio, int horaFim, String[] diasSemana,
+            int canal) {
         this.nome = nome;
         this.apresentadores = apresentadores;
-        this.horaInicio = horaInicio;
-        this.horaFim = horaFim;
-        this.diasSemana = diasSemana;
         this.canal = canal;
     }
 
     // Gets e Sets
+    public Horario[] getHorarios() {
+        return horarios;
+    }
+
+    public void setHorarios(Horario[] horarios) {
+        this.horarios = horarios;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -28,44 +33,18 @@ public class Programa {
         this.nome = nome;
     }
 
-    public String[] getApresentadores() {
+    public Apresentador[] getApresentadores() {
         return apresentadores;
     }
 
-    public void setApresentadores(String[] apresentadores) {
+    public void setApresentadores(Apresentador... apresentadores) {
         this.apresentadores = apresentadores;
     }
 
-    public int getHoraInicio() {
-        return horaInicio;
-    }
-
-    public void setHoraInicio(int horaInicio) {
-        this.horaInicio = horaInicio;
-    }
-
-    public int getHoraFim() {
-        return horaFim;
-    }
-
-    public void setHoraFim(int horaFim) {
-        this.horaFim = horaFim;
-    }
-
-    public String[] getDiasSemana() {
-        return diasSemana;
-    }
-
-    public void setDiasSemana(String[] diasSemana) {
-        this.diasSemana = diasSemana;
-    }
-
-    public Canal getCanal() {
-        return canal;
-    }
-
-    public void setCanal(Canal canal) {
-        this.canal = canal;
+    @Override
+    public String toString() {
+        return nome + "\nApresentado por: " + Arrays.toString(apresentadores) + " no canal: " + canal
+                + "\nNos horarios: " + Arrays.toString(horarios);
     }
 
 }

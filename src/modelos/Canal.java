@@ -1,5 +1,7 @@
 package modelos;
 
+import java.util.Arrays;
+
 public class Canal {
     String nome;
     int numero;
@@ -35,6 +37,11 @@ public class Canal {
 
     public void setProgramas(Programa[] programas) {
         this.programas = programas;
+    }
+
+    @Override
+    public String toString() {
+        return "Canal [nome=" + nome + ", numero=" + numero + ", programas=" + Arrays.toString(programas) + "]";
     }
 
 }
