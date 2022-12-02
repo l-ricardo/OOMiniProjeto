@@ -1,9 +1,9 @@
 package modelos;
 
 public abstract class Pessoa {
-    String nome;
-    char sexo;
-    int idade;
+    protected String nome;
+    protected char sexo;
+    protected int idade;
 
     // Gets e Sets
     public String getNome() {
