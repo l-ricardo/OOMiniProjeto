@@ -1,29 +1,18 @@
 package modelos;
 
-import java.util.Arrays;
-
-public class Programa { // ToDo: Fazer isso ser uma classe pai e ter classses filhas para programa de
-                        // apresentador, programa de filme e de novela
+public class Programa { // Doubt?? Talvez converter para classe abstrata
     String nome;
     Horario[] horarios;
-    Apresentador[] apresentadores;
-    int canal; // Doubt? Como colocar o objeto aqui evitando um relacionamento bidirecional?
+    Canal canal;
 
-    // Contrutor
-    public Programa(String nome, int canal) {
+    // Construtor
+    public Programa(String nome, Horario[] horarios, Canal canal) {
         this.nome = nome;
+        this.horarios = horarios;
         this.canal = canal;
     }
 
     // Gets e Sets
-    public Horario[] getHorarios() {
-        return horarios;
-    }
-
-    public void setHorarios(Horario... horarios) {
-        this.horarios = horarios;
-    }
-
     public String getNome() {
         return nome;
     }
@@ -32,18 +21,19 @@ public class Programa { // ToDo: Fazer isso ser uma classe pai e ter classses fi
         this.nome = nome;
     }
 
-    public Apresentador[] getApresentadores() {
-        return apresentadores;
+    public Horario[] getHorarios() {
+        return horarios; // ToDo: Checar se é necessario fazer a iteração de horarios aqui
     }
 
-    public void setApresentadores(Apresentador... apresentadores) {
-        this.apresentadores = apresentadores;
+    public void setHorarios(Horario... horarios) {
+        this.horarios = horarios;
     }
 
-    @Override
-    public String toString() {
-        return "------------------" + nome + "------------------" + "\nApresentado por: " + Arrays.toString(apresentadores)
-                + "\nNos horarios: "+ Arrays.toString(horarios)+ "\n";
+    public Canal getCanal() {
+        return canal;
     }
 
+    public void setCanal(Canal canal) {
+        this.canal = canal;
+    }
 }
