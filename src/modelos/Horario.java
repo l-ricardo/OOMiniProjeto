@@ -12,6 +12,11 @@ public class Horario {
         this.diaSemana = diaSemana;
     }
 
+    @Override
+    public String toString() {
+        return diaSemana + " das " + horaInicio + " as " + horaFim;
+    }
+
     // Gets e Sets
     public int getHoraInicio() {
         return horaInicio;
@@ -35,11 +40,6 @@ public class Horario {
 
     public void setDiaSemana(String diaSemana) {
         this.diaSemana = diaSemana;
-    }
-
-    @Override
-    public String toString() {
-        return diaSemana +" das "+ horaInicio + " as " + horaFim;
     }
 
 }
