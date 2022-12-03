@@ -17,9 +17,10 @@ public class TalkShowJornal extends Programa {
 
     @Override
     public String toString() {
-        return "------------------" + nome + "------------------" +
-                "\nApresentando " + Arrays.toString(apresentadores) +
-                "\nNos horarios: " + Arrays.toString(horarios) + "\n";
+        return "\n################################ " + nome + " ################################" +
+                "\n" + canal +
+                "\nHorarios: " + Arrays.toString(horarios) +
+                "\nApresentando: " + Arrays.toString(apresentadores);
     }
 
     // Gets e Sets

@@ -4,14 +4,13 @@ public class Apresentador extends Pessoa {
     String tipo; //Ex: Humorista, Jornalista, Entrevistador, etc...
 
     // Construtores
-    public Apresentador(String nome, char sexo, int idade) {
+    public Apresentador(String nome, char sexo) {
         this.nome = nome;
         this.sexo = sexo;
-        this.idade = idade;
     }
 
-    public Apresentador(String nome, char sexo, int idade, String tipo) {
-        this(nome, sexo, idade);
+    public Apresentador(String nome, char sexo, String tipo) {
+        this(nome, sexo);
         this.tipo = tipo;
     }
 

@@ -3,7 +3,6 @@ package modelos;
 public abstract class Pessoa {
     protected String nome;
     protected char sexo;
-    protected int idade;
 
     // Gets e Sets
     public String getNome() {
@@ -20,13 +19,5 @@ public abstract class Pessoa {
 
     public void setSexo(char sexo) {
         this.sexo = sexo;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
     }
 }

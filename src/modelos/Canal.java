@@ -12,7 +12,7 @@ public class Canal {
 
     @Override
     public String toString() {
-        return "\n###################### Canal " + numero + ": " + nome + " ######################\n";
+        return "Canal " + numero + ": " + nome;
     }
 
     // Gets e Sets

@@ -3,32 +3,33 @@ package modelos;
 import java.util.Arrays;
 
 public class NovelaFilmeSerie extends Programa {
-    Ator[] atores;
+    Personagem[] personagens;
 
     // Construtor
     public NovelaFilmeSerie(String nome, Canal canal) {
         super(nome, canal);
     }
 
-    public NovelaFilmeSerie(String nome, Horario[] horarios, Canal canal, Ator[] atores) {
+    public NovelaFilmeSerie(String nome, Horario[] horarios, Canal canal, Personagem[] personagens) {
         super(nome, horarios, canal);
-        this.atores = atores;
+        this.personagens = personagens;
     }
 
     @Override
     public String toString() {
-        return "------------------" + nome + "------------------" +
-                "\nNos horarios: " + Arrays.toString(horarios) + "\n" +
-                "\nEstrelando " + Arrays.toString(atores);
+        return "\n################################ " + nome + " ################################" +
+                "\n" + canal +
+                "\nHorarios: " + Arrays.toString(horarios) +
+                "\nEstrelando: " + Arrays.toString(personagens);
     }
 
     // Gets e Sets
-    public Ator[] getAtores() {
-        return atores;
+    public Personagem[] getPersonagens() {
+        return personagens;
     }
 
-    public void setAtores(Ator... atores) {
-        this.atores = atores;
+    public void setPersonagens(Personagem... personagens) {
+        this.personagens = personagens;
     }
 
 }
