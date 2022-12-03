@@ -3,7 +3,7 @@ package modelos;
 import java.util.Arrays;
 
 public class TalkShowJornal extends Programa {
-    Apresentador[] apresentadores;
+    private Apresentador[] apresentadores;
 
     // Construtor
     public TalkShowJornal(String nome, Canal canal) {
@@ -17,9 +17,9 @@ public class TalkShowJornal extends Programa {
 
     @Override
     public String toString() {
-        return "\n################################ " + nome + " ################################" +
-                "\n" + canal +
-                "\nHorarios: " + Arrays.toString(horarios) +
+        return "\n################################ " + getNome() + " ################################" +
+                "\n" + getCanal() +
+                "\nHorarios: " + Arrays.toString(getHorarios()) +
                 "\nApresentando: " + Arrays.toString(apresentadores);
     }
 

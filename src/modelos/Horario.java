@@ -1,9 +1,9 @@
 package modelos;
 
 public class Horario {
-    int horaInicio;
-    int horaFim;
-    String diaSemana;
+    private int horaInicio;
+    private int horaFim;
+    private String diaSemana;
 
     // Construtor
     public Horario(int horaInicio, int horaFim, String diaSemana) {

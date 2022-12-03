@@ -1,8 +1,8 @@
 package modelos;
 
 public class Canal {
-    String nome;
-    int numero;
+    private String nome;
+    private int numero;
 
     // Construtor
     public Canal(String nome, int numero) {

@@ -1,12 +1,12 @@
 package modelos;
 
-public class Dados {
-    Canal[] canais = new Canal[10];
-    Horario[] horarios = new Horario[24 * 7 + 100];
-    Apresentador[] apresentadores = new Apresentador[50];
-    Personagem[] personagens = new Personagem[50];
-    TalkShowJornal[] programaTipoTalkShowJornal = new TalkShowJornal[100];
-    NovelaFilmeSerie[] programaTipoNovelaFilmeSerie = new NovelaFilmeSerie[100];
+public class Dados { // Doubt? Preciso de declarar o tamanho dos Arrays aqui?
+    private Canal[] canais = new Canal[10];
+    private Horario[] horarios = new Horario[24 * 7 + 100];
+    private Apresentador[] apresentadores = new Apresentador[50];
+    private Personagem[] personagens = new Personagem[50];
+    private TalkShowJornal[] programaTipoTalkShowJornal = new TalkShowJornal[100];
+    private NovelaFilmeSerie[] programaTipoNovelaFilmeSerie = new NovelaFilmeSerie[100];
 
     // Criando valores de exemplo
     {

@@ -1,7 +1,7 @@
 package modelos;
 
 public class Personagem extends Pessoa {
-    String ator;
+    private String ator;
 
     // Construtores
     public Personagem(String nome, char sexo) {

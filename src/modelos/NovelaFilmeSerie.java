@@ -3,7 +3,7 @@ package modelos;
 import java.util.Arrays;
 
 public class NovelaFilmeSerie extends Programa {
-    Personagem[] personagens;
+    private Personagem[] personagens;
 
     // Construtor
     public NovelaFilmeSerie(String nome, Canal canal) {
@@ -17,9 +17,9 @@ public class NovelaFilmeSerie extends Programa {
 
     @Override
     public String toString() {
-        return "\n################################ " + nome + " ################################" +
-                "\n" + canal +
-                "\nHorarios: " + Arrays.toString(horarios) +
+        return "\n################################ " + getNome() + " ################################" +
+                "\n" + getCanal() +
+                "\nHorarios: " + Arrays.toString(getHorarios()) +
                 "\nEstrelando: " + Arrays.toString(personagens);
     }
 

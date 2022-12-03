@@ -1,9 +1,9 @@
 package modelos;
 
 public class Programa { // Doubt?? Talvez converter para classe abstrata
-    String nome;
-    Horario[] horarios;
-    Canal canal;
+    private String nome;
+    private Horario[] horarios;
+    private Canal canal;
 
     // Construtor
     public Programa(String nome, Canal canal) {

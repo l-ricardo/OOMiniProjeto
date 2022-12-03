@@ -1,7 +1,7 @@
 package modelos;
 
 public class Apresentador extends Pessoa {
-    String tipo; //Ex: Humorista, Jornalista, Entrevistador, etc...
+    private String tipo; //Ex: Humorista, Jornalista, Entrevistador, etc...
 
     // Construtores
     public Apresentador(String nome, char sexo) {
