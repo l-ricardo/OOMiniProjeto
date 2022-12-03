@@ -6,6 +6,10 @@ public class TalkShowJornal extends Programa {
     Apresentador[] apresentadores;
 
     // Construtor
+    public TalkShowJornal(String nome, Canal canal) {
+        super(nome, canal);
+    }
+
     public TalkShowJornal(String nome, Horario[] horarios, Canal canal, Apresentador[] apresentadores) {
         super(nome, horarios, canal);
         this.apresentadores = apresentadores;

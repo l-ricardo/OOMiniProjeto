@@ -6,6 +6,10 @@ public class NovelaFilmeSerie extends Programa {
     Ator[] atores;
 
     // Construtor
+    public NovelaFilmeSerie(String nome, Canal canal) {
+        super(nome, canal);
+    }
+
     public NovelaFilmeSerie(String nome, Horario[] horarios, Canal canal, Ator[] atores) {
         super(nome, horarios, canal);
         this.atores = atores;

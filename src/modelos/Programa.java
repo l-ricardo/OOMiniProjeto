@@ -6,6 +6,11 @@ public class Programa { // Doubt?? Talvez converter para classe abstrata
     Canal canal;
 
     // Construtor
+    public Programa(String nome, Canal canal) {
+        this.nome = nome;
+        this.canal = canal;
+    }
+
     public Programa(String nome, Horario[] horarios, Canal canal) {
         this.nome = nome;
         this.horarios = horarios;
