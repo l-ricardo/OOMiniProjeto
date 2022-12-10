@@ -1,20 +1,26 @@
 package modelos;
 
-public class Programa { // Doubt?? Talvez converter para classe abstrata
+public abstract class Programa {
     private String nome;
-    private Horario[] horarios;
-    private Canal canal;
-
-    // Construtor
-    public Programa(String nome, Canal canal) {
-        this.nome = nome;
-        this.canal = canal;
+    private Horario[] horarios; // ToDo: Mover para Calendar
+    private int classificacaoIndicativa; // 0 significa Livre
+    private String descricao;
+    private boolean favorito;
+    {
+        favorito = false;
+        descricao = "Nenhuma descrição foi fornecida";
     }
 
-    public Programa(String nome, Horario[] horarios, Canal canal) {
+    // Construtores
+    public Programa(String nome, Horario[] horarios, int classificacaoIndicativa) {
         this.nome = nome;
         this.horarios = horarios;
-        this.canal = canal;
+        this.classificacaoIndicativa = classificacaoIndicativa;
+    }
+
+    public Programa(String nome, Horario[] horarios, int classificacaoIndicativa, String descricao) {
+        this(nome, horarios, classificacaoIndicativa);
+        this.descricao = descricao;
     }
 
     // Gets e Sets
@@ -34,11 +40,28 @@ public class Programa { // Doubt?? Talvez converter para classe abstrata
         this.horarios = horarios;
     }
 
-    public Canal getCanal() {
-        return canal;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setCanal(Canal canal) {
-        this.canal = canal;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
+
+    public int getClassificacaoIndicativa() {
+        return classificacaoIndicativa;
+    }
+
+    public void setClassificacaoIndicativa(int classificacaoIndicativa) {
+        this.classificacaoIndicativa = classificacaoIndicativa;
+    }
+
+    public boolean isFavorito() {
+        return favorito;
+    }
+
+    public void setFavorito(boolean favorito) {
+        this.favorito = favorito;
+    }
+
 }
