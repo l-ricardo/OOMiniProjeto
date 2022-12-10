@@ -3,7 +3,6 @@ package modelos;
 public class Personagem extends Pessoa {
     private Pessoa ator;
     private boolean protagonista;
-
     {
         protagonista = false;
     }

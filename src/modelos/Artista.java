@@ -25,6 +25,9 @@ public class Artista extends Pessoa {
         if (tipo != null) {
             return tipo + " " + nome;
         }
+        if (isMusico()) {
+            return tipo + " " + nome + " tocando" + instrumento;
+        }
         return nome;
     }
 
