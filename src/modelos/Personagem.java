@@ -1,34 +1,47 @@
 package modelos;
 
 public class Personagem extends Pessoa {
-    private String ator;
+    private Pessoa ator;
+    private boolean protagonista;
 
-    // Construtores
-    public Personagem(String nome, char sexo) {
-        this.nome = nome;
-        this.sexo = sexo;
+    {
+        protagonista = false;
     }
 
-    public Personagem(String nome, char sexo, String ator) {
-        this(nome, sexo);
+    // Construtores
+    public Personagem(String nome, char sexo, Pessoa ator) {
+        super(nome, sexo);
         this.ator = ator;
+    }
+
+    public Personagem(String nome, char sexo, Pessoa ator, boolean protagonista) {
+        this(nome, sexo, ator);
+        this.protagonista = protagonista;
     }
 
     @Override
     public String toString() {
         if (ator != null) {
-            return ator + " como " + nome;
+            return ator.toString() + " como " + nome;
         }
         return nome;
     }
 
     // Gets e Sets
-    public String getAtor() {
+    public Pessoa getAtor() {
         return ator;
     }
 
-    public void setAtor(String ator) {
+    public void setAtor(Pessoa ator) {
         this.ator = ator;
+    }
+
+    public boolean isProtagonista() {
+        return protagonista;
+    }
+
+    public void setProtagonista(boolean protagonista) {
+        this.protagonista = protagonista;
     }
 
 }
