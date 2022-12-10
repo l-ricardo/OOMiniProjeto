@@ -3,16 +3,16 @@ package modelos;
 import java.util.Arrays;
 
 public class TalkShowJornal extends Programa {
-    private Apresentador[] apresentadores;
+    private Artista[] artistas;
 
     // Construtor
     public TalkShowJornal(String nome, Canal canal) {
         super(nome, canal);
     }
 
-    public TalkShowJornal(String nome, Horario[] horarios, Canal canal, Apresentador[] apresentadores) {
+    public TalkShowJornal(String nome, Horario[] horarios, Canal canal, Artista[] artistas) {
         super(nome, horarios, canal);
-        this.apresentadores = apresentadores;
+        this.artistas = artistas;
     }
 
     @Override
@@ -20,16 +20,16 @@ public class TalkShowJornal extends Programa {
         return "\n################################ " + getNome() + " ################################" +
                 "\n" + getCanal() +
                 "\nHorarios: " + Arrays.toString(getHorarios()) +
-                "\nApresentando: " + Arrays.toString(apresentadores);
+                "\nApresentando: " + Arrays.toString(artistas);
     }
 
     // Gets e Sets
-    public Apresentador[] getApresentadores() {
-        return apresentadores;
+    public Artista[] getArtistas() {
+        return artistas;
     }
 
-    public void setApresentadores(Apresentador... apresentadores) {
-        this.apresentadores = apresentadores;
+    public void setArtistas(Artista... artistas) {
+        this.artistas = artistas;
     }
 
 }

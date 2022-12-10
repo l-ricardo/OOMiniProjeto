@@ -3,7 +3,7 @@ package modelos;
 public class Dados { // Doubt? Preciso de declarar o tamanho dos Arrays aqui?
     private Canal[] canais = new Canal[10];
     private Horario[] horarios = new Horario[24 * 7 + 100];
-    private Apresentador[] apresentadores = new Apresentador[50];
+    private Artista[] artistas = new Artista[50];
     private Personagem[] personagens = new Personagem[50];
     private TalkShowJornal[] programaTipoTalkShowJornal = new TalkShowJornal[100];
     private NovelaFilmeSerie[] programaTipoNovelaFilmeSerie = new NovelaFilmeSerie[100];
@@ -36,13 +36,13 @@ public class Dados { // Doubt? Preciso de declarar o tamanho dos Arrays aqui?
             horarios[i] = new Horario(i - 144, i - 144 + 1, "Sabado");
         }
 
-        apresentadores[0] = new Apresentador("Ana Maria Braga", 'F');
-        apresentadores[1] = new Apresentador("Louro Mané", 'M', "Humorista");
-        apresentadores[2] = new Apresentador("Rodrigo Faro", 'M');
-        apresentadores[3] = new Apresentador("Silvio Santos", 'M');
-        apresentadores[4] = new Apresentador("Marcos Mion", 'M');
-        apresentadores[5] = new Apresentador("William Boner", 'M', "Jornalista");
-        apresentadores[6] = new Apresentador("Renata Vasconcelos", 'F', "Jornalista");
+        artistas[0] = new Artista("Ana Maria Braga", 'F');
+        artistas[1] = new Artista("Louro Mané", 'M', "Humorista");
+        artistas[2] = new Artista("Rodrigo Faro", 'M');
+        artistas[3] = new Artista("Silvio Santos", 'M');
+        artistas[4] = new Artista("Marcos Mion", 'M');
+        artistas[5] = new Artista("William Boner", 'M', "Jornalista");
+        artistas[6] = new Artista("Renata Vasconcelos", 'F', "Jornalista");
         personagens[0] = new Personagem("Carminha", 'F', "Adriana Esteves");
         personagens[1] = new Personagem("Tufão", 'M', "Murilo Benicio");
         personagens[2] = new Personagem("Nina/Rita", 'F', "Debora Falabella");
@@ -55,15 +55,15 @@ public class Dados { // Doubt? Preciso de declarar o tamanho dos Arrays aqui?
         programaTipoTalkShowJornal[5] = new TalkShowJornal("Jornal Nacional",
                 new Horario[] { horarios[0], horarios[24], horarios[34], horarios[48], horarios[51] },
                 canais[0],
-                new Apresentador[] { apresentadores[5], apresentadores[6] });
+                new Artista[] { artistas[5], artistas[6] });
 
         programaTipoNovelaFilmeSerie[0] = new NovelaFilmeSerie("Avenida Brasil", canais[0]);
 
-        programaTipoTalkShowJornal[0].setApresentadores(apresentadores[0], apresentadores[1]);
-        programaTipoTalkShowJornal[1].setApresentadores(apresentadores[2]);
-        programaTipoTalkShowJornal[2].setApresentadores(apresentadores[4]);
-        programaTipoTalkShowJornal[3].setApresentadores(apresentadores[3]);
-        programaTipoTalkShowJornal[4].setApresentadores(apresentadores[3]);
+        programaTipoTalkShowJornal[0].setArtistas(artistas[0], artistas[1]);
+        programaTipoTalkShowJornal[1].setArtistas(artistas[2]);
+        programaTipoTalkShowJornal[2].setArtistas(artistas[4]);
+        programaTipoTalkShowJornal[3].setArtistas(artistas[3]);
+        programaTipoTalkShowJornal[4].setArtistas(artistas[3]);
 
         programaTipoNovelaFilmeSerie[0].setPersonagens(personagens[0], personagens[1], personagens[2]);
 
@@ -142,12 +142,12 @@ public class Dados { // Doubt? Preciso de declarar o tamanho dos Arrays aqui?
         this.horarios = horarios;
     }
 
-    public Apresentador[] getApresentadores() {
-        return apresentadores;
+    public Artista[] getArtistas() {
+        return artistas;
     }
 
-    public void setApresentadores(Apresentador[] apresentadores) {
-        this.apresentadores = apresentadores;
+    public void setArtistas(Artista[] artistas) {
+        this.artistas = artistas;
     }
 
     public Personagem[] getPersonagens() {

@@ -19,9 +19,9 @@ public class Teste {
         // System.out.println(d.getHorarios()[85].toString());
 
         // // Teste pessoas
-        // System.out.println(d.getApresentadores()[0].toString());
-        // System.out.println(d.getApresentadores()[1].toString());
-        // System.out.println(d.getApresentadores()[6].toString());
+        // System.out.println(d.getArtistas()[0].toString());
+        // System.out.println(d.getArtistas()[1].toString());
+        // System.out.println(d.getArtistas()[6].toString());
         // System.out.println(d.getPersonagens()[1].toString());
         // System.out.println(d.getPersonagens()[2].toString());
 
