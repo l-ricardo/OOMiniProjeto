@@ -1,7 +1,8 @@
 # Gerenciador de programação da TV aberta
 
 Esse é um mini projeto para a disciplina de Orientação à Objetos, cursado na Universidade de Brasília. 
-O projeto em questão cria um software de gerenciamento de Programação da TV aberta que contem as seguintes funcionalidades: 
+
+O projeto em questão cria um software de gerenciamento da Programação da TV aberta, seguindo a estrutura de classes desse [diagrama UML](DiagramaClasses.png) e implementando as seguintes funcionalidades: 
 - CRUD de canal
 - CRUD de programa
 - Listagem da programação de um canal em um determinado dia
