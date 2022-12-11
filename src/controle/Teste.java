@@ -6,10 +6,10 @@ public class Teste {
     public static void main(String[] args) {
         Dados d = new Dados();
 
-        // Teste canais
-        System.out.println(d.getCanais()[0].toString());
-        System.out.println(d.getCanais()[1].toString());
-        System.out.println(d.getCanais()[2].toString());
+        // // Teste canais
+        // System.out.println(d.getCanais()[0].toString());
+        // System.out.println(d.getCanais()[1].toString());
+        // System.out.println(d.getCanais()[2].toString());
 
         // // Teste horarios
         // System.out.println(d.getHorarios()[0].toString());
@@ -22,23 +22,27 @@ public class Teste {
         // System.out.println(d.getArtistas()[0].toString());
         // System.out.println(d.getArtistas()[1].toString());
         // System.out.println(d.getArtistas()[6].toString());
+        // System.out.println(d.getArtistas()[8].toString());
         // System.out.println(d.getPersonagens()[1].toString());
         // System.out.println(d.getPersonagens()[2].toString());
 
+        // // Teste programas // ToDo: Refromatar toStrings()
+        // System.out.println(d.getProgramaTipoTalkShow()[0].toString());
+        // System.out.println(d.getProgramaTipoTalkShow()[1].toString());
+        // System.out.println(d.getProgramaTipoTalkShow()[2].toString());
+        // System.out.println(d.getProgramaTipoTalkShow()[3].toString());
+        // System.out.println(d.getProgramaTipoTalkShow()[4].toString());
+        // System.out.println(d.getProgramaTipoJornal()[0].toString());
+        System.out.println(d.getProgramaTipoNovelaFilmeSerie()[0].toString());
 
-        // // Teste programas
-        // System.out.println(d.getProgramaTipoTalkShowJornal()[0].toString());
-        // System.out.println(d.getProgramaTipoTalkShowJornal()[1].toString());
-        // System.out.println(d.getProgramaTipoTalkShowJornal()[2].toString());
-        // System.out.println(d.getProgramaTipoTalkShowJornal()[3].toString());
-        // System.out.println(d.getProgramaTipoTalkShowJornal()[4].toString());
-        // System.out.println(d.getProgramaTipoTalkShowJornal()[5].toString());
-        // System.out.println(d.getProgramaTipoNovelaFilmeSerie()[0].toString());
+        // // Teste metodo de pesquisa por programa especifico
+        // d.getCanais()[0].pesquisarPrograma("Avenida Brasil");
 
-        // // Teste metodo de pesquisa
-        // d.pesquisarPrograma("Avenida Brasil");
+        // Teste metodo de listagem de todos os programas de um canal
+        // System.out.println(d.getCanais()[0].listarProgramas());
+        
+        // Teste metodo de listagem de todos os programas de um canal em um dia escolhido
+        // System.out.println(d.getCanais()[2].listarProgramas("Domingo"));
 
-        // // Teste metodo de listagem por data e canal
-        // d.listarProgramas("Globo", "Domingo");
     }
 }

@@ -18,7 +18,12 @@ public class Canal {
 
     @Override
     public String toString() {
-        return "Canal " + numero + ": " + nome;
+        String result = "========================================\n"
+                + "Canal " + numero + ": " + nome + "\n"
+                + "------------- Programação --------------\n";
+        result += programas != null ? listarProgramas() : "Não existe nenhum programa registrado!";
+        result += "========================================";
+        return result;
     }
 
     // Gets e Sets
@@ -58,35 +63,32 @@ public class Canal {
         }
     }
 
-    // public void listarProgramas(String canalAlvo, String diaAlvo) { // ToDo:
-    // Readaptar para o uso do Calendar
-    // for (TalkShowJornal programa : programaTipoTalkShowJornal) {
-    // if (programa == null) {
-    // break;
-    // }
-    // if (programa.getCanal().getNome() == canalAlvo) {
-    // for (Horario horario : programa.getHorarios()) {
-    // if (horario.getDiaSemana() == diaAlvo) {
-    // System.out.println(programa.toString());
-    // break; // Evita listagem duplicada de canais exibidos duas vezes no mesmo dia
-    // }
-    // }
-    // }
-    // }
-    // for (NovelaFilmeSerie programa : programaTipoNovelaFilmeSerie) {
-    // if (programa == null) {
-    // break;
-    // }
-    // if (programa.getCanal().getNome() == canalAlvo) {
-    // for (Horario horario : programa.getHorarios()) {
-    // if (horario.getDiaSemana() == diaAlvo) {
-    // System.out.println(programa.toString());
-    // break; // Evita listagem duplicada de canais exibidos duas vezes no mesmo dia
-    // }
-    // }
-    // }
-    // }
-    // }
+    public String listarProgramas() {
+        String result = "";
+        for (Programa programa : programas) {
+            if (programa == null) {
+                break;
+            }
+            result += programa.getNome() + "\n";
+        }
+        return result;
+    }
+
+    public String listarProgramas(String diaAlvo) {
+        String result = "";
+        for (Programa programa : programas) {
+            if (programa == null) {
+                break;
+            }
+            for (Horario horario : programa.getHorarios()) { // Warn! Horarios nao pode ser null
+                if (diaAlvo == horario.getDiaSemana()) {
+                    result += programa.getNome() + "\n";
+                    break;
+                }
+            }
+        }
+        return result;
+    }
 
     // Outros metodos
     public void adicionarPrograma() {

@@ -1,7 +1,5 @@
 package modelos;
 
-import java.util.Arrays;
-
 public class NovelaFilmeSerie extends Programa {
     private Personagem[] personagens;
     private boolean animado;
@@ -28,9 +26,20 @@ public class NovelaFilmeSerie extends Programa {
 
     @Override
     public String toString() {
-        return "\n################################ " + getNome() + " ################################" +
-                "\nHorarios: " + Arrays.toString(getHorarios()) +
-                "\nEstrelando: " + Arrays.toString(personagens); // Doubt? Talvez usar o metodo listarPersonagens aqui
+        String result = "========================================\n"
+                + getNome() + " (" + getClassificacaoIndicativa() + ")\n"
+                + nTotalEpisodios + " episódios divididos em " + nTemporadas + " temporadas\n"
+                + getDescricao() + "\n"
+                + "--------------- Horários ----------------\n";
+        for (Horario horario : getHorarios()) {
+            result += horario.toString() + "\n";
+        }
+        result += "--------------- Estrelando ----------------\n";
+        for (Personagem personagem : personagens) {
+            result += personagem.toString() + "\n";
+        }
+        result += "========================================";
+        return result;
     }
 
     // Gets e Sets

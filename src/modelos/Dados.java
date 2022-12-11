@@ -5,15 +5,13 @@ public class Dados { // Doubt? Preciso de declarar o tamanho dos Arrays aqui?
     private Horario[] horarios = new Horario[24 * 7 + 100];
     private Artista[] artistas = new Artista[50];
     private Personagem[] personagens = new Personagem[50];
-    private TalkShowJornal[] programaTipoTalkShowJornal = new TalkShowJornal[100];
-    private NovelaFilmeSerie[] programaTipoNovelaFilmeSerie = new NovelaFilmeSerie[100];
+    private Pessoa[] pessoas = new Pessoa[20];
+    private NovelaFilmeSerie[] programaTipoNovelaFilmeSerie = new NovelaFilmeSerie[50];
+    private TalkShow[] programaTipoTalkShow = new TalkShow[30];
+    private Jornal[] programaTipoJornal = new Jornal[30];
 
     // Criando valores de exemplo
     {
-        canais[0] = new Canal("Globo", 8);
-        canais[1] = new Canal("Record", 10);
-        canais[2] = new Canal("SBT", 2);
-
         for (int i = 0; i < 24; i++) {
             horarios[i] = new Horario(i, i + 1, "Domingo");
         }
@@ -36,96 +34,55 @@ public class Dados { // Doubt? Preciso de declarar o tamanho dos Arrays aqui?
             horarios[i] = new Horario(i - 144, i - 144 + 1, "Sabado");
         }
 
-        artistas[0] = new Artista("Ana Maria Braga", 'F');
+        artistas[0] = new Artista("Ana Maria Braga", 'F', "Apresentadora");
         artistas[1] = new Artista("Louro Mané", 'M', "Humorista");
-        artistas[2] = new Artista("Rodrigo Faro", 'M');
-        artistas[3] = new Artista("Silvio Santos", 'M');
-        artistas[4] = new Artista("Marcos Mion", 'M');
+        artistas[2] = new Artista("Rodrigo Faro", 'M', "Apresentador");
+        artistas[3] = new Artista("Silvio Santos", 'M', "Apresentador");
+        artistas[4] = new Artista("Marcos Mion", 'M', "Apresentador");
         artistas[5] = new Artista("William Boner", 'M', "Jornalista");
         artistas[6] = new Artista("Renata Vasconcelos", 'F', "Jornalista");
-        personagens[0] = new Personagem("Carminha", 'F', "Adriana Esteves");
-        personagens[1] = new Personagem("Tufão", 'M', "Murilo Benicio");
-        personagens[2] = new Personagem("Nina/Rita", 'F', "Debora Falabella");
+        // artistas[7] = new Artista("Eliana Marques", 'F', "Garota do tempo");
+        artistas[8] = new Artista("Lucio Mauro", 'M', "Musico", true, "Vocal e guitarra");
 
-        programaTipoTalkShowJornal[0] = new TalkShowJornal("Mais Você", canais[0]);
-        programaTipoTalkShowJornal[1] = new TalkShowJornal("Hora do Faro", canais[1]);
-        programaTipoTalkShowJornal[2] = new TalkShowJornal("Programa do Silvio Santos", canais[2]);
-        programaTipoTalkShowJornal[3] = new TalkShowJornal("Roda Roda Jequiti", canais[2]);
-        programaTipoTalkShowJornal[4] = new TalkShowJornal("Caldeirao", canais[0]);
-        programaTipoTalkShowJornal[5] = new TalkShowJornal("Jornal Nacional",
-                new Horario[] { horarios[0], horarios[24], horarios[34], horarios[48], horarios[51] },
-                canais[0],
-                new Artista[] { artistas[5], artistas[6] });
+        personagens[0] = new Personagem("Carminha", 'F', new Pessoa("Adriana Esteves", 'F'));
+        personagens[1] = new Personagem("Tufão", 'M', new Pessoa("Murilo Benicio", 'M'));
+        personagens[2] = new Personagem("Nina/Rita", 'F', new Pessoa("Debora Falabella", 'F'));
 
-        programaTipoNovelaFilmeSerie[0] = new NovelaFilmeSerie("Avenida Brasil", canais[0]);
+        pessoas[0] = new Pessoa("Dona Maria", 'F');
+        pessoas[1] = new Pessoa("Seu João", 'M');
 
-        programaTipoTalkShowJornal[0].setArtistas(artistas[0], artistas[1]);
-        programaTipoTalkShowJornal[1].setArtistas(artistas[2]);
-        programaTipoTalkShowJornal[2].setArtistas(artistas[4]);
-        programaTipoTalkShowJornal[3].setArtistas(artistas[3]);
-        programaTipoTalkShowJornal[4].setArtistas(artistas[3]);
+        programaTipoNovelaFilmeSerie[0] = new NovelaFilmeSerie("Avenida Brasil",
+                new Horario[] { horarios[7], horarios[14], horarios[31], horarios[50] }, 0,
+                new Personagem[] { personagens[0], personagens[1], personagens[2] }, 1, 300);
 
-        programaTipoNovelaFilmeSerie[0].setPersonagens(personagens[0], personagens[1], personagens[2]);
+        programaTipoTalkShow[0] = new TalkShow("Mais Você",
+                new Horario[] { horarios[2], horarios[10], horarios[40], horarios[50] }, 0);
+        programaTipoTalkShow[1] = new TalkShow("Hora do Faro", null, 12, artistas[2]);
+        programaTipoTalkShow[2] = new TalkShow("Programa do Silvio Santos", null, 12, artistas[3]);
+        programaTipoTalkShow[3] = new TalkShow("Roda Roda Jequiti", null, 12, artistas[3]);
+        programaTipoTalkShow[4] = new TalkShow("Caldeirao", null, 12, new Artista[] { artistas[4] },
+                new Artista[] { artistas[8] }, new Pessoa[] { pessoas[0], pessoas[1] });
 
-        programaTipoTalkShowJornal[0].setHorarios(horarios[7], horarios[14], horarios[31], horarios[50]);
-        programaTipoTalkShowJornal[1].setHorarios(horarios[2], horarios[10], horarios[40], horarios[50]);
-        programaTipoTalkShowJornal[2].setHorarios(horarios[44], horarios[51], horarios[85], horarios[60]);
-        programaTipoTalkShowJornal[3].setHorarios(horarios[19], horarios[90], horarios[0], horarios[50]);
-        programaTipoTalkShowJornal[4].setHorarios(horarios[21], horarios[14], horarios[3]);
+        programaTipoTalkShow[0].setApresentadores(artistas[0],artistas[1]);
+        programaTipoTalkShow[1].setHorarios( horarios[25], horarios[44], horarios[26], horarios[47]);
+        programaTipoTalkShow[2].setHorarios( horarios[69], horarios[57], horarios[4], horarios[7]);
+        programaTipoTalkShow[3].setHorarios( horarios[30], horarios[71], horarios[58], horarios[75]);
+        programaTipoTalkShow[4].setHorarios( horarios[78], horarios[1], horarios[95], horarios[25]);
 
-        programaTipoNovelaFilmeSerie[0].setHorarios(horarios[5], horarios[15], horarios[20], horarios[25]);
+        programaTipoJornal[0] = new Jornal("Jornal Nacional",
+                new Horario[] { horarios[0], horarios[24], horarios[34], horarios[48] }, 0,
+                new Artista[] { artistas[5], artistas[6] }, "Nacional");
+
+        canais[0] = new Canal("Globo", 8);
+        canais[1] = new Canal("Record", 10);
+        canais[2] = new Canal("SBT", 2, programaTipoTalkShow[2], programaTipoTalkShow[3]);
+
+        canais[0].setProgramas(programaTipoNovelaFilmeSerie[0], programaTipoJornal[0], programaTipoTalkShow[0],
+                programaTipoTalkShow[4]);
+        canais[1].setProgramas(programaTipoTalkShow[1]);
+
     }
 
-    // Metodos Obrigatorios
-    public void pesquisarPrograma(String programaAlvo) {
-        for (TalkShowJornal programa : programaTipoTalkShowJornal) {
-            if (programa == null) {
-                break;
-            }
-            if (programa.getNome() == programaAlvo) {
-                System.out.println(programa.toString());
-            }
-        }
-        for (NovelaFilmeSerie programa : programaTipoNovelaFilmeSerie) {
-            if (programa == null) {
-                break;
-            }
-            if (programa.getNome() == programaAlvo) {
-                System.out.println(programa.toString());
-            }
-        }
-    }
-
-    public void listarProgramas(String canalAlvo, String diaAlvo) { 
-        for (TalkShowJornal programa : programaTipoTalkShowJornal) {
-            if (programa == null) {
-                break;
-            }
-            if (programa.getCanal().getNome() == canalAlvo) {
-                for (Horario horario : programa.getHorarios()) {
-                    if (horario.getDiaSemana() == diaAlvo) {
-                        System.out.println(programa.toString());
-                        break; // Evita listagem duplicada de canais exibidos duas vezes no mesmo dia
-                    }
-                }
-            }
-        }
-        for (NovelaFilmeSerie programa : programaTipoNovelaFilmeSerie) {
-            if (programa == null) {
-                break;
-            }
-            if (programa.getCanal().getNome() == canalAlvo) {
-                for (Horario horario : programa.getHorarios()) {
-                    if (horario.getDiaSemana() == diaAlvo) {
-                        System.out.println(programa.toString());
-                        break; // Evita listagem duplicada de canais exibidos duas vezes no mesmo dia
-                    }
-                }
-            }
-        }
-    }
-
-    // Gets e Sets
     public Canal[] getCanais() {
         return canais;
     }
@@ -158,12 +115,12 @@ public class Dados { // Doubt? Preciso de declarar o tamanho dos Arrays aqui?
         this.personagens = personagens;
     }
 
-    public TalkShowJornal[] getProgramaTipoTalkShowJornal() {
-        return programaTipoTalkShowJornal;
+    public Pessoa[] getPessoas() {
+        return pessoas;
     }
 
-    public void setProgramaTipoTalkShowJornal(TalkShowJornal[] programaTipoTalkShowJornal) {
-        this.programaTipoTalkShowJornal = programaTipoTalkShowJornal;
+    public void setPessoas(Pessoa[] pessoas) {
+        this.pessoas = pessoas;
     }
 
     public NovelaFilmeSerie[] getProgramaTipoNovelaFilmeSerie() {
@@ -172,6 +129,22 @@ public class Dados { // Doubt? Preciso de declarar o tamanho dos Arrays aqui?
 
     public void setProgramaTipoNovelaFilmeSerie(NovelaFilmeSerie[] programaTipoNovelaFilmeSerie) {
         this.programaTipoNovelaFilmeSerie = programaTipoNovelaFilmeSerie;
+    }
+
+    public TalkShow[] getProgramaTipoTalkShow() {
+        return programaTipoTalkShow;
+    }
+
+    public void setProgramaTipoTalkShow(TalkShow[] programaTipoTalkShow) {
+        this.programaTipoTalkShow = programaTipoTalkShow;
+    }
+
+    public Jornal[] getProgramaTipoJornal() {
+        return programaTipoJornal;
+    }
+
+    public void setProgramaTipoJornal(Jornal[] programaTipoJornal) {
+        this.programaTipoJornal = programaTipoJornal;
     }
 
 }

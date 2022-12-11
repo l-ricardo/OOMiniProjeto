@@ -1,12 +1,12 @@
 package modelos;
 
 public class Horario {
-    private int horaInicio;
-    private int horaFim;
+    private float horaInicio;
+    private float horaFim;
     private String diaSemana;
 
     // Construtor
-    public Horario(int horaInicio, int horaFim, String diaSemana) {
+    public Horario(float horaInicio, float horaFim, String diaSemana) {
         this.horaInicio = horaInicio;
         this.horaFim = horaFim;
         this.diaSemana = diaSemana;
@@ -18,19 +18,19 @@ public class Horario {
     }
 
     // Gets e Sets
-    public int getHoraInicio() {
+    public float getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(int horaInicio) {
+    public void setHoraInicio(float horaInicio) {
         this.horaInicio = horaInicio;
     }
 
-    public int getHoraFim() {
+    public float getHoraFim() {
         return horaFim;
     }
 
-    public void setHoraFim(int horaFim) {
+    public void setHoraFim(float horaFim) {
         this.horaFim = horaFim;
     }
 

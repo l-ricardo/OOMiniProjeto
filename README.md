@@ -16,21 +16,22 @@ O projeto em questão cria um software de gerenciamento de Programação da TV a
 
 [Teste](src\controle\Teste.java) é onde fica o metodo main e são feitos os testes da primeira entrega do MiniProjeto.
 
-[Dados](src\modelos\Dados.java) inicializa alguns dados e hospeda os métodos de controle dos dados.
+[Dados](src\modelos\Dados.java) inicializa alguns dados para facilitar o uso do Teste.java.
 
-[Pessoa](src\modelos\Pessoa.java) é uma classe abstrata que modela uma pessoa.
+[Pessoa](src\modelos\Pessoa.java) é uma classe que modela uma pessoa.
 
-[Artista](src\modelos\Artista.java) é uma classe que herda de pessoa e modela um artista de um programa de entrevista, jornal, etc...
+[Artista](src\modelos\Artista.java) é uma classe que herda de pessoa e modela uma pessoa não fictícia seja ela apresentadora, jornalista, musica, etc...
 
-[Personagem](src\modelos\Personagem.java) é uma classe que herda de pessoa e modela um personagem de um programa de uma serie, novela, filme, animação, etc...
+[Personagem](src\modelos\Personagem.java) é uma classe que herda de pessoa e modela um personagem fictício de um programa de uma serie, novela, filme, animação, etc...
 
 [Canal](src\modelos\Canal.java) é uma classe que modela um canal de tv.
 
 [Horario](src\modelos\Horario.java) é uma classe que modela um unico horario de um programa.
 
-[Programa](src\modelos\Programa.java) é uma classe que modela o programa (contendo um canal e um ou mais horarios).
+[Programa](src\modelos\Programa.java) é uma classe abstrata que modela um programa.
 
 [NovelaFilmeSerie](src\modelos\NovelaFilmeSerie.java) é uma classe que herda de programa e modela uma serie, novela, filme, animação, etc...
 
-[TalkShowJornal](src\modelos\TalkShowJornal.java) é uma classe que herda de programa e modela um programa de entrevista, jornal, etc...
+[TalkShow](src\modelos\TalkShow.java) é uma classe que herda de programa e modela um programa de entrevista ou entreterimento no geral.
 
+[Jornal](src\modelos\Jornal.java) é uma classe que herda de programa e modela um noticiário.

@@ -22,13 +22,10 @@ public class Artista extends Pessoa {
 
     @Override
     public String toString() {
-        if (tipo != null) {
-            return tipo + " " + nome;
-        }
         if (isMusico()) {
-            return tipo + " " + nome + " tocando" + instrumento;
+            return tipo + " " + nome + " no " + instrumento;
         }
-        return nome;
+        return tipo + " " + nome;
     }
 
     // Gets e Sets

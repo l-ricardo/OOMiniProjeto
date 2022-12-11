@@ -1,7 +1,5 @@
 package modelos;
 
-import java.util.Arrays;
-
 public class Jornal extends Programa {
     private Artista[] ancoras;
     private String localidade;
@@ -22,9 +20,20 @@ public class Jornal extends Programa {
 
     @Override
     public String toString() {
-        return "\n################################ " + getNome() + " ################################" +
-                "\nHorarios: " + Arrays.toString(getHorarios()) +
-                "\nApresentando: " + Arrays.toString(ancoras);
+        String result = "========================================\n"
+                + getNome() + " (" + getClassificacaoIndicativa() + ")\n"
+                + "Cobertura " + localidade + "\n"
+                + getDescricao() + "\n"
+                + "--------------- Horários ----------------\n";
+        for (Horario horario : getHorarios()) {
+            result += horario.toString() + "\n";
+        }
+        result += "--------------- Âncoras ----------------\n";
+        for (Artista ancora : ancoras) {
+            result += ancora.toString() + "\n";
+        }
+        result += "========================================";
+        return result;
     }
 
     // Gets e Sets
