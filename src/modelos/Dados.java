@@ -52,7 +52,7 @@ public class Dados { // Doubt? Preciso de declarar o tamanho dos Arrays aqui?
         pessoas[1] = new Pessoa("Seu João", 'M');
 
         programaTipoNovelaFilmeSerie[0] = new NovelaFilmeSerie("Avenida Brasil",
-                new Horario[] { horarios[7], horarios[14], horarios[31], horarios[50] }, 0,
+                new Horario[] { horarios[7], horarios[14], horarios[31], horarios[50] }, 16,
                 new Personagem[] { personagens[0], personagens[1], personagens[2] }, 1, 300);
 
         programaTipoTalkShow[0] = new TalkShow("Mais Você",

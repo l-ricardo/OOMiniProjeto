@@ -36,7 +36,7 @@ public class TalkShow extends Programa {
         for (Horario horario : getHorarios()) {
             result += horario.toString() + "\n";
         }
-        result += "--------------- Apresentadores ----------------\n";
+        result += "------------ Apresentadores -------------\n";
         for (Artista apresentador : apresentadores) {
             result += apresentador.toString() + "\n";
         }
@@ -47,7 +47,7 @@ public class TalkShow extends Programa {
             }
         }
         if (convidados != null) {
-            result += "--------------- Convidados ----------------\n";
+            result += "-------------- Convidados ---------------\n";
             for (Pessoa convidado : convidados) {
                 result += convidado.toString() + "\n";
             }

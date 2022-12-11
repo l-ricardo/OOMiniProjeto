@@ -34,7 +34,7 @@ public class NovelaFilmeSerie extends Programa {
         for (Horario horario : getHorarios()) {
             result += horario.toString() + "\n";
         }
-        result += "--------------- Estrelando ----------------\n";
+        result += "-------------- Estrelando ---------------\n";
         for (Personagem personagem : personagens) {
             result += personagem.toString() + "\n";
         }
