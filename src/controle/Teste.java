@@ -47,6 +47,10 @@ public class Teste {
         // // Teste metodo de listar personagens
         // d.getProgramaTipoNovelaFilmeSerie()[0].listarPersonagens();
         // d.getProgramaTipoNovelaFilmeSerie()[0].listarPersonagens(true);
+        
+        // // Teste metodo de favoritar programa
+        // System.out.println(d.getProgramaTipoTalkShow()[1].toString());
+        // d.getCanais()[0].favoritarPrograma(d.getProgramaTipoTalkShow()[1]);
     }
 
 }
