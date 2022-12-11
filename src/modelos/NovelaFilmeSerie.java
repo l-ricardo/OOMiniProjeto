@@ -39,7 +39,27 @@ public class NovelaFilmeSerie extends Programa {
             result += personagem.toString() + "\n";
         }
         result += "========================================";
+        if (isFavorito()) {
+            result = result.replace('=', '*');
+        }
         return result;
+    }
+
+    // Outros métodos
+    public void listarPersonagens() {
+        listarPersonagens(false);
+    }
+
+    public void listarPersonagens(boolean apenasProtagonistas) {
+        String result = "";
+        for (Personagem personagem : personagens) {
+            if (apenasProtagonistas) {
+                result += personagem.isProtagonista() ? personagem.toString()+"\n" : "";
+            } else {
+                result += personagem.toString()+"\n";
+            }
+        }
+        System.out.println(result);
     }
 
     // Gets e Sets
@@ -75,16 +95,4 @@ public class NovelaFilmeSerie extends Programa {
         this.nTotalEpisodios = nTotalEpisodios;
     }
 
-    // Outros métodos
-    public void listarPersonagens(boolean apenasProtagonistas) { // ToDo: Testar esse metodo
-        String result = "";
-        for (Personagem personagem : personagens) {
-            if (apenasProtagonistas) {
-                result += personagem.isProtagonista() ? personagem.toString() : "";
-            } else {
-                result += personagem.toString();
-            }
-        }
-        System.out.println(result);
-    }
 }

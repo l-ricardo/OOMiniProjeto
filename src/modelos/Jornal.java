@@ -33,7 +33,19 @@ public class Jornal extends Programa {
             result += ancora.toString() + "\n";
         }
         result += "========================================";
+        if (isFavorito()) {
+            result = result.replace('=', '*');
+        }
         return result;
+    }
+
+    // Outros metodos
+    public void adicionarAncora(Artista... ancoras) {
+        System.out.println("Funcionalidade ainda não implentada");
+    }
+
+    public void removerAncora(String ancorasNome) {
+        System.out.println("Funcionalidade ainda não implentada");
     }
 
     // Gets e Sets
@@ -53,12 +65,4 @@ public class Jornal extends Programa {
         this.localidade = localidade;
     }
 
-    // Outros metodos
-    public void adicionarAncora(Artista... ancoras) {
-        System.out.println("Funcionalidade ainda não implentada");
-    }
-
-    public void removerAncora(String ancorasNome) {
-        System.out.println("Funcionalidade ainda não implentada");
-    }
 }

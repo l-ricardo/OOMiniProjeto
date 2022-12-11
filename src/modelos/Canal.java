@@ -26,31 +26,6 @@ public class Canal {
         return result;
     }
 
-    // Gets e Sets
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
-    public Programa[] getProgramas() {
-        return programas;
-    }
-
-    public void setProgramas(Programa... programas) {
-        this.programas = programas;
-    }
-
     // Metodos Obrigatorios
     public void pesquisarPrograma(String nomeProgramaAlvo) {
         for (Programa programa : programas) {
@@ -91,6 +66,16 @@ public class Canal {
     }
 
     // Outros metodos
+    public void favoritarPrograma(Programa programa) {
+        programa.setFavorito(true);
+        System.out.println(programa.toString());
+    }
+    
+    public void desfavoritarPrograma(Programa programa) {
+        programa.setFavorito(false);
+        System.out.println(programa.toString());
+    }
+
     public void adicionarPrograma() {
         System.out.println("Funcionalidade ainda não implentada");
     }
@@ -99,11 +84,29 @@ public class Canal {
         System.out.println("Funcionalidade ainda não implentada");
     }
 
-    public void favoritarPrograma() {
-        System.out.println("Funcionalidade ainda não implentada");
+    // Gets e Sets
+    public String getNome() {
+        return nome;
     }
 
-    public void desfavoritarPrograma() {
-        System.out.println("Funcionalidade ainda não implentada");
+    public void setNome(String nome) {
+        this.nome = nome;
     }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public Programa[] getProgramas() {
+        return programas;
+    }
+
+    public void setProgramas(Programa... programas) {
+        this.programas = programas;
+    }
+
 }

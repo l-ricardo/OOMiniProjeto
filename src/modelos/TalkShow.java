@@ -53,33 +53,10 @@ public class TalkShow extends Programa {
             }
         }
         result += "========================================";
+        if (isFavorito()) {
+            result = result.replace('=', '*');
+        }
         return result;
-
-    }
-
-    // Gets e Sets
-    public Artista[] getApresentadores() {
-        return apresentadores;
-    }
-
-    public void setApresentadores(Artista... apresentadores) {
-        this.apresentadores = apresentadores;
-    }
-
-    public Artista[] getBanda() {
-        return banda;
-    }
-
-    public void setBanda(Artista... banda) {
-        this.banda = banda;
-    }
-
-    public Pessoa[] getConvidados() {
-        return convidados;
-    }
-
-    public void setConvidados(Pessoa... convidados) {
-        this.convidados = convidados;
     }
 
     // Outros metodos
@@ -105,6 +82,31 @@ public class TalkShow extends Programa {
 
     public void removerConvidado(String convidadoNome) {
         System.out.println("Funcionalidade ainda não implentada");
+    }
+
+    // Gets e Sets
+    public Artista[] getApresentadores() {
+        return apresentadores;
+    }
+
+    public void setApresentadores(Artista... apresentadores) {
+        this.apresentadores = apresentadores;
+    }
+
+    public Artista[] getBanda() {
+        return banda;
+    }
+
+    public void setBanda(Artista... banda) {
+        this.banda = banda;
+    }
+
+    public Pessoa[] getConvidados() {
+        return convidados;
+    }
+
+    public void setConvidados(Pessoa... convidados) {
+        this.convidados = convidados;
     }
 
 }

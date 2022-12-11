@@ -2,7 +2,7 @@ package modelos;
 
 public abstract class Programa {
     private String nome;
-    private Horario[] horarios; // ToDo: Mover para Calendar
+    private Horario[] horarios;
     private int classificacaoIndicativa; // 0 significa Livre
     private String descricao;
     private boolean favorito;
@@ -33,7 +33,7 @@ public abstract class Programa {
     }
 
     public Horario[] getHorarios() {
-        return horarios; // ToDo: Checar se é necessario fazer a iteração de horarios aqui
+        return horarios;
     }
 
     public void setHorarios(Horario... horarios) {
