@@ -76,11 +76,11 @@ public class Canal {
         System.out.println(programa.toString());
     }
 
-    public void adicionarPrograma() {
+    public void adicionarPrograma(Programa programa) {
         System.out.println("Funcionalidade ainda não implentada");
     }
 
-    public void removerPrograma() {
+    public void removerPrograma(Programa programa) {
         System.out.println("Funcionalidade ainda não implentada");
     }
 

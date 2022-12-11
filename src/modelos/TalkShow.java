@@ -64,11 +64,11 @@ public class TalkShow extends Programa {
         System.out.println("Funcionalidade ainda não implentada");
     }
 
-    public void removerApresentador(String apresentadoresNome) {
+    public void removerApresentador(String apresentadorNome) {
         System.out.println("Funcionalidade ainda não implentada");
     }
 
-    public void adicionarMusico(Artista... musico) {
+    public void adicionarMusico(Artista... musicos) {
         System.out.println("Funcionalidade ainda não implentada");
     }
 
@@ -76,7 +76,7 @@ public class TalkShow extends Programa {
         System.out.println("Funcionalidade ainda não implentada");
     }
 
-    public void adicionarConvidado(Artista... convidado) {
+    public void adicionarConvidado(Pessoa... convidados) {
         System.out.println("Funcionalidade ainda não implentada");
     }
 

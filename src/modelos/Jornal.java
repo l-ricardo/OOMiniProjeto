@@ -44,7 +44,7 @@ public class Jornal extends Programa {
         System.out.println("Funcionalidade ainda não implentada");
     }
 
-    public void removerAncora(String ancorasNome) {
+    public void removerAncora(String ancoraNome) {
         System.out.println("Funcionalidade ainda não implentada");
     }
 
