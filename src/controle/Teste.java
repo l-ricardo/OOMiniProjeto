@@ -38,7 +38,7 @@ public class Teste {
         // // Teste metodo de pesquisa por programa especifico
         // d.getCanais()[0].pesquisarPrograma("Avenida Brasil");
 
-        // Teste metodo de listagem de todos os programas de um canal
+        // // Teste metodo de listagem de todos os programas de um canal
         // System.out.println(d.getCanais()[2].listarProgramas());
 
         // // Teste metodo de listagem de todos os programas em um dia escolhido
