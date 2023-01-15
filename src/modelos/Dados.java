@@ -1,7 +1,10 @@
 package modelos;
 
+import java.util.ArrayList;
+
 public class Dados {
-    private Canal[] canais = new Canal[10];
+    private ArrayList<Canal> canais = new ArrayList<>(); //TODO: FAZER ISSO PARA TODOS OS OUTROS ARRAYS
+    // private Canal[] canais = new Canal[10];
     private Horario[] horarios = new Horario[24 * 7 + 100];
     private Artista[] artistas = new Artista[50];
     private Personagem[] personagens = new Personagem[50];
@@ -43,9 +46,9 @@ public class Dados {
         artistas[6] = new Artista("Renata Vasconcelos", 'F', "Jornalista");
         artistas[8] = new Artista("Lucio Mauro", 'M', "Musico", true, "Vocal e guitarra");
 
-        personagens[0] = new Personagem("Carminha", 'F', new Pessoa("Adriana Esteves", 'F'),true);
+        personagens[0] = new Personagem("Carminha", 'F', new Pessoa("Adriana Esteves", 'F'), true);
         personagens[1] = new Personagem("Tufão", 'M', new Pessoa("Murilo Benicio", 'M'));
-        personagens[2] = new Personagem("Nina/Rita", 'F', new Pessoa("Debora Falabella", 'F'),true);
+        personagens[2] = new Personagem("Nina/Rita", 'F', new Pessoa("Debora Falabella", 'F'), true);
 
         pessoas[0] = new Pessoa("Dona Maria", 'F');
         pessoas[1] = new Pessoa("Seu João", 'M');
@@ -72,22 +75,29 @@ public class Dados {
                 new Horario[] { horarios[0], horarios[24], horarios[34], horarios[48] }, 0,
                 new Artista[] { artistas[5], artistas[6] }, "Nacional");
 
-        canais[0] = new Canal("Globo", 8);
-        canais[1] = new Canal("Record", 10);
-        canais[2] = new Canal("SBT", 2, programaTipoTalkShow[2], programaTipoTalkShow[3]);
-
-        canais[0].setProgramas(programaTipoNovelaFilmeSerie[0], programaTipoJornal[0], programaTipoTalkShow[0],
-                programaTipoTalkShow[4]);
-        canais[1].setProgramas(programaTipoTalkShow[1]);
-
+        canais.add(new Canal("Globo", 8,
+                programaTipoNovelaFilmeSerie[0],
+                programaTipoJornal[0],
+                programaTipoTalkShow[0],
+                programaTipoTalkShow[4]));
+        canais.add(new Canal("Record", 10,
+                programaTipoTalkShow[1]));
+        canais.add(new Canal("SBT", 2,
+                programaTipoTalkShow[2],
+                programaTipoTalkShow[3]));
     }
 
-    // Gets e Sets
-    public Canal[] getCanais() {
+    
+    public ArrayList<Canal> getCanais() {
         return canais;
     }
+    
+    // retorna um canal especifico
+    public Canal getCanal(int indice) {
+        return canais.get(indice);
+    }
 
-    public void setCanais(Canal[] canais) {
+    public void setCanais(ArrayList<Canal> canais) {
         this.canais = canais;
     }
 
@@ -146,5 +156,6 @@ public class Dados {
     public void setProgramaTipoJornal(Jornal[] programaTipoJornal) {
         this.programaTipoJornal = programaTipoJornal;
     }
+
 
 }
