@@ -29,22 +29,23 @@ public class NovelaFilmeSerie extends Programa {
 
     @Override
     public String toString() {
-        String result = "========================================\n"
-                + getNome() + " (" + getClassificacaoIndicativa() + ")\n"
-                + nTotalEpisodios + " episódios divididos em " + nTemporadas + " temporadas\n"
-                + getDescricao() + "\n"
-                + "--------------- Horários ----------------\n";
-        for (Horario horario : getHorarios()) {
-            result += horario.toString() + "\n";
-        }
-        result += "-------------- Estrelando ---------------\n";
-        for (Personagem personagem : personagens) {
-            result += personagem.toString() + "\n";
-        }
-        result += "========================================";
-        if (isFavorito()) {
-            result = result.replace('=', '*');
-        }
+        // String result = "========================================\n"
+        //         + getNome() + " (" + getClassificacaoIndicativa() + ")\n"
+        //         + nTotalEpisodios + " episódios divididos em " + nTemporadas + " temporadas\n"
+        //         + getDescricao() + "\n"
+        //         + "--------------- Horários ----------------\n";
+        // for (Horario horario : getHorarios()) {
+        //     result += horario.toString() + "\n";
+        // }
+        // result += "-------------- Estrelando ---------------\n";
+        // for (Personagem personagem : personagens) {
+        //     result += personagem.toString() + "\n";
+        // }
+        // result += "========================================";
+        // if (isFavorito()) {
+        //     result = result.replace('=', '*');
+        // }
+        String result = getNome();
         return result;
     }
 

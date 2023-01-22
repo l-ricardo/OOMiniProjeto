@@ -37,33 +37,34 @@ public class TalkShow extends Programa {
 
     @Override
     public String toString() {
-        String result = "========================================\n"
-                + getNome() + " (" + getClassificacaoIndicativa() + ")\n"
-                + getDescricao() + "\n"
-                + "--------------- Horários ----------------\n";
-        for (Horario horario : getHorarios()) {
-            result += horario.toString() + "\n";
-        }
-        result += "------------ Apresentadores -------------\n";
-        for (Artista apresentador : apresentadores) {
-            result += apresentador.toString() + "\n";
-        }
-        if (banda != null) {
-            result += "--------------- Banda ----------------\n";
-            for (Artista musico : banda) {
-                result += musico.toString() + "\n";
-            }
-        }
-        if (convidados != null) {
-            result += "-------------- Convidados ---------------\n";
-            for (Pessoa convidado : convidados) {
-                result += convidado.toString() + "\n";
-            }
-        }
-        result += "========================================";
-        if (isFavorito()) {
-            result = result.replace('=', '*');
-        }
+        // String result = "========================================\n"
+        // + getNome() + " (" + getClassificacaoIndicativa() + ")\n"
+        // + getDescricao() + "\n"
+        // + "--------------- Horários ----------------\n";
+        // for (Horario horario : getHorarios()) {
+        // result += horario.toString() + "\n";
+        // }
+        // result += "------------ Apresentadores -------------\n";
+        // for (Artista apresentador : apresentadores) {
+        // result += apresentador.toString() + "\n";
+        // }
+        // if (banda != null) {
+        // result += "--------------- Banda ----------------\n";
+        // for (Artista musico : banda) {
+        // result += musico.toString() + "\n";
+        // }
+        // }
+        // if (convidados != null) {
+        // result += "-------------- Convidados ---------------\n";
+        // for (Pessoa convidado : convidados) {
+        // result += convidado.toString() + "\n";
+        // }
+        // }
+        // result += "========================================";
+        // if (isFavorito()) {
+        // result = result.replace('=', '*');
+        // }
+        String result = getNome();
         return result;
     }
 

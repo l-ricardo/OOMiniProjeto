@@ -24,22 +24,23 @@ public class Jornal extends Programa {
 
     @Override
     public String toString() {
-        String result = "========================================\n"
-                + getNome() + " (" + getClassificacaoIndicativa() + ")\n"
-                + "Cobertura " + localidade + "\n"
-                + getDescricao() + "\n"
-                + "--------------- Horários ----------------\n";
-        for (Horario horario : getHorarios()) {
-            result += horario.toString() + "\n";
-        }
-        result += "--------------- Âncoras ----------------\n";
-        for (Artista ancora : ancoras) {
-            result += ancora.toString() + "\n";
-        }
-        result += "========================================";
-        if (isFavorito()) {
-            result = result.replace('=', '*');
-        }
+        // String result = "========================================\n"
+        //         + getNome() + " (" + getClassificacaoIndicativa() + ")\n"
+        //         + "Cobertura " + localidade + "\n"
+        //         + getDescricao() + "\n"
+        //         + "--------------- Horários ----------------\n";
+        // for (Horario horario : getHorarios()) {
+        //     result += horario.toString() + "\n";
+        // }
+        // result += "--------------- Âncoras ----------------\n";
+        // for (Artista ancora : ancoras) {
+        //     result += ancora.toString() + "\n";
+        // }
+        // result += "========================================";
+        // if (isFavorito()) {
+        //     result = result.replace('=', '*');
+        // }
+        String result = getNome();
         return result;
     }
 

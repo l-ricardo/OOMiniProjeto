@@ -5,7 +5,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import java.awt.*;
+import java.awt.Font;
 
 import modelos.Canal;
 import modelos.Dados;
@@ -17,10 +17,9 @@ public class MostraCanal extends JPanel {
 
     MostraCanal(Dados dados) {
         d = dados;
-        
+
         setLayout(null);
-        setBackground(Color.PINK);
-        setBounds(0, 200, 1300, 600);
+        setBounds(0, 200, 1186, 613);
         setOpaque(true);
 
         // Faz uma implentacao padrao de uma lista de elementos
@@ -31,11 +30,14 @@ public class MostraCanal extends JPanel {
         }
         listaCanais = new JList<>(elementos);
         listaCanais.setVisible(true);
+        listaCanais.setFont(new Font("Arial", Font.PLAIN, 18));
 
         listaCanaisRolavel = new JScrollPane(listaCanais);
-        listaCanaisRolavel.setBounds(0, 200, 650, 300);
+        listaCanaisRolavel.setBounds(50, 50, 400, 500);
 
         add(listaCanaisRolavel);
 
+
     }
+        // TODO: Adicionar aqui um contrutor de criar canais(dados,index) para mostrar o canal na tela CriaCanal
 }

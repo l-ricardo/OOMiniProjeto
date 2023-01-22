@@ -1,11 +1,12 @@
 package modelos;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Canal {
     private String nome;
     private int numero;
-    private ArrayList<Programa> programas;
+    private ArrayList<Programa> programas = new ArrayList<>();
 
     // Construtores
     public Canal(String nome, int numero) {
@@ -20,12 +21,14 @@ public class Canal {
 
     @Override
     public String toString() {
-        String result = "========================================\n"
-                + "Canal " + numero + ": " + nome + "\n"
-                + "------------- Programação --------------\n";
-        result += programas != null ? listarProgramas() : "Não existe nenhum programa registrado!";
-        result += "========================================";
-        return result;
+        // String result = "========================================\n"
+        // + "Canal " + numero + ": " + nome + "\n"
+        // + "------------- Programação --------------\n";
+        // result += programas != null ? listarProgramas() : "Não existe nenhum programa
+        // registrado!";
+        // result += "========================================";
+        // return result;
+        return "    Canal " + numero + ": " + nome;
     }
 
     // Metodos Obrigatorios
@@ -107,8 +110,11 @@ public class Canal {
         return programas;
     }
 
-    public void setProgramas(ArrayList<Programa> programas) {
-        this.programas = programas;
+    // TODO: Checar se isso aqui esta funcinando com a caixa de multiselecao
+    public void setProgramas(List<Programa> list) {
+        for (Programa programa : list) {
+            this.programas.add(programa);
+        }
     }
 
 }

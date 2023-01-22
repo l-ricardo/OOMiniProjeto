@@ -54,11 +54,42 @@ public class Dados {
         pessoas.add(new Pessoa("Seu João", 'M'));
 
         // TODO: Corrigir constrututores de programas
-        // programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Avenida Brasil", new
-        // ArrayList<Horario>(Arrays.asList( horarios.get(7), horarios.get(14),
-        // horarios.get(31), horarios.get(50) )), 16,new
-        // ArrayList<Personagem>(Arrays.asList( personagens.get(0), personagens.get(1),
-        // personagens.get(2) )), 1, 300));
+        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Avenida Brasil",
+                new ArrayList<Horario>(Arrays.asList(horarios.get(7), horarios.get(14),
+                        horarios.get(31), horarios.get(50))),
+                16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0), personagens.get(1),
+                        personagens.get(2))),
+                1, 300));
+        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Avenida Brasil",
+                new ArrayList<Horario>(Arrays.asList(horarios.get(7), horarios.get(14),
+                        horarios.get(31), horarios.get(50))),
+                16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0), personagens.get(1),
+                        personagens.get(2))),
+                1, 300));
+        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Avenida Brasil",
+                new ArrayList<Horario>(Arrays.asList(horarios.get(7), horarios.get(14),
+                        horarios.get(31), horarios.get(50))),
+                16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0), personagens.get(1),
+                        personagens.get(2))),
+                1, 300));
+        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Avenida Brasil",
+                new ArrayList<Horario>(Arrays.asList(horarios.get(7), horarios.get(14),
+                        horarios.get(31), horarios.get(50))),
+                16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0), personagens.get(1),
+                        personagens.get(2))),
+                1, 300));
+        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Avenida Brasil",
+                new ArrayList<Horario>(Arrays.asList(horarios.get(7), horarios.get(14),
+                        horarios.get(31), horarios.get(50))),
+                16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0), personagens.get(1),
+                        personagens.get(2))),
+                1, 300));
+        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Avenida Brasil",
+                new ArrayList<Horario>(Arrays.asList(horarios.get(7), horarios.get(14),
+                        horarios.get(31), horarios.get(50))),
+                16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0), personagens.get(1),
+                        personagens.get(2))),
+                1, 300));
 
         // programaTipoTalkShow.add(new TalkShow("Mais Você",new
         // ArrayList<Horario>(Arrays.asList(horarios.get(2), horarios.get(10),
@@ -108,6 +139,28 @@ public class Dados {
         // programaTipoTalkShow.get(2),
         // programaTipoTalkShow.get(3)
         ));
+        canais.add(new Canal("a", 8));
+        canais.add(new Canal("b", 8));
+        canais.add(new Canal("c", 8));
+        canais.add(new Canal("d", 8));
+        canais.add(new Canal("e", 8));
+        canais.add(new Canal("f", 8));
+        canais.add(new Canal("g", 8));
+        canais.add(new Canal("h", 8));
+        canais.add(new Canal("h", 8));
+        canais.add(new Canal("h", 8));
+        canais.add(new Canal("h", 8));
+        canais.add(new Canal("h", 8));
+        canais.add(new Canal("h", 8));
+        canais.add(new Canal("h", 8));
+        canais.add(new Canal("h", 8));
+        canais.add(new Canal("h", 8));
+        canais.add(new Canal("h", 8));
+        canais.add(new Canal("h", 8));
+        canais.add(new Canal("h", 8));
+        canais.add(new Canal("h", 8));
+        canais.add(new Canal("h", 8));
+        canais.add(new Canal("h", 8));
     }
 
     // Gets e sets

@@ -10,14 +10,16 @@ import modelos.Dados;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
+import java.awt.Component;
 
 public class App extends JFrame implements ActionListener {
     // Declarando componentes
+    JLabel titulo;
     JButton bListarCanais, bCadastrarCanais;
     JButton bListarProgramas, bCadastrarProgramas;
     JButton bListarPessoas, bCadastrarPessoas;
-    JLabel titulo;
     JPanel conteudo;
+    
     Dados dados;
 
     App(Dados d) {
@@ -26,7 +28,7 @@ public class App extends JFrame implements ActionListener {
         // Configurando janela
         this.setTitle("TeleGUIAdo");
         this.setLayout(null);
-        this.setSize(1300, 800);
+        this.setSize(1200, 850);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Colocando titulo
@@ -36,27 +38,27 @@ public class App extends JFrame implements ActionListener {
 
         // Criando botoes de controle do app
         bListarCanais = new JButton("Listar Canais");
-        bListarCanais.setBounds(220, 10, 100, 30);
+        bListarCanais.setBounds(250, 50, 200, 50);
         bListarCanais.addActionListener(this);
 
         bCadastrarCanais = new JButton("Cadastrar Canal");
-        bCadastrarCanais.setBounds(220, 50, 100, 30);
+        bCadastrarCanais.setBounds(250, 100, 200, 50);
         bCadastrarCanais.addActionListener(this);
 
         bListarProgramas = new JButton("Listar Programas");
-        bListarProgramas.setBounds(320, 10, 100, 30);
+        bListarProgramas.setBounds(450, 50, 200, 50);
         bListarProgramas.addActionListener(this);
 
         bCadastrarProgramas = new JButton("Cadastrar Programas");
-        bCadastrarProgramas.setBounds(320, 50, 100, 30);
+        bCadastrarProgramas.setBounds(450, 100, 200, 50);
         bCadastrarProgramas.addActionListener(this);
 
         bListarPessoas = new JButton("Listar Pessoas");
-        bListarPessoas.setBounds(420, 10, 100, 30);
+        bListarPessoas.setBounds(650, 50, 200, 50);
         bListarPessoas.addActionListener(this);
 
         bCadastrarPessoas = new JButton("Cadastrar Pessoas");
-        bCadastrarPessoas.setBounds(420, 50, 100, 30);
+        bCadastrarPessoas.setBounds(650, 100, 200, 50);
         bCadastrarPessoas.addActionListener(this);
 
         // Adicionando componentes na tela
