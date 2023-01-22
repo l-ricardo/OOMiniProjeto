@@ -1,7 +1,9 @@
 package modelos;
 
+import java.util.ArrayList;
+
 public class NovelaFilmeSerie extends Programa {
-    private Personagem[] personagens;
+    private ArrayList<Personagem> personagens = new ArrayList<>();
     private boolean animado;
     private int nTemporadas;
     private int nTotalEpisodios;
@@ -10,7 +12,8 @@ public class NovelaFilmeSerie extends Programa {
     }
 
     // Construtores
-    public NovelaFilmeSerie(String nome, Horario[] horarios, int classificacaoIndicativa, Personagem[] personagens,
+    public NovelaFilmeSerie(String nome, ArrayList<Horario> horarios, int classificacaoIndicativa,
+            ArrayList<Personagem> personagens,
             int nTemporadas, int nTotalEpisodios) {
         super(nome, horarios, classificacaoIndicativa);
         this.personagens = personagens;
@@ -18,8 +21,8 @@ public class NovelaFilmeSerie extends Programa {
         this.nTotalEpisodios = nTotalEpisodios;
     }
 
-    public NovelaFilmeSerie(String nome, Horario[] horarios, int classificacaoIndicativa, String descricao,
-            Personagem[] personagens, int nTemporadas, int nTotalEpisodios) {
+    public NovelaFilmeSerie(String nome, ArrayList<Horario> horarios, int classificacaoIndicativa, String descricao,
+            ArrayList<Personagem> personagens, int nTemporadas, int nTotalEpisodios) {
         this(nome, horarios, classificacaoIndicativa, personagens, nTemporadas, nTotalEpisodios);
         setDescricao(descricao);
     }
@@ -54,20 +57,20 @@ public class NovelaFilmeSerie extends Programa {
         String result = "";
         for (Personagem personagem : personagens) {
             if (apenasProtagonistas) {
-                result += personagem.isProtagonista() ? personagem.toString()+"\n" : "";
+                result += personagem.isProtagonista() ? personagem.toString() + "\n" : "";
             } else {
-                result += personagem.toString()+"\n";
+                result += personagem.toString() + "\n";
             }
         }
         System.out.println(result);
     }
 
     // Gets e Sets
-    public Personagem[] getPersonagens() {
+    public ArrayList<Personagem> getPersonagens() {
         return personagens;
     }
 
-    public void setPersonagens(Personagem... personagens) {
+    public void setPersonagens(ArrayList<Personagem> personagens) {
         this.personagens = personagens;
     }
 

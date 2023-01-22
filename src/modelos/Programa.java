@@ -1,8 +1,10 @@
 package modelos;
 
+import java.util.ArrayList;
+
 public abstract class Programa {
     private String nome;
-    private Horario[] horarios;
+    private ArrayList<Horario> horarios = new ArrayList<>();
     private int classificacaoIndicativa; // 0 significa Livre
     private String descricao;
     private boolean favorito;
@@ -12,13 +14,13 @@ public abstract class Programa {
     }
 
     // Construtores
-    public Programa(String nome, Horario[] horarios, int classificacaoIndicativa) {
+    public Programa(String nome, ArrayList<Horario> horarios, int classificacaoIndicativa) {
         this.nome = nome;
         this.horarios = horarios;
         this.classificacaoIndicativa = classificacaoIndicativa;
     }
 
-    public Programa(String nome, Horario[] horarios, int classificacaoIndicativa, String descricao) {
+    public Programa(String nome, ArrayList<Horario> horarios, int classificacaoIndicativa, String descricao) {
         this(nome, horarios, classificacaoIndicativa);
         this.descricao = descricao;
     }
@@ -32,11 +34,11 @@ public abstract class Programa {
         this.nome = nome;
     }
 
-    public Horario[] getHorarios() {
+    public ArrayList<Horario> getHorarios() {
         return horarios;
     }
 
-    public void setHorarios(Horario... horarios) {
+    public void setHorarios(ArrayList<Horario> horarios) {
         this.horarios = horarios;
     }
 

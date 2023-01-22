@@ -1,17 +1,21 @@
 package modelos;
 
+import java.util.ArrayList;
+
 public class Jornal extends Programa {
-    private Artista[] ancoras;
+    private ArrayList<Artista> ancoras;
     private String localidade;
 
     // Construtores
-    public Jornal(String nome, Horario[] horarios, int classificacaoIndicativa, Artista[] ancoras, String localidade) {
+    public Jornal(String nome, ArrayList<Horario> horarios, int classificacaoIndicativa, ArrayList<Artista> ancoras,
+            String localidade) {
         super(nome, horarios, classificacaoIndicativa);
         this.ancoras = ancoras;
         this.localidade = localidade;
     }
 
-    public Jornal(String nome, Horario[] horarios, int classificacaoIndicativa, String descricao, Artista[] ancoras,
+    public Jornal(String nome, ArrayList<Horario> horarios, int classificacaoIndicativa, String descricao,
+            ArrayList<Artista> ancoras,
             String localidade) {
         super(nome, horarios, classificacaoIndicativa, descricao);
         this.ancoras = ancoras;
@@ -39,7 +43,7 @@ public class Jornal extends Programa {
         return result;
     }
 
-    // Outros metodos
+    // Outros metodos //TODO: Ajustar arrays abaixos se necessario
     public void adicionarAncora(Artista... ancoras) {
         System.out.println("Funcionalidade ainda não implentada");
     }
@@ -49,11 +53,11 @@ public class Jornal extends Programa {
     }
 
     // Gets e Sets
-    public Artista[] getAncoras() {
+    public ArrayList<Artista> getAncoras() {
         return ancoras;
     }
 
-    public void setAncoras(Artista... ancoras) {
+    public void setAncoras(ArrayList<Artista> ancoras) {
         this.ancoras = ancoras;
     }
 
@@ -64,5 +68,4 @@ public class Jornal extends Programa {
     public void setLocalidade(String localidade) {
         this.localidade = localidade;
     }
-
 }

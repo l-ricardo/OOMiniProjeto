@@ -1,29 +1,37 @@
 package modelos;
 
+import java.util.ArrayList;
+
 public class TalkShow extends Programa {
-    private Artista[] apresentadores;
-    private Artista[] banda;
-    private Pessoa[] convidados;
+    private ArrayList<Artista> apresentadores = new ArrayList<>();
+    private ArrayList<Artista> banda = new ArrayList<>();
+    private ArrayList<Pessoa> convidados = new ArrayList<>();
 
     // Construtores
-    public TalkShow(String nome, Horario[] horarios, int classificacaoIndicativa, Artista[] apresentadores,
-            Artista[] banda, Pessoa[] convidados) {
-        super(nome, horarios, classificacaoIndicativa);
+    public TalkShow(String string, ArrayList<Horario> horarios, int classificacaoIndicativa) {
+        super(string, horarios, classificacaoIndicativa);
+    }
+
+    public TalkShow(String nome, ArrayList<Horario> horarios, int classificacaoIndicativa,
+            ArrayList<Artista> apresentadores,
+            ArrayList<Artista> banda, ArrayList<Pessoa> convidados) {
+        this(nome, horarios, classificacaoIndicativa);
         this.apresentadores = apresentadores;
         this.banda = banda;
         this.convidados = convidados;
     }
 
-    public TalkShow(String nome, Horario[] horarios, int classificacaoIndicativa, String descricao,
-            Artista[] apresentadores, Artista[] banda, Pessoa[] convidados) {
+    public TalkShow(String nome, ArrayList<Horario> horarios, int classificacaoIndicativa, String descricao,
+            ArrayList<Artista> apresentadores, ArrayList<Artista> banda, ArrayList<Pessoa> convidados) {
         super(nome, horarios, classificacaoIndicativa, descricao);
         this.apresentadores = apresentadores;
         this.banda = banda;
         this.convidados = convidados;
     }
 
-    public TalkShow(String nome, Horario[] horarios, int classificacaoIndicativa, Artista... apresentadores) {
-        super(nome, horarios, classificacaoIndicativa);
+    public TalkShow(String nome, ArrayList<Horario> horarios, int classificacaoIndicativa,
+            ArrayList<Artista> apresentadores) {
+        this(nome, horarios, classificacaoIndicativa);
         this.apresentadores = apresentadores;
     }
 
@@ -59,7 +67,7 @@ public class TalkShow extends Programa {
         return result;
     }
 
-    // Outros metodos
+    // Outros metodos //TODO: Ajustar arrays abaixos se necessario
     public void adicionarApresentador(Artista... apresentadores) {
         System.out.println("Funcionalidade ainda não implentada");
     }
@@ -85,27 +93,27 @@ public class TalkShow extends Programa {
     }
 
     // Gets e Sets
-    public Artista[] getApresentadores() {
+    public ArrayList<Artista> getApresentadores() {
         return apresentadores;
     }
 
-    public void setApresentadores(Artista... apresentadores) {
+    public void setApresentadores(ArrayList<Artista> apresentadores) {
         this.apresentadores = apresentadores;
     }
 
-    public Artista[] getBanda() {
+    public ArrayList<Artista> getBanda() {
         return banda;
     }
 
-    public void setBanda(Artista... banda) {
+    public void setBanda(ArrayList<Artista> banda) {
         this.banda = banda;
     }
 
-    public Pessoa[] getConvidados() {
+    public ArrayList<Pessoa> getConvidados() {
         return convidados;
     }
 
-    public void setConvidados(Pessoa... convidados) {
+    public void setConvidados(ArrayList<Pessoa> convidados) {
         this.convidados = convidados;
     }
 

@@ -1,9 +1,11 @@
 package modelos;
 
+import java.util.ArrayList;
+
 public class Canal {
     private String nome;
     private int numero;
-    private Programa[] programas;
+    private ArrayList<Programa> programas;
 
     // Construtores
     public Canal(String nome, int numero) {
@@ -11,7 +13,7 @@ public class Canal {
         this.numero = numero;
     }
 
-    public Canal(String nome, int numero, Programa... programas) {
+    public Canal(String nome, int numero, ArrayList<Programa> programas) {
         this(nome, numero);
         this.programas = programas;
     }
@@ -70,7 +72,7 @@ public class Canal {
         programa.setFavorito(true);
         System.out.println(programa.toString());
     }
-    
+
     public void desfavoritarPrograma(Programa programa) {
         programa.setFavorito(false);
         System.out.println(programa.toString());
@@ -101,11 +103,11 @@ public class Canal {
         this.numero = numero;
     }
 
-    public Programa[] getProgramas() {
+    public ArrayList<Programa> getProgramas() {
         return programas;
     }
 
-    public void setProgramas(Programa... programas) {
+    public void setProgramas(ArrayList<Programa> programas) {
         this.programas = programas;
     }
 
