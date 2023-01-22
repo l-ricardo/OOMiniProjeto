@@ -10,7 +10,6 @@ import models.Dados;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
-import java.awt.Component;
 
 public class App extends JFrame implements ActionListener {
     // Declarando componentes
