@@ -1,4 +1,4 @@
-package modelos;
+package models;
 
 public class Artista extends Pessoa {
     private String tipo; // Ex: Humorista, Jornalista, Entrevistador, etc...

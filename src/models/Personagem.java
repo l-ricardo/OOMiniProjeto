@@ -1,4 +1,4 @@
-package modelos;
+package models;
 
 public class Personagem extends Pessoa {
     private Pessoa ator;

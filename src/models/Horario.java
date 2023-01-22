@@ -1,4 +1,4 @@
-package modelos;
+package models;
 
 public class Horario {
     private float horaInicio;
