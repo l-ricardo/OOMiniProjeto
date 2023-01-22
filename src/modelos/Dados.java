@@ -92,16 +92,22 @@ public class Dados {
         // new ArrayList<Artista>(Arrays.asList (artistas.get(5), artistas.get(6))),
         // "Nacional"));
 
-        // canais.add(new Canal("Globo", 8,
+        canais.add(new Canal("Globo", 8
+        // ,
         // programaTipoNovelaFilmeSerie.get(0),
         // programaTipoJornal.get(0),
         // programaTipoTalkShow.get(0),
-        // programaTipoTalkShow.get(4)));
-        // canais.add(new Canal("Record", 10,
-        // programaTipoTalkShow.get(1)));
-        // canais.add(new Canal("SBT", 2,
+        // programaTipoTalkShow.get(4)
+        ));
+        canais.add(new Canal("Record", 10
+        // ,
+        // programaTipoTalkShow.get(1)
+        ));
+        canais.add(new Canal("SBT", 2
+        // ,
         // programaTipoTalkShow.get(2),
-        // programaTipoTalkShow.get(3)));
+        // programaTipoTalkShow.get(3)
+        ));
     }
 
     // Gets e sets

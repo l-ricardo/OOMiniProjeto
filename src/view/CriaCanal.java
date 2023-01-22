@@ -23,6 +23,8 @@ public class CriaCanal extends JPanel implements ActionListener {
     public CriaCanal(Dados dados) {
         d = dados;
         setBounds(0, 200, 800, 600);
+        setLayout(null);
+
         
         // Componentes
         titulo = new JLabel("Faça o cadastro de um canal");
