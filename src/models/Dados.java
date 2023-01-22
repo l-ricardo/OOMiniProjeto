@@ -60,32 +60,32 @@ public class Dados {
                 16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0), personagens.get(1),
                         personagens.get(2))),
                 1, 300));
-        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Avenida Brasil",
+        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Cobras e Lagartos",
                 new ArrayList<Horario>(Arrays.asList(horarios.get(7), horarios.get(14),
                         horarios.get(31), horarios.get(50))),
                 16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0), personagens.get(1),
                         personagens.get(2))),
                 1, 300));
-        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Avenida Brasil",
+        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Vingadores",
                 new ArrayList<Horario>(Arrays.asList(horarios.get(7), horarios.get(14),
                         horarios.get(31), horarios.get(50))),
                 16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0), personagens.get(1),
                         personagens.get(2))),
                 1, 300));
-        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Avenida Brasil",
+        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("A Favorita",
                 new ArrayList<Horario>(Arrays.asList(horarios.get(7), horarios.get(14),
                         horarios.get(31), horarios.get(50))),
                 16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0), personagens.get(1),
                         personagens.get(2))),
                 1, 300));
-        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Avenida Brasil",
+        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Bagulhos Sinistros",
                 new ArrayList<Horario>(Arrays.asList(horarios.get(7), horarios.get(14),
                         horarios.get(31), horarios.get(50))),
                 16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0), personagens.get(1),
                         personagens.get(2))),
                 1, 300));
-        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Avenida Brasil",
-                new ArrayList<Horario>(Arrays.asList(horarios.get(7), horarios.get(14),
+        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Bob Esponja",
+                new ArrayList<Horario>(Arrays.asList(horarios.get(54), horarios.get(14),
                         horarios.get(31), horarios.get(50))),
                 16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0), personagens.get(1),
                         personagens.get(2))),
@@ -139,28 +139,20 @@ public class Dados {
         // programaTipoTalkShow.get(2),
         // programaTipoTalkShow.get(3)
         ));
-        canais.add(new Canal("a", 8));
-        canais.add(new Canal("b", 8));
-        canais.add(new Canal("c", 8));
-        canais.add(new Canal("d", 8));
-        canais.add(new Canal("e", 8));
-        canais.add(new Canal("f", 8));
-        canais.add(new Canal("g", 8));
-        canais.add(new Canal("h", 8));
-        canais.add(new Canal("h", 8));
-        canais.add(new Canal("h", 8));
-        canais.add(new Canal("h", 8));
-        canais.add(new Canal("h", 8));
-        canais.add(new Canal("h", 8));
-        canais.add(new Canal("h", 8));
-        canais.add(new Canal("h", 8));
-        canais.add(new Canal("h", 8));
-        canais.add(new Canal("h", 8));
-        canais.add(new Canal("h", 8));
-        canais.add(new Canal("h", 8));
-        canais.add(new Canal("h", 8));
-        canais.add(new Canal("h", 8));
-        canais.add(new Canal("h", 8));
+        canais.add(new Canal("a", 91));
+        canais.add(new Canal("b", 92));
+        canais.add(new Canal("c", 93));
+        canais.add(new Canal("d", 94));
+        canais.add(new Canal("e", 95));
+        canais.add(new Canal("f", 96));
+        canais.add(new Canal("g", 97));
+        canais.add(new Canal("h", 98));
+        canais.add(new Canal("i", 99));
+        canais.add(new Canal("j", 100));
+        canais.add(new Canal("k", 101));
+        canais.add(new Canal("l", 102));
+        canais.add(new Canal("m", 103));
+        canais.add(new Canal("n", 104));
     }
 
     // Gets e sets

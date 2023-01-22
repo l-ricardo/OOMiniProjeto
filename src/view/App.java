@@ -12,14 +12,14 @@ import java.awt.event.ActionListener;
 import java.awt.*;
 
 public class App extends JFrame implements ActionListener {
+    Dados dados;
+
     // Declarando componentes
     JLabel titulo;
     JButton bListarCanais, bCadastrarCanais;
     JButton bListarProgramas, bCadastrarProgramas;
     JButton bListarPessoas, bCadastrarPessoas;
     JPanel conteudo;
-    
-    Dados dados;
 
     App(Dados d) {
         dados = d;
@@ -71,7 +71,6 @@ public class App extends JFrame implements ActionListener {
         this.setVisible(true);
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         Object clicado = e.getSource();
@@ -87,7 +86,6 @@ public class App extends JFrame implements ActionListener {
         if (clicado == bListarProgramas) {
             conteudo = new contWIP(dados);
         }
-        // conteudo.setVisible(true);
         conteudo.updateUI();
         this.add(conteudo);
     }

@@ -1,32 +1,27 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusListener;
 import java.awt.event.FocusEvent;
 
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.ListSelectionModel;
+import javax.swing.*;
 
 import models.Canal;
 import models.Dados;
 import models.Programa;
 
 public class CriaCanal extends JPanel implements ActionListener, FocusListener {
+    Dados d;
+    int indexCanalSelecionado;
+
     JTextField caixaNome, caixaNumero;
-    JLabel titulo, dicaNome, dicaNumero, dicaPrograma;
-    JButton salvar;
+    JLabel dicaNome, dicaNumero, dicaPrograma;
+    JButton salvar, atualizar;
     JList<Programa> listaProgramas;
     JScrollPane listaProgramasRolavel;
-
-    Dados d;
 
     public CriaCanal(Dados dados) {
         d = dados;
@@ -34,10 +29,6 @@ public class CriaCanal extends JPanel implements ActionListener, FocusListener {
         setLayout(null);
 
         // Componentes
-        titulo = new JLabel("Faça o cadastro de um canal");
-        titulo.setBounds(50, 10, 700, 30);
-        titulo.setFont(new Font("Arial", Font.BOLD, 40));
-
         dicaNome = new JLabel("Nome:");
         dicaNome.setBounds(50, 70, 300, 30);
         caixaNome = new JTextField("Insira aqui o nome do canal...");
@@ -50,7 +41,7 @@ public class CriaCanal extends JPanel implements ActionListener, FocusListener {
         caixaNumero.setBounds(50, 200, 300, 30);
         caixaNumero.addFocusListener(this);
 
-        dicaPrograma = new JLabel("Programação:");
+        dicaPrograma = new JLabel("Programação: (Use 'Ctrl' para selecionar multiplos)");
         dicaPrograma.setBounds(400, 70, 300, 30);
 
         DefaultListModel<Programa> elementos = new DefaultListModel<>();
@@ -64,17 +55,19 @@ public class CriaCanal extends JPanel implements ActionListener, FocusListener {
             elementos.addElement(programa);
         }
         listaProgramas = new JList<>(elementos);
-        listaProgramas.setVisible(true);
-        listaProgramas.setFont(new Font("Arial", Font.PLAIN, 18));
+        // DOUBT? O objetivo dessa linha era remover a necessidade de utilizar 'Ctrl'
+        // mas nao funciona
         listaProgramas.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        listaProgramas.setFont(new Font("Arial", Font.PLAIN, 18));
+        listaProgramas.setVisible(true);
         listaProgramasRolavel = new JScrollPane(listaProgramas);
         listaProgramasRolavel.setBounds(400, 100, 300, 300);
+        listaProgramasRolavel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
         salvar = new JButton("Salvar"); // TODO: Adicionar icone
         salvar.setBounds(50, 370, 150, 30);
         salvar.addActionListener(this);
 
-        // add(titulo);
         add(dicaNome);
         add(caixaNome);
         add(dicaNumero);
@@ -84,13 +77,22 @@ public class CriaCanal extends JPanel implements ActionListener, FocusListener {
         add(salvar);
     }
 
+    // Nesse caso o canal ja existe e estamos no modo de edicao
     public CriaCanal(Dados dados, int index) {
         this(dados);
+        indexCanalSelecionado = index;
         caixaNome.setText(dados.getCanais().get(index).getNome());
         caixaNumero.setText(String.valueOf(dados.getCanais().get(index).getNumero()));
         for (Programa programa : dados.getCanais().get(index).getProgramas()) {
             listaProgramas.setSelectedIndex(dados.getCanais().get(index).getProgramas().indexOf(programa));
         }
+        salvar.setVisible(false);
+        atualizar = new JButton("Atualizar"); // TODO: Adicionar icone
+        atualizar.setBounds(50, 370, 150, 30);
+        atualizar.addActionListener(this);
+        add(atualizar);
+        this.updateUI();
+
     }
 
     @Override
@@ -106,6 +108,15 @@ public class CriaCanal extends JPanel implements ActionListener, FocusListener {
             d.getCanais().add(novoCanal);
             // TODO: Evitar que clicando duas vezes em salvar seja feito o cadastro dobrado
             // TODO: Checar se ja existe um canal com o mesmo nome e numero cadastrado
+        }
+        if (clicado == atualizar) {
+            Canal novoCanal = new Canal(caixaNome.getText(), Integer.parseInt(caixaNumero.getText()));
+            // Usa o set para adicionar os selecionados na caixa de selecao listaProgramas
+            if (listaProgramas.getSelectedValuesList() != null) {
+                novoCanal.setProgramas(listaProgramas.getSelectedValuesList());
+            }
+            d.getCanais().set(indexCanalSelecionado, novoCanal);
+            // TODO: Fechar o Jdialog aqui
         }
     }
 
