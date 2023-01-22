@@ -5,10 +5,10 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import java.awt.Font;
+import models.Canal;
+import models.Dados;
 
-import modelos.Canal;
-import modelos.Dados;
+import java.awt.Font;
 
 public class MostraCanal extends JPanel {
     Dados d;

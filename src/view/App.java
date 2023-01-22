@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import modelos.Dados;
+import models.Dados;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

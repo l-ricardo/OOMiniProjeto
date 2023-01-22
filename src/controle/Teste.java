@@ -1,6 +1,6 @@
 package controle;
 
-import modelos.Dados;
+import models.Dados;
 
 public class Teste {
     public static void main(String[] args) {

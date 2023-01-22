@@ -15,9 +15,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 
-import modelos.Canal;
-import modelos.Dados;
-import modelos.Programa;
+import models.Canal;
+import models.Dados;
+import models.Programa;
 
 public class CriaCanal extends JPanel implements ActionListener, FocusListener {
     JTextField caixaNome, caixaNumero;
