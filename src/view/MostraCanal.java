@@ -17,8 +17,7 @@ public class MostraCanal extends JPanel {
 
     MostraCanal(Dados dados) {
         d = dados;
-        System.out.println("Tamanho da lista de canais: " + d.getCanais().size());
-
+        
         setLayout(null);
         setBackground(Color.PINK);
         setBounds(0, 200, 1300, 600);
