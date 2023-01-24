@@ -3,72 +3,80 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe que representa um canal de televisão.
+ */
 public class Canal {
     private String nome;
     private int numero;
     private ArrayList<Programa> programas = new ArrayList<>();
 
-    // Construtores
+    /**
+     * Contrutor que recebe o nome do canal e o número em que ele pode ser
+     * sintonizado.
+     * 
+     * @param nome   Nome do canal
+     * @param numero Número do canal
+     */
     public Canal(String nome, int numero) {
         this.nome = nome;
         this.numero = numero;
     }
 
+    /**
+     * Contrutor que recebe o nome do canal, o número em que ele pode ser
+     * sintonizado e os programas que ele exibe.
+     * 
+     * @param nome      Nome do canal
+     * @param numero    Número do canal
+     * @param programas ArrayList com os programas que dado canal possui em sua
+     *                  grade
+     * 
+     */
     public Canal(String nome, int numero, ArrayList<Programa> programas) {
         this(nome, numero);
         this.programas = programas;
     }
 
-    @Override
-    public String toString() {
-        // String result = "========================================\n"
-        // + "Canal " + numero + ": " + nome + "\n"
-        // + "------------- Programação --------------\n";
-        // result += programas != null ? listarProgramas() : "Não existe nenhum programa
-        // registrado!";
-        // result += "========================================";
-        // return result;
-        return "    Canal " + numero + ": " + nome;
-    }
+    // Metodos Obrigatorios //TODO: Rever esses metodos
+    // public void pesquisarPrograma(String nomeProgramaAlvo) {
+    // for (Programa programa : programas) {
+    // if (programa == null) {
+    // break;
+    // }
+    // if (programa.getNome() == nomeProgramaAlvo) {
+    // System.out.println(programa.toString());
+    // }
+    // }
+    // }
 
-    // Metodos Obrigatorios
-    public void pesquisarPrograma(String nomeProgramaAlvo) {
-        for (Programa programa : programas) {
-            if (programa == null) {
-                break;
-            }
-            if (programa.getNome() == nomeProgramaAlvo) {
-                System.out.println(programa.toString());
-            }
-        }
-    }
+    // public String listarProgramas() {
+    // String result = "";
+    // for (Programa programa : programas) {
+    // if (programa == null) {
+    // break;
+    // }
+    // result += programa.getNome() + "\n";
+    // }
+    // return result;
+    // }
 
-    public String listarProgramas() {
-        String result = "";
-        for (Programa programa : programas) {
-            if (programa == null) {
-                break;
-            }
-            result += programa.getNome() + "\n";
-        }
-        return result;
-    }
-
-    public String listarProgramas(String diaAlvo) {
-        String result = "";
-        for (Programa programa : programas) {
-            if (programa == null) {
-                break;
-            }
-            for (Horario horario : programa.getHorarios()) { // Warn! Horarios nao pode ser null
-                if (diaAlvo == horario.getDiaSemana()) {
-                    result += programa.getNome() + "\n";
-                    break;
-                }
-            }
-        }
-        return result;
-    }
+    // public String listarProgramas(String diaAlvo) {
+    // String result = "";
+    // for (Programa programa : programas) {
+    // if (programa == null) {
+    // break;
+    // }
+    // for (Horario horario : programa.getHorarios()) { // Warn! Horarios nao pode
+    // ser null
+    // if (diaAlvo == horario.getDiaSemana()) {
+    // result += programa.getNome() + "\n";
+    // break;
+    // }
+    // }
+    // }
+    // return result;
+    // }
 
     // Outros metodos
     public void favoritarPrograma(Programa programa) {
@@ -117,4 +125,15 @@ public class Canal {
         }
     }
 
+    @Override
+    public String toString() {
+        // String result = "========================================\n"
+        // + "Canal " + numero + ": " + nome + "\n"
+        // + "------------- Programação --------------\n";
+        // result += programas != null ? listarProgramas() : "Não existe nenhum programa
+        // registrado!";
+        // result += "========================================";
+        // return result;
+        return "    Canal " + numero + ": " + nome;
+    }
 }
