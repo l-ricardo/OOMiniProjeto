@@ -1,5 +1,12 @@
 package models;
 
+/**
+ * Uma classe que estende de pessoa e representa uma pessoa real que tem algum
+ * grau de notoriedade por fazer parte de programs de tv, como por exemplo:
+ * Humoristas, Jornalistas, Entrevistadores, Atores, Dubladores, Músicos, etc...
+ * 
+ * @see Pessoa
+ */
 public class Artista extends Pessoa {
     private String tipo; // Ex: Humorista, Jornalista, Entrevistador, etc...
     private boolean musico;
@@ -9,23 +16,33 @@ public class Artista extends Pessoa {
     }
 
     // Construtores
+    /**
+     * Contrutor que recebe nome, sexo e qual o tipo de artista uma pessoa é.
+     * 
+     * @param nome Nome do artista
+     * @param sexo Char com a sigla (letra inicial) do sexo do artista
+     * @param tipo Especialidade do artista, se ele é Humorista, Jornalista,
+     *             Entrevistador, etc..
+     */
     public Artista(String nome, char sexo, String tipo) {
         super(nome, sexo);
         this.tipo = tipo;
     }
 
-    public Artista(String nome, char sexo, String tipo, boolean musico, String instrumento) {
+    /**
+     * Contrutor que cria um artista do tipo musico ele recebe nome, sexo, tipo de
+     * musico e qual instrumento a pessoa toca.
+     * 
+     * @param nome        Nome do artista
+     * @param sexo        Char com a sigla (letra inicial) do sexo do artista
+     * @param tipo        Nesse caso muito provavelmente esse parametro deve receber
+     *                    Musico.
+     * @param instrumento Qual intrumento esse artista toca
+     */
+    public Artista(String nome, char sexo, String tipo, String instrumento) {
         this(nome, sexo, tipo);
-        this.musico = musico;
+        this.musico = true;
         this.instrumento = instrumento;
-    }
-
-    @Override
-    public String toString() {
-        if (isMusico()) {
-            return tipo + " " + nome + " no " + instrumento;
-        }
-        return tipo + " " + nome;
     }
 
     // Gets e Sets
@@ -53,4 +70,11 @@ public class Artista extends Pessoa {
         this.instrumento = instrumento;
     }
 
+    @Override
+    public String toString() {
+        if (isMusico()) {
+            return tipo + " " + nome + " no " + instrumento;
+        }
+        return tipo + " " + nome;
+    }
 }

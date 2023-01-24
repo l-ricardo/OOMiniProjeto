@@ -1,18 +1,22 @@
 package models;
 
+/**
+ * Uma classe que representa uma pessoa real.
+ */
 public class Pessoa {
     protected String nome;
     protected char sexo;
 
     // Construtores
+    /**
+     * Contrutor que recebe o nome e o sexo de uma pessoa.
+     * 
+     * @param nome Nome da pessoa
+     * @param sexo Char com a sigla (letra inicial) do sexo da pessoa
+     */
     public Pessoa(String nome, char sexo) {
         this.nome = nome;
         this.sexo = sexo;
-    }
-
-    @Override
-    public String toString() {
-        return nome;
     }
 
     // Gets e Sets
@@ -32,4 +36,8 @@ public class Pessoa {
         this.sexo = sexo;
     }
 
+    @Override
+    public String toString() {
+        return nome;
+    }
 }

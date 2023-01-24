@@ -1,11 +1,10 @@
 package models;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Dados {
     private ArrayList<Canal> canais = new ArrayList<>();
-    private ArrayList<Horario> horarios = new ArrayList<>();
+    // private ArrayList<Horario> horarios = new ArrayList<>();
     private ArrayList<Artista> artistas = new ArrayList<>();
     private ArrayList<Personagem> personagens = new ArrayList<>();
     private ArrayList<Pessoa> pessoas = new ArrayList<>();
@@ -15,27 +14,27 @@ public class Dados {
 
     // Criando valores de exemplo
     {
-        for (int i = 0; i < 24; i++) {
-            horarios.add(new Horario(i, i + 1, "Domingo"));
-        }
-        for (int i = 24; i < 48; i++) {
-            horarios.add(new Horario(i - 24, i - 24 + 1, "Segunda"));
-        }
-        for (int i = 48; i < 72; i++) {
-            horarios.add(new Horario(i - 48, i - 48 + 1, "Terça"));
-        }
-        for (int i = 72; i < 96; i++) {
-            horarios.add(new Horario(i - 72, i - 72 + 1, "Quarta"));
-        }
-        for (int i = 96; i < 120; i++) {
-            horarios.add(new Horario(i - 96, i - 96 + 1, "Quinta"));
-        }
-        for (int i = 120; i < 144; i++) {
-            horarios.add(new Horario(i - 120, i - 120 + 1, "Sexta"));
-        }
-        for (int i = 144; i < 168; i++) {
-            horarios.add(new Horario(i - 144, i - 144 + 1, "Sabado"));
-        }
+        // for (int i = 0; i < 24; i++) {
+        // horarios.add(new Horario(i, i + 1, "Domingo"));
+        // }
+        // for (int i = 24; i < 48; i++) {
+        // horarios.add(new Horario(i - 24, i - 24 + 1, "Segunda"));
+        // }
+        // for (int i = 48; i < 72; i++) {
+        // horarios.add(new Horario(i - 48, i - 48 + 1, "Terça"));
+        // }
+        // for (int i = 72; i < 96; i++) {
+        // horarios.add(new Horario(i - 72, i - 72 + 1, "Quarta"));
+        // }
+        // for (int i = 96; i < 120; i++) {
+        // horarios.add(new Horario(i - 96, i - 96 + 1, "Quinta"));
+        // }
+        // for (int i = 120; i < 144; i++) {
+        // horarios.add(new Horario(i - 120, i - 120 + 1, "Sexta"));
+        // }
+        // for (int i = 144; i < 168; i++) {
+        // horarios.add(new Horario(i - 144, i - 144 + 1, "Sabado"));
+        // }
 
         artistas.add(new Artista("Ana Maria Braga", 'F', "Apresentadora"));
         artistas.add(new Artista("Louro Mané", 'M', "Humorista"));
@@ -44,52 +43,64 @@ public class Dados {
         artistas.add(new Artista("Marcos Mion", 'M', "Apresentador"));
         artistas.add(new Artista("William Boner", 'M', "Jornalista"));
         artistas.add(new Artista("Renata Vasconcelos", 'F', "Jornalista"));
-        artistas.add(new Artista("Lucio Mauro", 'M', "Musico", true, "Vocal e guitarra"));
+        artistas.add(new Artista("Lucio Mauro", 'M', "Musico", "Vocal e guitarra"));
 
         personagens.add(new Personagem("Carminha", 'F', new Pessoa("Adriana Esteves", 'F'), true));
         personagens.add(new Personagem("Tufão", 'M', new Pessoa("Murilo Benicio", 'M')));
         personagens.add(new Personagem("Nina/Rita", 'F', new Pessoa("Debora Falabella", 'F'), true));
+        personagens.add(new Personagem("11", 'F', new Pessoa("Millie Bobby Brown", 'F'), true));
+        personagens.add(new Personagem("Mike", 'M', new Pessoa("Finn Wolfhard", 'M'), true));
+        personagens.add(new Personagem("Will Byers", 'M', new Pessoa("Noah Schnapp", 'M'), true));
+        personagens.add(new Personagem("Lucas Sinclair", 'M', new Pessoa("Caleb McLaughlin", 'M'), true));
+        personagens.add(new Personagem("Dustin Henderson", 'M', new Pessoa("Gaten Matarazzo", 'M'), true));
+        personagens.add(new Personagem("Bob Newby", 'M', new Pessoa("Sean Astin", 'M'), false));
 
         pessoas.add(new Pessoa("Dona Maria", 'F'));
         pessoas.add(new Pessoa("Seu João", 'M'));
 
         // TODO: Corrigir constrututores de programas
-        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Avenida Brasil",
-                new ArrayList<Horario>(Arrays.asList(horarios.get(7), horarios.get(14),
-                        horarios.get(31), horarios.get(50))),
-                16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0), personagens.get(1),
-                        personagens.get(2))),
-                1, 300));
-        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Cobras e Lagartos",
-                new ArrayList<Horario>(Arrays.asList(horarios.get(7), horarios.get(14),
-                        horarios.get(31), horarios.get(50))),
-                16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0), personagens.get(1),
-                        personagens.get(2))),
-                1, 300));
-        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Vingadores",
-                new ArrayList<Horario>(Arrays.asList(horarios.get(7), horarios.get(14),
-                        horarios.get(31), horarios.get(50))),
-                16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0), personagens.get(1),
-                        personagens.get(2))),
-                1, 300));
-        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("A Favorita",
-                new ArrayList<Horario>(Arrays.asList(horarios.get(7), horarios.get(14),
-                        horarios.get(31), horarios.get(50))),
-                16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0), personagens.get(1),
-                        personagens.get(2))),
-                1, 300));
-        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Bagulhos Sinistros",
-                new ArrayList<Horario>(Arrays.asList(horarios.get(7), horarios.get(14),
-                        horarios.get(31), horarios.get(50))),
-                16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0), personagens.get(1),
-                        personagens.get(2))),
-                1, 300));
-        programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Bob Esponja",
-                new ArrayList<Horario>(Arrays.asList(horarios.get(54), horarios.get(14),
-                        horarios.get(31), horarios.get(50))),
-                16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0), personagens.get(1),
-                        personagens.get(2))),
-                1, 300));
+        // programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Avenida Brasil",
+        // new ArrayList<Horario>(Arrays.asList(horarios.get(7), horarios.get(14),
+        // horarios.get(31), horarios.get(50))),
+        // 16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0),
+        // personagens.get(1),
+        // personagens.get(2))),
+        // 1, 300));
+        // programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Cobras e Lagartos",
+        // new ArrayList<Horario>(Arrays.asList(horarios.get(7), horarios.get(14),
+        // horarios.get(31), horarios.get(50))),
+        // 16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0),
+        // personagens.get(1),
+        // personagens.get(2))),
+        // 1, 300));
+        // programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Vingadores",
+        // new ArrayList<Horario>(Arrays.asList(horarios.get(7), horarios.get(14),
+        // horarios.get(31), horarios.get(50))),
+        // 16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0),
+        // personagens.get(1),
+        // personagens.get(2))),
+        // 1, 300));
+        // programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("A Favorita",
+        // new ArrayList<Horario>(Arrays.asList(horarios.get(7), horarios.get(14),
+        // horarios.get(31), horarios.get(50))),
+        // 16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0),
+        // personagens.get(1),
+        // personagens.get(2))),
+        // 1, 300));
+        // programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Bagulhos Sinistros",
+        // new ArrayList<Horario>(Arrays.asList(horarios.get(7), horarios.get(14),
+        // horarios.get(31), horarios.get(50))),
+        // 16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0),
+        // personagens.get(1),
+        // personagens.get(2))),
+        // 4, 32));
+        // programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Bob Esponja",
+        // new ArrayList<Horario>(Arrays.asList(horarios.get(54), horarios.get(14),
+        // horarios.get(31), horarios.get(50))),
+        // 16, new ArrayList<Personagem>(Arrays.asList(personagens.get(0),
+        // personagens.get(1),
+        // personagens.get(2))),
+        // 15, 800));
 
         // programaTipoTalkShow.add(new TalkShow("Mais Você",new
         // ArrayList<Horario>(Arrays.asList(horarios.get(2), horarios.get(10),
@@ -167,14 +178,6 @@ public class Dados {
 
     public void setCanais(ArrayList<Canal> canais) {
         this.canais = canais;
-    }
-
-    public ArrayList<Horario> getHorarios() {
-        return horarios;
-    }
-
-    public void setHorarios(ArrayList<Horario> horarios) {
-        this.horarios = horarios;
     }
 
     public ArrayList<Artista> getArtistas() {
