@@ -49,53 +49,86 @@ public class Dados {
 
         programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Avenida Brasil",
                 new ArrayList<Integer>(Arrays.asList(2, 3, 4, 5, 6)), "21:00", 120, 16,
-                new ArrayList<Personagem>(Arrays.asList(personagens.get(0), personagens.get(1), personagens.get(2))), 1,
-                300));
+                new ArrayList<Personagem>(Arrays.asList(
+                        personagens.get(0),
+                        personagens.get(1),
+                        personagens.get(2))),
+                1, 300));
         programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Bagulhos Sinistros",
                 new ArrayList<Integer>(Arrays.asList(7)), "7:00", 60, 12,
-                new ArrayList<Personagem>(Arrays.asList(personagens.get(3), personagens.get(4), personagens.get(5),
-                        personagens.get(6), personagens.get(7), personagens.get(8))),
+                new ArrayList<Personagem>(Arrays.asList(
+                        personagens.get(3),
+                        personagens.get(4),
+                        personagens.get(5),
+                        personagens.get(6),
+                        personagens.get(7),
+                        personagens.get(8))),
                 4, 32));
         programaTipoNovelaFilmeSerie.get(1).setFavorito(true);
         programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Vingadores",
                 new ArrayList<Integer>(Arrays.asList(6)), "13:00", 200, 14,
-                new ArrayList<Personagem>(Arrays.asList(personagens.get(0), personagens.get(3))), 0, 1));
+                new ArrayList<Personagem>(Arrays.asList(
+                        personagens.get(0),
+                        personagens.get(3))),
+                0, 1));
         programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Bob Esponja",
                 new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6, 7)), "10:00", 20, 0,
-                new ArrayList<Personagem>(Arrays.asList(personagens.get(9))), 15, 1200));
+                new ArrayList<Personagem>(Arrays.asList(
+                        personagens.get(9))),
+                15, 1200));
         programaTipoNovelaFilmeSerie.get(3).setAnimado(true);
 
         programaTipoJornal.add(new Jornal("Jornal Nacional",
                 new ArrayList<Integer>(Arrays.asList(2, 3, 4, 5, 6)), "20:00", 60, 0,
-                new ArrayList<Artista>(Arrays.asList(artistas.get(5), artistas.get(6))), "Nacional"));
+                new ArrayList<Artista>(Arrays.asList(
+                        artistas.get(5),
+                        artistas.get(6))),
+                "Nacional"));
 
         programaTipoTalkShow.add(new TalkShow("Mais Você",
                 new ArrayList<Integer>(Arrays.asList(2, 3, 4, 5, 6)), "8:00", 90, 0,
-                new ArrayList<Artista>(Arrays.asList(artistas.get(0), artistas.get(1)))));
+                new ArrayList<Artista>(Arrays.asList(
+                        artistas.get(0),
+                        artistas.get(1)))));
         programaTipoTalkShow.add(new TalkShow("Hora do Faro",
                 new ArrayList<Integer>(Arrays.asList(7)), "15:00", 60, 10,
-                new ArrayList<Artista>(Arrays.asList(artistas.get(2)))));
-        programaTipoTalkShow.get(1).setConvidados(new ArrayList<Pessoa>(Arrays.asList(pessoas.get(0), pessoas.get(1))));
+                new ArrayList<Artista>(Arrays.asList(
+                        artistas.get(2)))));
+        programaTipoTalkShow.get(1).setConvidados(
+                new ArrayList<Pessoa>(Arrays.asList(
+                        pessoas.get(0),
+                        pessoas.get(1))));
         programaTipoTalkShow.add(new TalkShow("Programa do Silvio Santos",
                 new ArrayList<Integer>(Arrays.asList(1)), "16:00", 300, 0,
-                new ArrayList<Artista>(Arrays.asList(artistas.get(3)))));
+                new ArrayList<Artista>(Arrays.asList(
+                        artistas.get(3)))));
         programaTipoTalkShow.add(new TalkShow("Roda Roda Jequiti",
                 new ArrayList<Integer>(Arrays.asList(1)), "5:00", 90, 0,
-                new ArrayList<Artista>(Arrays.asList(artistas.get(3)))));
+                new ArrayList<Artista>(Arrays.asList(
+                        artistas.get(3)))));
         programaTipoTalkShow.add(new TalkShow("Caldeirao",
                 new ArrayList<Integer>(Arrays.asList(7)), "15:00", 240, 0,
-                new ArrayList<Artista>(Arrays.asList(artistas.get(4)))));
-        programaTipoTalkShow.get(4).setBanda(new ArrayList<Artista>(Arrays.asList(artistas.get(7))));
+                new ArrayList<Artista>(Arrays.asList(
+                        artistas.get(4)))));
+        programaTipoTalkShow.get(4).setBanda(
+                new ArrayList<Artista>(Arrays.asList(
+                        artistas.get(7))));
 
         canais.add(new Canal("Globo", 8,
-                new ArrayList<Programa>(
-                        Arrays.asList(programaTipoNovelaFilmeSerie.get(0), programaTipoNovelaFilmeSerie.get(2),
-                                programaTipoJornal.get(0), programaTipoTalkShow.get(0), programaTipoTalkShow.get(4)))));
+                new ArrayList<Programa>(Arrays.asList(
+                        programaTipoNovelaFilmeSerie.get(0),
+                        programaTipoNovelaFilmeSerie.get(2),
+                        programaTipoJornal.get(0),
+                        programaTipoTalkShow.get(0),
+                        programaTipoTalkShow.get(4)))));
         canais.add(new Canal("Record", 10,
-                new ArrayList<Programa>(
-                        Arrays.asList(programaTipoNovelaFilmeSerie.get(3), programaTipoTalkShow.get(1)))));
+                new ArrayList<Programa>(Arrays.asList(
+                        programaTipoNovelaFilmeSerie.get(3),
+                        programaTipoTalkShow.get(1)))));
         canais.add(new Canal("SBT", 2,
-                new ArrayList<Programa>(Arrays.asList(programaTipoNovelaFilmeSerie.get(1), programaTipoTalkShow.get(2),
+                new ArrayList<Programa>(Arrays.asList(
+                        programaTipoNovelaFilmeSerie.get(1),
+                        programaTipoTalkShow.get(2),
                         programaTipoTalkShow.get(3)))));
         canais.add(new Canal("a", 91));
         canais.add(new Canal("b", 92));
