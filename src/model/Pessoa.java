@@ -1,4 +1,4 @@
-package models;
+package model;
 
 /**
  * Uma classe que representa uma pessoa real.

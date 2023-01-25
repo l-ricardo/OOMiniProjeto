@@ -1,9 +1,5 @@
 package view;
 
-import models.Dados;
-import models.Canal;
-import models.Programa;
-
 import java.util.ArrayList;
 
 import java.awt.Color;
@@ -15,6 +11,10 @@ import java.awt.event.FocusListener;
 import java.awt.event.FocusEvent;
 
 import javax.swing.*;
+
+import model.Canal;
+import model.Dados;
+import model.Programa;
 
 public class TelaDetalheCanal extends JPanel implements ActionListener, FocusListener {
     Dados d;

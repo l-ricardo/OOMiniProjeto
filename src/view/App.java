@@ -1,7 +1,5 @@
 package view;
 
-import models.Dados;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import model.Dados;
 
 public class App extends JFrame implements ActionListener, FocusListener {
     Dados dados;

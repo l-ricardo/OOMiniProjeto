@@ -1,8 +1,5 @@
 package view;
 
-import models.Dados;
-import models.Canal;
-
 import java.util.ArrayList;
 
 import java.awt.Color;
@@ -20,6 +17,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
+
+import model.Canal;
+import model.Dados;
 
 public class TelaListaCanais extends JPanel implements ActionListener {
     Dados d;
