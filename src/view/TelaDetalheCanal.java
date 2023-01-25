@@ -16,7 +16,7 @@ import java.awt.event.FocusEvent;
 
 import javax.swing.*;
 
-public class CriaCanal extends JPanel implements ActionListener, FocusListener {
+public class TelaDetalheCanal extends JPanel implements ActionListener, FocusListener {
     Dados d;
     Canal canalDetalhado;
 
@@ -30,7 +30,7 @@ public class CriaCanal extends JPanel implements ActionListener, FocusListener {
      * 
      * @param dados Base de dados
      */
-    public CriaCanal(Dados dados) {
+    public TelaDetalheCanal(Dados dados) {
         d = dados;
 
         this.setLayout(null);
@@ -128,7 +128,7 @@ public class CriaCanal extends JPanel implements ActionListener, FocusListener {
      * @param dados Base de dados
      * @param nome  Nome do canal a ser editado/atualizado
      */
-    public CriaCanal(Dados dados, String nome) {
+    public TelaDetalheCanal(Dados dados, String nome) {
         // Constroi o Jpanel sem o botão salvar
         this(dados);
         salvar.setVisible(false);

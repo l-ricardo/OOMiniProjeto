@@ -48,7 +48,7 @@ public class App extends JFrame implements ActionListener, FocusListener {
         titulo.setBounds(50, 0, 200, 200);
         titulo.setFont(new Font("Times New Roman", Font.BOLD, 50));
 
-        // Criando botoes de controle do app
+        // ------------------------- Componentes controle -------------------------
         bListarCanais = new JButton("Listar Canais");
         bListarCanais.setBounds(300, 50, 200, 50);
         bListarCanais.setFocusable(false);
@@ -103,7 +103,7 @@ public class App extends JFrame implements ActionListener, FocusListener {
         bCadastrarPessoas.setBorder(BorderFactory.createEtchedBorder());
         bCadastrarPessoas.addActionListener(this);
 
-        // --------------------------- Componentes nome ---------------------------
+        // ------------------------- Componentes filtragem -------------------------
         JLabel dicaFiltragem = new JLabel("Filtros de listagem:");
         dicaFiltragem.setBounds(950, 20, 300, 30);
         dicaFiltragem.setForeground(Color.white);
@@ -170,13 +170,13 @@ public class App extends JFrame implements ActionListener, FocusListener {
             conteudo.setVisible(false);
         }
         if (clicado == bListarCanais) {
-            conteudo = new MostraCanal(dados);
+            conteudo = new TelaListaCanais(dados);
         }
         if (clicado == bCadastrarCanais) {
-            conteudo = new CriaCanal(dados);
+            conteudo = new TelaDetalheCanal(dados);
         }
         if (clicado == bListarProgramas) {
-            conteudo = new contWIP(dados);
+            // conteudo = new contWIP(dados);
         }
         if (clicado == limparFiltros) {
             filtroCanal.setText("Insira o nome do canal...");
@@ -193,13 +193,16 @@ public class App extends JFrame implements ActionListener, FocusListener {
     public void focusGained(FocusEvent e) {
         Object focado = e.getSource();
 
-        if (focado == filtroCanal && filtroCanal.getText().equals("Insira o nome do canal...")) {
+        if (focado == filtroCanal
+                && filtroCanal.getText().equals("Insira o nome do canal...")) {
             filtroCanal.setText("");
         }
-        if (focado == filtroPrograma && filtroPrograma.getText().equals("Insira o nome do programa...")) {
+        if (focado == filtroPrograma
+                && filtroPrograma.getText().equals("Insira o nome do programa...")) {
             filtroPrograma.setText("");
         }
-        if (focado == filtroPessoa && filtroPessoa.getText().equals("Insira o nome da pessoa...")) {
+        if (focado == filtroPessoa
+                && filtroPessoa.getText().equals("Insira o nome da pessoa...")) {
             filtroPessoa.setText("");
         }
     }
@@ -222,8 +225,7 @@ public class App extends JFrame implements ActionListener, FocusListener {
     public static void main(String[] args) {
         Dados d = new Dados();
         new App(d);
-        // TODO: Atualizar os diagramas de classes e pacotes (Herança abstrata
-        // pontilhado)
+        // TODO: Atualizar diagramas de classes e pacotes (Herança abstrata pontilhado)
         // TODO: Criar UniTests
     }
 }

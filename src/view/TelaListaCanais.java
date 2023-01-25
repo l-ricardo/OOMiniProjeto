@@ -21,14 +21,14 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 
-public class MostraCanal extends JPanel implements ActionListener {
+public class TelaListaCanais extends JPanel implements ActionListener {
     Dados d;
     String canalSelecionado;
 
     ArrayList<JRadioButton> rbCanais;
     JButton visualizar, deletar;
 
-    MostraCanal(Dados dados) {
+    TelaListaCanais(Dados dados) {
         d = dados;
 
         this.setLayout(null);
@@ -96,7 +96,7 @@ public class MostraCanal extends JPanel implements ActionListener {
         Object clicado = e.getSource();
         if (clicado == visualizar) {
             JDialog dialogoEdicao = new JDialog();
-            CriaCanal painelEdicao = new CriaCanal(d, canalSelecionado);
+            TelaDetalheCanal painelEdicao = new TelaDetalheCanal(d, canalSelecionado);
             dialogoEdicao.add(painelEdicao);
             dialogoEdicao.setVisible(true);
             dialogoEdicao.setSize(800, 600);
