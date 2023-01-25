@@ -125,6 +125,15 @@ public class Canal {
         }
     }
 
+    public boolean existePrograma(String nome) {
+        for (Programa programa : programas) {
+            if (nome == programa.getNome()) {
+                return true;
+            } 
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         // String result = "========================================\n"
@@ -134,6 +143,7 @@ public class Canal {
         // registrado!";
         // result += "========================================";
         // return result;
-        return "    Canal " + numero + ": " + nome;
+        // return "    Canal " + numero + ": " + nome;
+        return  nome;
     }
 }

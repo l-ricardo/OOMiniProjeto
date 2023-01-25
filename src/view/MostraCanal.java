@@ -1,89 +1,113 @@
 package view;
 
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-
-import models.Canal;
 import models.Dados;
+import models.Canal;
 
+import java.util.ArrayList;
+
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MostraCanal extends JPanel implements ListSelectionListener, ActionListener {
-    Dados d;
-    int indexCanalSelecionado;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 
-    JList<Canal> listaCanais;
-    JScrollPane listaCanaisRolavel;
+public class MostraCanal extends JPanel implements ActionListener {
+    Dados d;
+    String canalSelecionado;
+
+    ArrayList<JRadioButton> rbCanais;
     JButton visualizar, deletar;
 
     MostraCanal(Dados dados) {
         d = dados;
 
-        setLayout(null);
-        setBounds(0, 200, 1186, 613);
-        setOpaque(true);
+        this.setLayout(null);
+        this.setPreferredSize(new Dimension(1200, 600));
+        this.setBackground(new Color(126, 121, 121));
 
-        // Faz uma implentacao padrao de uma lista de elementos
-        DefaultListModel<Canal> elementos = new DefaultListModel<>();
+        // -------------------------- Componentes canal---------------------------
+        JLabel dicaCanal = new JLabel("Canais:");
+        dicaCanal.setBounds(50, 20, 300, 30);
+
+        ButtonGroup grupoCanais = new ButtonGroup();
+        rbCanais = new ArrayList<>(); // Inicializa array de radiobutton
+
+        JPanel listaCanais = new JPanel(); // Cria painel onde ficam as radiobutton
+        listaCanais.setLayout(new BoxLayout(listaCanais, BoxLayout.Y_AXIS));
+        listaCanais.setBackground(new Color(50, 48, 48));
 
         for (Canal canal : d.getCanais()) {
-            elementos.addElement(canal);
+            JRadioButton rb = new JRadioButton(canal.getNome());
+            rb.setFocusable(false);
+            rb.setFont(new Font("Times New Roman", Font.PLAIN, 16));
+            rb.setBackground(new Color(50, 48, 48));
+            rb.setForeground(Color.white);
+            grupoCanais.add(rb);
+            rbCanais.add(rb);
         }
-        listaCanais = new JList<>(elementos);
-        listaCanais.setVisible(true);
-        listaCanais.setFont(new Font("Arial", Font.PLAIN, 18));
-        listaCanais.addListSelectionListener(this);
+        for (JRadioButton rb : rbCanais) {
+            listaCanais.add(rb);
+            rb.addActionListener(this);
+        }
 
-        listaCanaisRolavel = new JScrollPane(listaCanais);
-        listaCanaisRolavel.setBounds(50, 50, 400, 500);
+        JScrollPane listaCanaisRolavel = new JScrollPane(listaCanais);
+        listaCanaisRolavel.setBounds(50, 50, 400, 450);
+        listaCanaisRolavel.setBorder(BorderFactory.createEtchedBorder());
+        listaCanaisRolavel.setBackground(new Color(50, 48, 48));
 
+        // --------------------------- Botão visualizar ----------------------------
         visualizar = new JButton("Visualizar"); // TODO: Adicionar icone
-        visualizar.setBounds(50, 550, 200, 30);
+        visualizar.setBounds(50, 500, 200, 30);
+        visualizar.setFocusable(false);
+        visualizar.setBackground(new Color(50, 48, 48));
+        visualizar.setForeground(Color.white);
+        visualizar.setFont(new Font("Comic Sans", Font.BOLD, 10));
+        visualizar.setBorder(BorderFactory.createEtchedBorder());
         visualizar.addActionListener(this);
 
+        // ----------------------------- Botão deletar ------------------------------
         deletar = new JButton("Deletar"); // TODO: Adicionar icone
-        deletar.setBounds(250, 550, 200, 30);
+        deletar.setBounds(250, 500, 200, 30);
+        deletar.setFocusable(false);
+        deletar.setBackground(new Color(50, 48, 48));
+        deletar.setForeground(Color.white);
+        deletar.setFont(new Font("Comic Sans", Font.BOLD, 10));
+        deletar.setBorder(BorderFactory.createEtchedBorder());
         deletar.addActionListener(this);
 
+        add(dicaCanal);
         add(listaCanaisRolavel);
         add(visualizar);
         add(deletar);
-
     }
 
-    // Captura o canal da lista que foi selecionado e guarda seu index na variavel
-    // indexCanalSelecionado para uso no botao visualizar
-    @Override
-    public void valueChanged(ListSelectionEvent e) {
-        if (!e.getValueIsAdjusting()) {
-            Canal canalSelecionado = listaCanais.getSelectedValue();
-            indexCanalSelecionado = d.getCanais().indexOf(canalSelecionado);
-        }
-    }
-
-    // Quando clico no botao visualizar, cria um jdialog para exibir o cadastro do
-    // canal selecionado e ou atualizar esse cadastro
     @Override
     public void actionPerformed(ActionEvent e) {
         Object clicado = e.getSource();
         if (clicado == visualizar) {
             JDialog dialogoEdicao = new JDialog();
-            CriaCanal painelEdicao = new CriaCanal(d, indexCanalSelecionado);
+            CriaCanal painelEdicao = new CriaCanal(d, canalSelecionado);
             dialogoEdicao.add(painelEdicao);
             dialogoEdicao.setVisible(true);
             dialogoEdicao.setSize(800, 600);
         }
         if (clicado == deletar) {
-            d.getCanais().remove(indexCanalSelecionado);
+            d.deletarCanal(canalSelecionado);
             this.updateUI();
+        }
+        if (rbCanais.contains(clicado)) {
+            // Atribui a canalSelecionado o texto do ultimo botao radial marcado
+            canalSelecionado = e.getActionCommand(); 
         }
     }
 }
