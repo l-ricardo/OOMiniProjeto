@@ -15,10 +15,13 @@ import javax.swing.JTextField;
 
 import model.Dados;
 
+/**
+ * Cria a tela principal do app onde fica o menu e o conteiner que é modificado
+ * com o conteudo das outras telas.
+ */
 public class App extends JFrame implements ActionListener, FocusListener {
     Dados dados;
 
-    // Declarando componentes
     JButton bListarCanais, bCadastrarCanais;
     JButton bListarProgramas, bCadastrarProgramas;
     JButton bListarPessoas, bCadastrarPessoas;
@@ -26,6 +29,11 @@ public class App extends JFrame implements ActionListener, FocusListener {
     JPanel conteudo = new JPanel();
     JTextField filtroCanal, filtroPrograma, filtroPessoa;
 
+    /**
+     * Constroi um painel para com o menu principal.
+     * 
+     * @param d Base de dados
+     */
     App(Dados d) {
         dados = d;
 

@@ -21,6 +21,10 @@ import javax.swing.JScrollPane;
 import model.Canal;
 import model.Dados;
 
+/**
+ * Cria uma tela de conteúdo que estende de JPanel e faz uma listagem de canais
+ * cadastrados.
+ */
 public class TelaListaCanais extends JPanel implements ActionListener {
     Dados d;
     String canalSelecionado;
@@ -28,6 +32,11 @@ public class TelaListaCanais extends JPanel implements ActionListener {
     ArrayList<JRadioButton> rbCanais;
     JButton visualizar, deletar;
 
+    /**
+     * Constroi um painel para listagem de dados da Classe Canal.
+     * 
+     * @param dados Base de dados
+     */
     TelaListaCanais(Dados dados) {
         d = dados;
 
@@ -107,7 +116,7 @@ public class TelaListaCanais extends JPanel implements ActionListener {
         }
         if (rbCanais.contains(clicado)) {
             // Atribui a canalSelecionado o texto do ultimo botao radial marcado
-            canalSelecionado = e.getActionCommand(); 
+            canalSelecionado = e.getActionCommand();
         }
     }
 }

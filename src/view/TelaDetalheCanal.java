@@ -16,6 +16,10 @@ import model.Canal;
 import model.Dados;
 import model.Programa;
 
+/**
+ * Cria uma tela de conteúdo que estende de JPanel, com as funcionalidades de
+ * criação e edição de canais.
+ */
 public class TelaDetalheCanal extends JPanel implements ActionListener, FocusListener {
     Dados d;
     Canal canalDetalhado;
