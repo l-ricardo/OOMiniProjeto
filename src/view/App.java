@@ -7,7 +7,9 @@ import java.awt.event.FocusListener;
 import java.awt.event.FocusEvent;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -28,6 +30,9 @@ public class App extends JFrame implements ActionListener, FocusListener {
     JButton limparFiltros;
     JPanel conteudo = new JPanel();
     JTextField filtroCanal, filtroPrograma, filtroPessoa;
+    JCheckBox dom, seg, ter, qua, qui, sex, sab;
+    ImageIcon sIconOn, tIconOn, qIconOn, dIconOn;
+    ImageIcon sIconOff, tIconOff, qIconOff, dIconOff;
 
     /**
      * Constroi um painel para com o menu principal.
@@ -152,6 +157,47 @@ public class App extends JFrame implements ActionListener, FocusListener {
         limparFiltros.setBorder(BorderFactory.createEtchedBorder());
         limparFiltros.addActionListener(this);
 
+        sIconOn = new ImageIcon("assets/s_on.png");
+        tIconOn = new ImageIcon("assets/t_on.png");
+        qIconOn = new ImageIcon("assets/q_on.png");
+        dIconOn = new ImageIcon("assets/d_on.png");
+        sIconOff = new ImageIcon("assets/s_off.png");
+        tIconOff = new ImageIcon("assets/t_off.png");
+        qIconOff = new ImageIcon("assets/q_off.png");
+        dIconOff = new ImageIcon("assets/d_off.png");
+
+        dom = new JCheckBox(dIconOff);
+        seg = new JCheckBox(sIconOff);
+        ter = new JCheckBox(tIconOff);
+        qua = new JCheckBox(qIconOff);
+        qui = new JCheckBox(qIconOff);
+        sex = new JCheckBox(sIconOff);
+        sab = new JCheckBox(sIconOff);
+
+        dom.setSelectedIcon(dIconOn);
+        seg.setSelectedIcon(sIconOn);
+        ter.setSelectedIcon(tIconOn);
+        qua.setSelectedIcon(qIconOn);
+        qui.setSelectedIcon(qIconOn);
+        sex.setSelectedIcon(sIconOn);
+        sab.setSelectedIcon(sIconOn);
+
+        dom.setBackground(new Color(50, 48, 48));
+        seg.setBackground(new Color(50, 48, 48));
+        ter.setBackground(new Color(50, 48, 48));
+        qua.setBackground(new Color(50, 48, 48));
+        qui.setBackground(new Color(50, 48, 48));
+        sex.setBackground(new Color(50, 48, 48));
+        sab.setBackground(new Color(50, 48, 48));
+
+        dom.setBounds(952, 125, 25, 25);
+        seg.setBounds(980, 125, 25, 25);
+        ter.setBounds(1008, 125, 25, 25);
+        qua.setBounds(1036, 125, 25, 25);
+        qui.setBounds(1064, 125, 25, 25);
+        sex.setBounds(1092, 125, 25, 25);
+        sab.setBounds(1120, 125, 25, 25);
+
         // Adicionando componentes na tela
         cabecalho.add(filtroCanal);
         cabecalho.add(filtroPrograma);
@@ -165,6 +211,13 @@ public class App extends JFrame implements ActionListener, FocusListener {
         cabecalho.add(bCadastrarPessoas);
         cabecalho.add(dicaFiltragem);
         cabecalho.add(limparFiltros);
+        cabecalho.add(dom);
+        cabecalho.add(seg);
+        cabecalho.add(ter);
+        cabecalho.add(qua);
+        cabecalho.add(qui);
+        cabecalho.add(sex);
+        cabecalho.add(sab);
 
         this.add(cabecalho, BorderLayout.NORTH);
         this.setVisible(true);
@@ -190,6 +243,13 @@ public class App extends JFrame implements ActionListener, FocusListener {
             filtroCanal.setText("Insira o nome do canal...");
             filtroPrograma.setText("Insira o nome do programa...");
             filtroPessoa.setText("Insira o nome da pessoa...");
+            dom.setSelected(false);
+            seg.setSelected(false);
+            ter.setSelected(false);
+            qua.setSelected(false);
+            qui.setSelected(false);
+            sex.setSelected(false);
+            sab.setSelected(false);
             this.requestFocusInWindow();
         }
 
