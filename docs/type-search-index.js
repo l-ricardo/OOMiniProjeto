@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"model","l":"Artista"},{"p":"model","l":"Canal"},{"p":"model","l":"Dados"},{"p":"model","l":"Jornal"},{"p":"model","l":"NovelaFilmeSerie"},{"p":"model","l":"Personagem"},{"p":"model","l":"Pessoa"},{"p":"model","l":"Programa"},{"p":"model","l":"TalkShow"}];updateSearchResults();
