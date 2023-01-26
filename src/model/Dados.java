@@ -144,11 +144,35 @@ public class Dados {
                 canais.add(new Canal("l", 102));
                 canais.add(new Canal("m", 103));
                 canais.add(new Canal("n", 104));
+                canais.add(new Canal("n", 105));
+                canais.add(new Canal("n", 106));
         }
 
         // Gets e sets
         public ArrayList<Canal> getCanais() {
                 return canais;
+        }
+
+        /**
+         * Método que retorna uma lista de canais, filtrada por uma string, caso filtro
+         * seja null se comporta como um getCanais()
+         * 
+         * @param filtro string do nome do canal que se esta se buscando
+         * @return Retorna um ArrayList de Canais.
+         */
+        public ArrayList<Canal> getCanais(String filtro) {
+                if (filtro != null) {
+                        System.out.println("Estou filtrando para:" + filtro);
+                        ArrayList<Canal> canaisFiltrados = new ArrayList<>();
+                        for (Canal canal : canais) {
+                                if (canal.getNome().contains(filtro)) {
+                                        canaisFiltrados.add(canal);
+                                }
+                        }
+                        return canaisFiltrados;
+                }
+                return canais;
+
         }
 
         public void setCanais(ArrayList<Canal> canais) {

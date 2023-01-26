@@ -231,13 +231,28 @@ public class App extends JFrame implements ActionListener, FocusListener {
             conteudo.setVisible(false);
         }
         if (clicado == bListarCanais) {
-            conteudo = new TelaListaCanais(dados);
+            System.out.println(filtroCanal.getText());
+            if (!filtroCanal.getText().contains("Insira o nome do canal...") ) {
+                conteudo = new TelaListaCanais(dados, filtroCanal.getText());
+            } else {
+                conteudo = new TelaListaCanais(dados, null);
+            }
         }
         if (clicado == bCadastrarCanais) {
             conteudo = new TelaDetalheCanal(dados);
         }
         if (clicado == bListarProgramas) {
-            // conteudo = new contWIP(dados);
+            // Tela lista programa com filtro de dia e canal
+            if ((filtroCanal.getText() != "Insira o nome do canal...") &&
+                    (dom.isSelected() || seg.isSelected() || ter.isSelected()
+                            || qua.isSelected() || qui.isSelected() || sex.isSelected()
+                            || sab.isSelected())) {
+
+                // conteudo = new TelaDetalhePrograma(dados, filtro);
+            } else {
+                // Tela lista programa sem filtro
+                // conteudo = new TelaDetalhePrograma(dados);
+            }
         }
         if (clicado == limparFiltros) {
             filtroCanal.setText("Insira o nome do canal...");

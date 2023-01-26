@@ -37,7 +37,7 @@ public class TelaListaCanais extends JPanel implements ActionListener {
      * 
      * @param dados Base de dados
      */
-    TelaListaCanais(Dados dados) {
+    TelaListaCanais(Dados dados,String filtro) {
         d = dados;
 
         this.setLayout(null);
@@ -55,7 +55,7 @@ public class TelaListaCanais extends JPanel implements ActionListener {
         listaCanais.setLayout(new BoxLayout(listaCanais, BoxLayout.Y_AXIS));
         listaCanais.setBackground(new Color(50, 48, 48));
 
-        for (Canal canal : d.getCanais()) {
+        for (Canal canal : d.getCanais(filtro)) {
             JRadioButton rb = new JRadioButton(canal.getNome());
             rb.setFocusable(false);
             rb.setFont(new Font("Times New Roman", Font.PLAIN, 16));
