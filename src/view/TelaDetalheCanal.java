@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -198,7 +197,6 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
                 caixaNumero.setEditable(false);
                 // TODO: Talvez remover a função de desabilitar o botao em favor de um lablel
                 // TODO: com feefback "O canal está atualizado"
-
                 // TODO: Fechar o Jdialog aqui
             }
         }
