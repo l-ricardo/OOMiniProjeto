@@ -7,10 +7,15 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusListener;
-import java.awt.event.FocusEvent;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import model.Canal;
 import model.Dados;
@@ -20,12 +25,12 @@ import model.Programa;
  * Cria uma tela de conteúdo que estende de JPanel, com as funcionalidades de
  * criação e edição de canais.
  */
-public class TelaDetalheCanal extends JPanel implements ActionListener, FocusListener {
+public class TelaDetalheCanal extends JPanel implements ActionListener {
     Dados d;
     Canal canalDetalhado;
 
-    JTextField caixaNome, caixaNumero;
-    JButton salvar, atualizar;
+    CampoDados caixaNome, caixaNumero;
+    BotaoPequeno salvar, atualizar;
     JList<JCheckBox> listaProgramas;
     ArrayList<JCheckBox> cbProgramas;
 
@@ -35,7 +40,7 @@ public class TelaDetalheCanal extends JPanel implements ActionListener, FocusLis
      * @param dados Base de dados
      */
     public TelaDetalheCanal(Dados dados) {
-        d = dados;
+        this.d = dados;
 
         this.setLayout(null);
         this.setPreferredSize(new Dimension(1200, 600));
@@ -44,32 +49,19 @@ public class TelaDetalheCanal extends JPanel implements ActionListener, FocusLis
         // --------------------------- Componentes nome ---------------------------
         JLabel dicaNome = new JLabel("Nome:");
         dicaNome.setBounds(50, 70, 300, 30);
-        caixaNome = new JTextField("Insira aqui o nome do canal...");
-        caixaNome.setBounds(50, 100, 300, 30);
-        caixaNome.setFont(new Font("Times New Roman", Font.PLAIN, 16));
-        caixaNome.setBackground(new Color(50, 48, 48));
-        caixaNome.setBorder(BorderFactory.createEtchedBorder());
-        caixaNome.setForeground(Color.white);
-        caixaNome.setCaretColor(Color.white);
-        caixaNome.addFocusListener(this);
+        caixaNome = new CampoDados("Insira aqui o nome do canal...", 50, 100);
 
         // -------------------------- Componentes número --------------------------
         JLabel dicaNumero = new JLabel("Número:");
         dicaNumero.setBounds(50, 170, 300, 30);
-        caixaNumero = new JTextField("Insira aqui o número do canal...");
-        caixaNumero.setBounds(50, 200, 300, 30);
-        caixaNumero.setFont(new Font("Times New Roman", Font.PLAIN, 16));
-        caixaNumero.setBackground(new Color(50, 48, 48));
-        caixaNumero.setBorder(BorderFactory.createEtchedBorder());
-        caixaNumero.setForeground(Color.white);
-        caixaNumero.setCaretColor(Color.white);
-        caixaNumero.addFocusListener(this);
+        caixaNumero = new CampoDados("Insira aqui o número do canal...", 50, 200);
 
         // -------------------------- Componentes programa---------------------------
         JLabel dicaPrograma = new JLabel("Programação:");
         dicaPrograma.setBounds(400, 70, 300, 30);
 
         cbProgramas = new ArrayList<>(); // Inicializa array de checkboxes
+        // TODO: Fazer metodos para retornar todos os programas juntos
         for (Programa programa : d.getProgramaTipoJornal()) {
             JCheckBox cb = new JCheckBox(programa.toString());
             cb.setFocusable(false);
@@ -108,22 +100,17 @@ public class TelaDetalheCanal extends JPanel implements ActionListener, FocusLis
         listaProgramasRolavel.setBackground(new Color(50, 48, 48));
 
         // ----------------------------- Botão salvar ------------------------------
-        salvar = new JButton("Salvar"); // TODO: Adicionar icone
-        salvar.setBounds(50, 370, 150, 30);
-        salvar.setFocusable(false);
-        salvar.setBackground(new Color(50, 48, 48));
-        salvar.setForeground(Color.white);
-        salvar.setFont(new Font("Comic Sans", Font.BOLD, 10));
-        salvar.setBorder(BorderFactory.createEtchedBorder());
+        salvar = new BotaoPequeno("Salvar", 50, 370);
         salvar.addActionListener(this);
+        // -------------------------------------------------------------------------
 
-        add(dicaNome);
-        add(caixaNome);
-        add(dicaNumero);
-        add(caixaNumero);
-        add(dicaPrograma);
-        add(listaProgramasRolavel);
-        add(salvar);
+        this.add(dicaNome);
+        this.add(caixaNome);
+        this.add(dicaNumero);
+        this.add(caixaNumero);
+        this.add(dicaPrograma);
+        this.add(listaProgramasRolavel);
+        this.add(salvar);
     }
 
     /**
@@ -133,33 +120,29 @@ public class TelaDetalheCanal extends JPanel implements ActionListener, FocusLis
      * @param nome  Nome do canal a ser editado/atualizado
      */
     public TelaDetalheCanal(Dados dados, String nome) {
-        // Constroi o Jpanel sem o botão salvar
         this(dados);
-        salvar.setVisible(false);
 
-        canalDetalhado = d.acharCanal(nome);
+        // Encontra o canal que se quer visualizar
+        this.canalDetalhado = d.acharCanal(nome);
 
         // Preenche os campos com os dados do canal
         caixaNome.setText(canalDetalhado.getNome());
         caixaNumero.setText(String.valueOf(canalDetalhado.getNumero()));
-
         for (JCheckBox cb : cbProgramas) {
             if (canalDetalhado.existePrograma(cb.getText())) {
                 cb.setSelected(true);
             }
         }
 
-        // ----------------------------- Botão atualizar ------------------------------
-        atualizar = new JButton("Atualizar"); // TODO: Adicionar icone
-        atualizar.setBounds(50, 370, 150, 30);
-        atualizar.setFocusable(false);
-        atualizar.setBackground(new Color(50, 48, 48));
-        atualizar.setForeground(Color.white);
-        atualizar.setFont(new Font("Comic Sans", Font.BOLD, 10));
-        atualizar.setBorder(BorderFactory.createEtchedBorder());
-        atualizar.addActionListener(this);
+        // Esconde o botão salvar que foi criado pelo this(dados)
+        salvar.setVisible(false);
 
-        add(atualizar);
+        // --------------------------- Botão atualizar ----------------------------
+        atualizar = new BotaoPequeno("Atualizar", 50, 370);
+        atualizar.addActionListener(this);
+        // -------------------------------------------------------------------------
+
+        this.add(atualizar);
         this.updateUI();
     }
 
@@ -230,27 +213,4 @@ public class TelaDetalheCanal extends JPanel implements ActionListener, FocusLis
         }
     }
 
-    @Override
-    public void focusGained(FocusEvent e) {
-        Object focado = e.getSource();
-
-        if (focado == caixaNome && caixaNome.getText().equals("Insira aqui o nome do canal...")) {
-            caixaNome.setText("");
-        }
-        if (focado == caixaNumero && caixaNumero.getText().equals("Insira aqui o número do canal...")) {
-            caixaNumero.setText("");
-        }
-    }
-
-    @Override
-    public void focusLost(FocusEvent e) {
-        Object focado = e.getSource();
-
-        if (focado == caixaNome && caixaNome.getText().isEmpty()) {
-            caixaNome.setText("Insira aqui o nome do canal...");
-        }
-        if (focado == caixaNumero && caixaNumero.getText().isEmpty()) {
-            caixaNumero.setText("Insira aqui o número do canal...");
-        }
-    }
 }

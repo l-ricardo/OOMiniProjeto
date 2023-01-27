@@ -11,7 +11,6 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
-import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -30,21 +29,21 @@ public class TelaListaCanais extends JPanel implements ActionListener {
     String canalSelecionado;
 
     ArrayList<JRadioButton> rbCanais;
-    JButton visualizar, deletar;
+    BotaoPequeno visualizar, deletar;
 
     /**
      * Constroi um painel para listagem de dados da Classe Canal.
      * 
      * @param dados Base de dados
      */
-    TelaListaCanais(Dados dados, String filtro) {
+    public TelaListaCanais(Dados dados, String filtro) {
         d = dados;
 
         this.setLayout(null);
         this.setPreferredSize(new Dimension(1200, 600));
         this.setBackground(new Color(126, 121, 121));
 
-        // -------------------------- Componentes canal---------------------------
+        // -------------------------- Componentes canal ---------------------------
         JLabel dicaCanal = new JLabel("Canais:");
         dicaCanal.setBounds(50, 20, 300, 30);
 
@@ -75,24 +74,13 @@ public class TelaListaCanais extends JPanel implements ActionListener {
         listaCanaisRolavel.setBackground(new Color(50, 48, 48));
 
         // --------------------------- Botão visualizar ----------------------------
-        visualizar = new JButton("Visualizar"); // TODO: Adicionar icone
-        visualizar.setBounds(50, 500, 200, 30);
-        visualizar.setFocusable(false);
-        visualizar.setBackground(new Color(50, 48, 48));
-        visualizar.setForeground(Color.white);
-        visualizar.setFont(new Font("Comic Sans", Font.BOLD, 10));
-        visualizar.setBorder(BorderFactory.createEtchedBorder());
+        visualizar = new BotaoPequeno("Visualizar", 50, 500);
         visualizar.addActionListener(this);
 
-        // ----------------------------- Botão deletar ------------------------------
-        deletar = new JButton("Deletar"); // TODO: Adicionar icone
-        deletar.setBounds(250, 500, 200, 30);
-        deletar.setFocusable(false);
-        deletar.setBackground(new Color(50, 48, 48));
-        deletar.setForeground(Color.white);
-        deletar.setFont(new Font("Comic Sans", Font.BOLD, 10));
-        deletar.setBorder(BorderFactory.createEtchedBorder());
+        // ---------------------------- Botão deletar -----------------------------
+        deletar = new BotaoPequeno("Deletar", 250, 500);
         deletar.addActionListener(this);
+        // -------------------------------------------------------------------------
 
         add(dicaCanal);
         add(listaCanaisRolavel);

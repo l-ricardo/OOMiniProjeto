@@ -6,14 +6,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusListener;
 import java.awt.event.FocusEvent;
 
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 import model.Dados;
 
@@ -24,12 +21,12 @@ import model.Dados;
 public class App extends JFrame implements ActionListener, FocusListener {
     Dados dados;
 
-    JButton bListarCanais, bCadastrarCanais;
-    JButton bListarProgramas, bCadastrarProgramas;
-    JButton bListarPessoas, bCadastrarPessoas;
-    JButton limparFiltros;
+    BotaoGrande bListarCanais, bCadastrarCanais;
+    BotaoGrande bListarProgramas, bCadastrarProgramas;
+    BotaoGrande bListarPessoas, bCadastrarPessoas;
+    BotaoGrande limparFiltros;
     JPanel conteudo = new JPanel();
-    JTextField filtroCanal, filtroPrograma, filtroPessoa;
+    CampoFiltragem filtroCanal, filtroPrograma, filtroPessoa;
     JCheckBox dom, seg, ter, qua, qui, sex, sab;
     ImageIcon sIconOn, tIconOn, qIconOn, dIconOn;
     ImageIcon sIconOff, tIconOff, qIconOff, dIconOff;
@@ -50,6 +47,7 @@ public class App extends JFrame implements ActionListener, FocusListener {
         this.setResizable(false);
         this.getContentPane().setBackground(new Color(50, 48, 48));
 
+        // Criando um painel com o cabecalho
         JPanel cabecalho = new JPanel();
         cabecalho.setPreferredSize(new Dimension(1200, 200));
         cabecalho.setLayout(null);
@@ -61,59 +59,19 @@ public class App extends JFrame implements ActionListener, FocusListener {
         titulo.setBounds(50, 0, 200, 200);
         titulo.setFont(new Font("Times New Roman", Font.BOLD, 50));
 
-        // ------------------------- Componentes controle -------------------------
-        bListarCanais = new JButton("Listar Canais");
-        bListarCanais.setBounds(300, 50, 200, 50);
-        bListarCanais.setFocusable(false);
-        bListarCanais.setBackground(new Color(126, 121, 121));
-        bListarCanais.setForeground(new Color(38, 38, 38));
-        bListarCanais.setFont(new Font("Comic Sans", Font.BOLD, 14));
-        bListarCanais.setBorder(BorderFactory.createEtchedBorder());
+        // ------------------------- Componentes menu -------------------------
+        bListarCanais = new BotaoGrande("Listar Canais", 300, 50);
+        bCadastrarCanais = new BotaoGrande("Listar Canais", 300, 100);
+        bListarProgramas = new BotaoGrande("Listar Canais", 500, 50);
+        bCadastrarProgramas = new BotaoGrande("Listar Canais", 500, 100);
+        bListarPessoas = new BotaoGrande("Listar Canais", 700, 50);
+        bCadastrarPessoas = new BotaoGrande("Listar Canais", 700, 100);
+
         bListarCanais.addActionListener(this);
-
-        bCadastrarCanais = new JButton("Cadastrar Canal");
-        bCadastrarCanais.setBounds(300, 100, 200, 50);
-        bCadastrarCanais.setFocusable(false);
-        bCadastrarCanais.setBackground(new Color(126, 121, 121));
-        bCadastrarCanais.setForeground(new Color(38, 38, 38));
-        bCadastrarCanais.setFont(new Font("Comic Sans", Font.BOLD, 14));
-        bCadastrarCanais.setBorder(BorderFactory.createEtchedBorder());
         bCadastrarCanais.addActionListener(this);
-
-        bListarProgramas = new JButton("Listar Programas");
-        bListarProgramas.setBounds(500, 50, 200, 50);
-        bListarProgramas.setFocusable(false);
-        bListarProgramas.setBackground(new Color(126, 121, 121));
-        bListarProgramas.setForeground(new Color(38, 38, 38));
-        bListarProgramas.setFont(new Font("Comic Sans", Font.BOLD, 14));
-        bListarProgramas.setBorder(BorderFactory.createEtchedBorder());
         bListarProgramas.addActionListener(this);
-
-        bCadastrarProgramas = new JButton("Cadastrar Programas");
-        bCadastrarProgramas.setBounds(500, 100, 200, 50);
-        bCadastrarProgramas.setFocusable(false);
-        bCadastrarProgramas.setBackground(new Color(126, 121, 121));
-        bCadastrarProgramas.setForeground(new Color(38, 38, 38));
-        bCadastrarProgramas.setFont(new Font("Comic Sans", Font.BOLD, 14));
-        bCadastrarProgramas.setBorder(BorderFactory.createEtchedBorder());
         bCadastrarProgramas.addActionListener(this);
-
-        bListarPessoas = new JButton("Listar Pessoas");
-        bListarPessoas.setBounds(700, 50, 200, 50);
-        bListarPessoas.setFocusable(false);
-        bListarPessoas.setBackground(new Color(126, 121, 121));
-        bListarPessoas.setForeground(new Color(38, 38, 38));
-        bListarPessoas.setFont(new Font("Comic Sans", Font.BOLD, 14));
-        bListarPessoas.setBorder(BorderFactory.createEtchedBorder());
         bListarPessoas.addActionListener(this);
-
-        bCadastrarPessoas = new JButton("Cadastrar Pessoas");
-        bCadastrarPessoas.setBounds(700, 100, 200, 50);
-        bCadastrarPessoas.setFocusable(false);
-        bCadastrarPessoas.setBackground(new Color(126, 121, 121));
-        bCadastrarPessoas.setForeground(new Color(38, 38, 38));
-        bCadastrarPessoas.setFont(new Font("Comic Sans", Font.BOLD, 14));
-        bCadastrarPessoas.setBorder(BorderFactory.createEtchedBorder());
         bCadastrarPessoas.addActionListener(this);
 
         // ------------------------- Componentes filtragem -------------------------
@@ -121,40 +79,16 @@ public class App extends JFrame implements ActionListener, FocusListener {
         dicaFiltragem.setBounds(950, 20, 300, 30);
         dicaFiltragem.setForeground(Color.white);
 
-        filtroCanal = new JTextField("Insira o nome do canal...");
-        filtroCanal.setBounds(950, 50, 200, 25);
-        filtroCanal.setFont(new Font("Times New Roman", Font.PLAIN, 16));
-        filtroCanal.setBackground(new Color(126, 121, 121));
-        filtroCanal.setBorder(BorderFactory.createEtchedBorder());
-        filtroCanal.setForeground(new Color(38, 38, 38));
-        filtroCanal.setCaretColor(Color.white);
+        filtroCanal = new CampoFiltragem("Insira o nome do canal...", 950, 50);
+        filtroPrograma = new CampoFiltragem("Insira o nome do programa...", 950, 75);
+        filtroPessoa = new CampoFiltragem("Insira o nome da pessoa...", 950, 100);
+
         filtroCanal.addFocusListener(this);
-
-        filtroPrograma = new JTextField("Insira o nome do programa...");
-        filtroPrograma.setBounds(950, 75, 200, 25);
-        filtroPrograma.setFont(new Font("Times New Roman", Font.PLAIN, 16));
-        filtroPrograma.setBackground(new Color(126, 121, 121));
-        filtroPrograma.setBorder(BorderFactory.createEtchedBorder());
-        filtroPrograma.setForeground(new Color(38, 38, 38));
-        filtroPrograma.setCaretColor(Color.white);
         filtroPrograma.addFocusListener(this);
-
-        filtroPessoa = new JTextField("Insira o nome da pessoa...");
-        filtroPessoa.setBounds(950, 100, 200, 25);
-        filtroPessoa.setFont(new Font("Times New Roman", Font.PLAIN, 16));
-        filtroPessoa.setBackground(new Color(126, 121, 121));
-        filtroPessoa.setBorder(BorderFactory.createEtchedBorder());
-        filtroPessoa.setForeground(new Color(38, 38, 38));
-        filtroPessoa.setCaretColor(Color.white);
         filtroPessoa.addFocusListener(this);
 
-        limparFiltros = new JButton("x");
-        limparFiltros.setBounds(1125, 25, 25, 25);
-        limparFiltros.setFocusable(false);
-        limparFiltros.setBackground(new Color(126, 121, 121));
-        limparFiltros.setForeground(new Color(38, 38, 38));
-        limparFiltros.setFont(new Font("Comic Sans", Font.BOLD, 20));
-        limparFiltros.setBorder(BorderFactory.createEtchedBorder());
+        limparFiltros = new BotaoGrande("x", 1125, 25);
+        limparFiltros.setSize(25, 25);
         limparFiltros.addActionListener(this);
 
         sIconOn = new ImageIcon("assets/s_on.png");
@@ -231,8 +165,7 @@ public class App extends JFrame implements ActionListener, FocusListener {
             conteudo.setVisible(false);
         }
         if (clicado == bListarCanais) {
-            System.out.println(filtroCanal.getText());
-            if (!filtroCanal.getText().contains("Insira o nome do canal...") ) {
+            if (!filtroCanal.getText().contains("Insira o nome do canal...")) {
                 conteudo = new TelaListaCanais(dados, filtroCanal.getText());
             } else {
                 conteudo = new TelaListaCanais(dados, null);
