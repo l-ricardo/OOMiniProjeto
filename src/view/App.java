@@ -1,10 +1,11 @@
 package view;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusListener;
-import java.awt.event.FocusEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
@@ -18,26 +19,24 @@ import model.Dados;
  * Cria a tela principal do app onde fica o menu e o conteiner que é modificado
  * com o conteudo das outras telas.
  */
-public class App extends JFrame implements ActionListener, FocusListener {
-    Dados dados;
+public class App extends JFrame implements ActionListener {
+    Dados d;
 
+    JPanel conteudo = new JPanel();
     BotaoGrande bListarCanais, bCadastrarCanais;
     BotaoGrande bListarProgramas, bCadastrarProgramas;
     BotaoGrande bListarPessoas, bCadastrarPessoas;
     BotaoGrande limparFiltros;
-    JPanel conteudo = new JPanel();
     CampoFiltragem filtroCanal, filtroPrograma, filtroPessoa;
     JCheckBox dom, seg, ter, qua, qui, sex, sab;
-    ImageIcon sIconOn, tIconOn, qIconOn, dIconOn;
-    ImageIcon sIconOff, tIconOff, qIconOff, dIconOff;
 
     /**
      * Constroi um painel para com o menu principal.
      * 
-     * @param d Base de dados
+     * @param dados Base de dados
      */
-    App(Dados d) {
-        dados = d;
+    public App(Dados dados) {
+        this.d = dados;
 
         // Configurando janela
         this.setTitle("TeleGUIAdo");
@@ -53,13 +52,13 @@ public class App extends JFrame implements ActionListener, FocusListener {
         cabecalho.setLayout(null);
         cabecalho.setBackground(new Color(50, 48, 48));
 
-        // Colocando titulo
+        // -------------------------- Compontente titulo --------------------------
         JLabel titulo = new JLabel("<html><pre>Tele\n  GUIA\n do</pre></html>");
         titulo.setForeground(Color.white);
         titulo.setBounds(50, 0, 200, 200);
         titulo.setFont(new Font("Times New Roman", Font.BOLD, 50));
 
-        // ------------------------- Componentes menu -------------------------
+        // --------------------------- Componentes menu ---------------------------
         bListarCanais = new BotaoGrande("Listar Canais", 300, 50);
         bCadastrarCanais = new BotaoGrande("Listar Canais", 300, 100);
         bListarProgramas = new BotaoGrande("Listar Canais", 500, 50);
@@ -83,22 +82,18 @@ public class App extends JFrame implements ActionListener, FocusListener {
         filtroPrograma = new CampoFiltragem("Insira o nome do programa...", 950, 75);
         filtroPessoa = new CampoFiltragem("Insira o nome da pessoa...", 950, 100);
 
-        filtroCanal.addFocusListener(this);
-        filtroPrograma.addFocusListener(this);
-        filtroPessoa.addFocusListener(this);
-
         limparFiltros = new BotaoGrande("x", 1125, 25);
         limparFiltros.setSize(25, 25);
         limparFiltros.addActionListener(this);
 
-        sIconOn = new ImageIcon("assets/s_on.png");
-        tIconOn = new ImageIcon("assets/t_on.png");
-        qIconOn = new ImageIcon("assets/q_on.png");
-        dIconOn = new ImageIcon("assets/d_on.png");
-        sIconOff = new ImageIcon("assets/s_off.png");
-        tIconOff = new ImageIcon("assets/t_off.png");
-        qIconOff = new ImageIcon("assets/q_off.png");
-        dIconOff = new ImageIcon("assets/d_off.png");
+        ImageIcon sIconOn = new ImageIcon("assets/s_on.png");
+        ImageIcon tIconOn = new ImageIcon("assets/t_on.png");
+        ImageIcon qIconOn = new ImageIcon("assets/q_on.png");
+        ImageIcon dIconOn = new ImageIcon("assets/d_on.png");
+        ImageIcon sIconOff = new ImageIcon("assets/s_off.png");
+        ImageIcon tIconOff = new ImageIcon("assets/t_off.png");
+        ImageIcon qIconOff = new ImageIcon("assets/q_off.png");
+        ImageIcon dIconOff = new ImageIcon("assets/d_off.png");
 
         dom = new JCheckBox(dIconOff);
         seg = new JCheckBox(sIconOff);
@@ -131,6 +126,7 @@ public class App extends JFrame implements ActionListener, FocusListener {
         qui.setBounds(1064, 125, 25, 25);
         sex.setBounds(1092, 125, 25, 25);
         sab.setBounds(1120, 125, 25, 25);
+        // -------------------------------------------------------------------------
 
         // Adicionando componentes na tela
         cabecalho.add(filtroCanal);
@@ -166,26 +162,26 @@ public class App extends JFrame implements ActionListener, FocusListener {
         }
         if (clicado == bListarCanais) {
             if (!filtroCanal.getText().contains("Insira o nome do canal...")) {
-                conteudo = new TelaListaCanais(dados, filtroCanal.getText());
+                conteudo = new TelaListaCanais(d, filtroCanal.getText());
             } else {
-                conteudo = new TelaListaCanais(dados, null);
+                conteudo = new TelaListaCanais(d, null);
             }
         }
         if (clicado == bCadastrarCanais) {
-            conteudo = new TelaDetalheCanal(dados);
+            conteudo = new TelaDetalheCanal(d);
         }
-        if (clicado == bListarProgramas) {
+        if (clicado == bListarProgramas) { // TODO: WIP
             // Tela lista programa com filtro de dia e canal
-            if ((filtroCanal.getText() != "Insira o nome do canal...") &&
-                    (dom.isSelected() || seg.isSelected() || ter.isSelected()
-                            || qua.isSelected() || qui.isSelected() || sex.isSelected()
-                            || sab.isSelected())) {
+            // if ((filtroCanal.getText() != "Insira o nome do canal...") &&
+            // (dom.isSelected() || seg.isSelected() || ter.isSelected()
+            // || qua.isSelected() || qui.isSelected() || sex.isSelected()
+            // || sab.isSelected())) {
 
-                // conteudo = new TelaDetalhePrograma(dados, filtro);
-            } else {
-                // Tela lista programa sem filtro
-                // conteudo = new TelaDetalhePrograma(dados);
-            }
+            // // conteudo = new TelaDetalhePrograma(dados, filtro);
+            // } else {
+            // // Tela lista programa sem filtro
+            // // conteudo = new TelaDetalhePrograma(dados);
+            // }
         }
         if (clicado == limparFiltros) {
             filtroCanal.setText("Insira o nome do canal...");
@@ -205,43 +201,11 @@ public class App extends JFrame implements ActionListener, FocusListener {
         conteudo.updateUI();
     }
 
-    @Override
-    public void focusGained(FocusEvent e) {
-        Object focado = e.getSource();
-
-        if (focado == filtroCanal
-                && filtroCanal.getText().equals("Insira o nome do canal...")) {
-            filtroCanal.setText("");
-        }
-        if (focado == filtroPrograma
-                && filtroPrograma.getText().equals("Insira o nome do programa...")) {
-            filtroPrograma.setText("");
-        }
-        if (focado == filtroPessoa
-                && filtroPessoa.getText().equals("Insira o nome da pessoa...")) {
-            filtroPessoa.setText("");
-        }
-    }
-
-    @Override
-    public void focusLost(FocusEvent e) {
-        Object focado = e.getSource();
-
-        if (focado == filtroCanal && filtroCanal.getText().isEmpty()) {
-            filtroCanal.setText("Insira o nome do canal...");
-        }
-        if (focado == filtroPrograma && filtroPrograma.getText().isEmpty()) {
-            filtroPrograma.setText("Insira o nome do programa...");
-        }
-        if (focado == filtroPessoa && filtroPessoa.getText().isEmpty()) {
-            filtroPessoa.setText("Insira o nome da pessoa...");
-        }
-    }
-
     public static void main(String[] args) {
         Dados d = new Dados();
         new App(d);
         // TODO: Atualizar diagramas de classes e pacotes (Herança abstrata pontilhado)
         // TODO: Criar UniTests
+        // TODO: Otimizar todos os Override se actionPerformed
     }
 }

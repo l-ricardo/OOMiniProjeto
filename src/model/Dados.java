@@ -160,9 +160,8 @@ public class Dados {
          * @param filtro string do nome do canal que se esta se buscando
          * @return Retorna um ArrayList de Canais.
          */
-        public ArrayList<Canal> getCanais(String filtro) {
+        public ArrayList<Canal> getCanais(String filtro) { // TODO: Otimizar esse metodo
                 if (filtro != null) {
-                        System.out.println("Estou filtrando para:" + filtro);
                         ArrayList<Canal> canaisFiltrados = new ArrayList<>();
                         for (Canal canal : canais) {
                                 if (canal.getNome().contains(filtro)) {

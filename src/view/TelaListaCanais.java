@@ -37,8 +37,9 @@ public class TelaListaCanais extends JPanel implements ActionListener {
      * @param dados Base de dados
      */
     public TelaListaCanais(Dados dados, String filtro) {
-        d = dados;
+        this.d = dados;
 
+        // Configurando painel
         this.setLayout(null);
         this.setPreferredSize(new Dimension(1200, 600));
         this.setBackground(new Color(126, 121, 121));
@@ -81,11 +82,12 @@ public class TelaListaCanais extends JPanel implements ActionListener {
         deletar = new BotaoPequeno("Deletar", 250, 500);
         deletar.addActionListener(this);
         // -------------------------------------------------------------------------
-
-        add(dicaCanal);
-        add(listaCanaisRolavel);
-        add(visualizar);
-        add(deletar);
+        
+        // Adicionando componentes na tela
+        this.add(dicaCanal);
+        this.add(listaCanaisRolavel);
+        this.add(visualizar);
+        this.add(deletar);
     }
 
     @Override

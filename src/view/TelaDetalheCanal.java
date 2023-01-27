@@ -41,7 +41,8 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
      */
     public TelaDetalheCanal(Dados dados) {
         this.d = dados;
-
+        
+        // Configurando painel
         this.setLayout(null);
         this.setPreferredSize(new Dimension(1200, 600));
         this.setBackground(new Color(126, 121, 121));
@@ -103,7 +104,8 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
         salvar = new BotaoPequeno("Salvar", 50, 370);
         salvar.addActionListener(this);
         // -------------------------------------------------------------------------
-
+        
+        // Adicionando componentes ao painel
         this.add(dicaNome);
         this.add(caixaNome);
         this.add(dicaNumero);
@@ -141,7 +143,8 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
         atualizar = new BotaoPequeno("Atualizar", 50, 370);
         atualizar.addActionListener(this);
         // -------------------------------------------------------------------------
-
+        
+        // Adicionando componente ao painel
         this.add(atualizar);
         this.updateUI();
     }
