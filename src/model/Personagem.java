@@ -3,8 +3,6 @@ package model;
 /**
  * Uma classe que estende de pessoa e representa uma pessoa ficticia de um
  * programa de entreterimento que pode ou não ser protagonista de dado show.
- * 
- * @see Pessoa
  */
 public class Personagem extends Pessoa {
     private Pessoa ator;

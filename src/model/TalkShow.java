@@ -7,9 +7,6 @@ import java.util.ArrayList;
  * TalkShow, programa de entreterimento ou auditorio onde se tem opcionalmente
  * mas não obrigatorimente pessoas o fazendo como apresentadores, banda ou
  * musicos e convidados.
- * 
- * @see Programa
- * 
  */
 public class TalkShow extends Programa {
     private ArrayList<Artista> apresentadores = new ArrayList<>();

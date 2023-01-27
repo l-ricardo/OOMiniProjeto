@@ -5,8 +5,6 @@ import java.util.ArrayList;
 /**
  * Uma classe que estende programa e que pode representar qualquer tipo de
  * jornal ou noticiario.
- * 
- * @see Programa
  */
 public class Jornal extends Programa {
     private ArrayList<Artista> ancoras;

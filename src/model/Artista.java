@@ -4,8 +4,6 @@ package model;
  * Uma classe que estende de pessoa e representa uma pessoa real que tem algum
  * grau de notoriedade por fazer parte de programs de tv, como por exemplo:
  * Humoristas, Jornalistas, Entrevistadores, Atores, Dubladores, Músicos, etc...
- * 
- * @see Pessoa
  */
 public class Artista extends Pessoa {
     private String tipo; // Ex: Humorista, Jornalista, Entrevistador, etc...
