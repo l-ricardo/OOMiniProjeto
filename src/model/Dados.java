@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Arrays;
 
 public class Dados {
@@ -150,6 +151,7 @@ public class Dados {
 
         // Gets e sets
         public ArrayList<Canal> getCanais() {
+                Collections.sort(canais); // Ordena alfabeticamente pelo nome
                 return canais;
         }
 
@@ -168,8 +170,10 @@ public class Dados {
                                         canaisFiltrados.add(canal);
                                 }
                         }
-                        return canaisFiltrados;
+                        Collections.sort(canaisFiltrados);
+                        return canaisFiltrados; // Ordena alfabeticamente pelo nome
                 }
+                Collections.sort(canais); // Ordena alfabeticamente pelo nome
                 return canais;
         }
 
@@ -227,7 +231,7 @@ public class Dados {
 
         // -------------------------- Metodos auxiliares ----------------------------
         /**
-         * Encontra um objeto programa no "banco de dados" d, atraves de seu nome
+         * Encontra um objeto programa no "banco de dados" d, atraves de seu nome.
          * 
          * @param nome Nome do programa
          * @return O programa cujo nome é o mesmo do parametro nome
@@ -253,7 +257,7 @@ public class Dados {
         }
 
         /**
-         * Encontra um objeto canal no "banco de dados" d, atraves de seu nome
+         * Encontra um objeto canal no "banco de dados" d, atraves de seu nome.
          * 
          * @param nome Nome do canal
          * @return O canal cujo nome é o mesmo do parametro nome
@@ -269,7 +273,7 @@ public class Dados {
         }
 
         /**
-         * Deleta um canal desse "banco de dados" d, atraves de seu nome
+         * Deleta um canal desse "banco de dados" d, atraves de seu nome.
          * 
          * @param nome Nome do canal
          */
@@ -280,5 +284,35 @@ public class Dados {
                                 return;
                         }
                 }
+        }
+
+        /**
+         * Junta todos os diferentes tipos de programas em um mesmo array e
+         * os coloca em ordem alfabetica.
+         * 
+         * @return Um ArrayList com todos os programas em ordem alfabetica
+         */
+        public ArrayList<Programa> getTodosProgramas() {
+                ArrayList<Programa> todosProgramas = new ArrayList<Programa>();
+                todosProgramas.addAll(programaTipoJornal);
+                todosProgramas.addAll(programaTipoNovelaFilmeSerie);
+                todosProgramas.addAll(programaTipoTalkShow);
+                Collections.sort(todosProgramas); // Ordena alfabeticamente pelo nome
+                return todosProgramas;
+        }
+
+        /**
+         * Junta todos os diferentes tipos de pessoas em um mesmo array e
+         * as coloca em ordem alfabetica.
+         * 
+         * @return Um ArrayList com todas as pessoas em ordem alfabetica
+         */
+        public ArrayList<Pessoa> getTodasPessoas() {
+                ArrayList<Pessoa> todasPessoas = new ArrayList<Pessoa>();
+                todasPessoas.addAll(pessoas);
+                todasPessoas.addAll(personagens);
+                todasPessoas.addAll(artistas);
+                Collections.sort(todasPessoas); // Ordena alfabeticamente pelo nome
+                return todasPessoas;
         }
 }

@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Classe que representa um canal de televisão.
  */
-public class Canal {
+public class Canal implements Comparable<Canal> {
     private String nome;
     private int numero;
     private ArrayList<Programa> programas = new ArrayList<>();
@@ -159,5 +159,18 @@ public class Canal {
         // return result;
         // return " Canal " + numero + ": " + nome;
         return nome;
+    }
+
+    /**
+     * Esse override ensina a biblioteca java.util qual atributo de canal deve
+     * ser usado na comparação entre canais. Possibilita o uso do método
+     * Collections.sort() para ordernar canais alfabeticamente.
+     * 
+     * @param outroCanal O outro canal ao qual será feita a comparação
+     * @return O nome do canal
+     */
+    @Override
+    public int compareTo(Canal outroCanal) {
+        return this.nome.compareTo(outroCanal.nome);
     }
 }

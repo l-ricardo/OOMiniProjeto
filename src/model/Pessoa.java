@@ -3,7 +3,7 @@ package model;
 /**
  * Uma classe que representa uma pessoa real.
  */
-public class Pessoa {
+public class Pessoa implements Comparable<Pessoa> {
     protected String nome;
     protected char sexo;
 
@@ -39,5 +39,18 @@ public class Pessoa {
     @Override
     public String toString() {
         return nome;
+    }
+
+    /**
+     * Esse override ensina a biblioteca java.util qual atributo de pessoa deve
+     * ser usado na comparação entre pessoas. Possibilita o uso do método
+     * Collections.sort() para ordernar pessoas alfabeticamente.
+     * 
+     * @param outroPessoa A outra pessoa ao qual será feita a comparação
+     * @return O nome da pessoa
+     */
+    @Override
+    public int compareTo(Pessoa outroPessoa) {
+        return this.nome.compareTo(outroPessoa.nome);
     }
 }

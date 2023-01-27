@@ -7,7 +7,7 @@ import java.time.DayOfWeek;
  * Uma classe abstrata que representa um programa generico que é transmitido na
  * televisão.
  */
-public abstract class Programa {
+public abstract class Programa implements Comparable<Programa> {
     private String nome;
     private ArrayList<DayOfWeek> diasExibicao = new ArrayList<>();
     private String horario;
@@ -111,4 +111,16 @@ public abstract class Programa {
         this.favorito = favorito;
     }
 
+    /**
+     * Esse override ensina a biblioteca java.util qual atributo de programa deve
+     * ser usado na comparação entre programas. Possibilita o uso do método
+     * Collections.sort() para ordernar programas alfabeticamente.
+     * 
+     * @param outroPrograma O outro programa ao qual será feita a comparação
+     * @return O nome do programa
+     */
+    @Override
+    public int compareTo(Programa outroPrograma) {
+        return this.nome.compareTo(outroPrograma.nome);
+    }
 }
