@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,7 +13,6 @@ import javax.swing.ButtonGroup;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 
 import model.Canal;
@@ -28,7 +26,7 @@ public class TelaListaCanais extends JPanel implements ActionListener {
     Dados d;
     String canalSelecionado;
 
-    ArrayList<JRadioButton> rbCanais;
+    ArrayList<BotaoRadialCustomizado> rbCanais;
     BotaoPequeno visualizar, deletar;
 
     /**
@@ -48,27 +46,25 @@ public class TelaListaCanais extends JPanel implements ActionListener {
         JLabel dicaCanal = new JLabel("Canais:");
         dicaCanal.setBounds(50, 20, 300, 30);
 
+        // Criando os botões radiais
         ButtonGroup grupoCanais = new ButtonGroup();
-        rbCanais = new ArrayList<>(); // Inicializa array de radiobutton
-
-        JPanel listaCanais = new JPanel(); // Cria painel onde ficam as radiobutton
-        listaCanais.setLayout(new BoxLayout(listaCanais, BoxLayout.Y_AXIS));
-        listaCanais.setBackground(new Color(50, 48, 48));
-
+        rbCanais = new ArrayList<>();
         for (Canal canal : d.getCanais(filtro)) {
-            JRadioButton rb = new JRadioButton(canal.getNome());
-            rb.setFocusable(false);
-            rb.setFont(new Font("Times New Roman", Font.PLAIN, 16));
-            rb.setBackground(new Color(50, 48, 48));
-            rb.setForeground(Color.white);
+            BotaoRadialCustomizado rb = new BotaoRadialCustomizado(canal.getNome(), 0, 0);
             grupoCanais.add(rb);
             rbCanais.add(rb);
         }
-        for (JRadioButton rb : rbCanais) {
+
+        // Criando e adicionando os botões radiais à um painel
+        JPanel listaCanais = new JPanel();
+        listaCanais.setLayout(new BoxLayout(listaCanais, BoxLayout.Y_AXIS));
+        listaCanais.setBackground(new Color(50, 48, 48));
+        for (BotaoRadialCustomizado rb : rbCanais) {
             listaCanais.add(rb);
             rb.addActionListener(this);
         }
 
+        // Criando e adicionando o painel com os botões radiais à um painel rolável
         JScrollPane listaCanaisRolavel = new JScrollPane(listaCanais);
         listaCanaisRolavel.setBounds(50, 50, 400, 450);
         listaCanaisRolavel.setBorder(BorderFactory.createEtchedBorder());
@@ -82,7 +78,7 @@ public class TelaListaCanais extends JPanel implements ActionListener {
         deletar = new BotaoPequeno("Deletar", 250, 500);
         deletar.addActionListener(this);
         // -------------------------------------------------------------------------
-        
+
         // Adicionando componentes na tela
         this.add(dicaCanal);
         this.add(listaCanaisRolavel);
