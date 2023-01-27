@@ -86,9 +86,20 @@ public class TelaListaCanais extends JPanel implements ActionListener {
         this.add(deletar);
     }
 
+    /**
+     * 
+     * Detecta quando os botões "visualizar" e "deletar" são clicados além de salvar
+     * na variavel canalSelecionado o nome do botão radial clicado por último.
+     * 
+     * @param e O evento detectado pelo sistema
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         Object clicado = e.getSource();
+
+        // Se o botão clicado for o visualizar, cria uma nova tela de edição passando
+        // como parametro o banco de dados e o ultimo canal selecionado pelos botões
+        // radiais.
         if (clicado == visualizar) {
             JDialog dialogoEdicao = new JDialog();
             TelaDetalheCanal painelEdicao = new TelaDetalheCanal(d, canalSelecionado);
@@ -96,12 +107,18 @@ public class TelaListaCanais extends JPanel implements ActionListener {
             dialogoEdicao.setVisible(true);
             dialogoEdicao.setSize(800, 600);
         }
+
+        // Se o botão clicado for o deletar, chama o método deletarCanal do banco de
+        // dados d e atualiza a GUI
         if (clicado == deletar) {
             d.deletarCanal(canalSelecionado);
             this.updateUI();
         }
+
+        // Se o objeto clicado for um dos botões radiais, canalSelecionado recebe o
+        // texto
+        // do último botão radial slecionado
         if (rbCanais.contains(clicado)) {
-            // Atribui a canalSelecionado o texto do ultimo botao radial marcado
             canalSelecionado = e.getActionCommand();
         }
     }
