@@ -61,16 +61,7 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
         dicaPrograma.setBounds(400, 70, 300, 30);
 
         cbProgramas = new ArrayList<>(); // Inicializa array de checkboxes
-        // TODO: Fazer metodos para retornar todos os programas juntos
-        for (Programa programa : d.getProgramaTipoJornal()) {
-            CheckBoxCustomizada cb = new CheckBoxCustomizada(programa.toString(), 0, 0);
-            cbProgramas.add(cb);
-        }
-        for (Programa programa : d.getProgramaTipoNovelaFilmeSerie()) {
-            CheckBoxCustomizada cb = new CheckBoxCustomizada(programa.toString(), 0, 0);
-            cbProgramas.add(cb);
-        }
-        for (Programa programa : d.getProgramaTipoTalkShow()) {
+        for (Programa programa : d.getTodosProgramas()) {
             CheckBoxCustomizada cb = new CheckBoxCustomizada(programa.toString(), 0, 0);
             cbProgramas.add(cb);
         }
@@ -142,8 +133,7 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
 
         if (clicado == salvar) {
             // Checa se os campos nome e numero foram preenchidos corretamente
-            if (caixaNome.getText() == "Insira aqui o nome do canal..."
-                    || caixaNumero.getText() == "Insira aqui o número do canal..."
+            if (caixaNome.ehTextoInvalido() || caixaNumero.ehTextoInvalido()
                     || !caixaNumero.getText().matches("[0-9]+")) {
                 JOptionPane.showMessageDialog(null, "O que pode ter dado errado:\n"
                         + " * O campo nome é de preenchimento obrigatório.\n"
@@ -171,8 +161,7 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
         }
         if (clicado == atualizar) {
             // Checa se os campos nome e numero foram preenchidos corretamente
-            if (caixaNome.getText() == "Insira aqui o nome do canal..."
-                    || caixaNumero.getText() == "Insira aqui o número do canal..."
+            if (caixaNome.ehTextoInvalido() || caixaNumero.ehTextoInvalido()
                     || !caixaNumero.getText().matches("[0-9]+")) {
                 JOptionPane.showMessageDialog(null, "O que pode ter dado errado:\n"
                         + " * O campo nome é de preenchimento obrigatório.\n"

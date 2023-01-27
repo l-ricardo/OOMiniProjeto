@@ -58,11 +58,11 @@ public class App extends JFrame implements ActionListener {
 
         // --------------------------- Componentes menu ---------------------------
         bListarCanais = new BotaoGrande("Listar Canais", 300, 50);
-        bCadastrarCanais = new BotaoGrande("Listar Canais", 300, 100);
-        bListarProgramas = new BotaoGrande("Listar Canais", 500, 50);
-        bCadastrarProgramas = new BotaoGrande("Listar Canais", 500, 100);
-        bListarPessoas = new BotaoGrande("Listar Canais", 700, 50);
-        bCadastrarPessoas = new BotaoGrande("Listar Canais", 700, 100);
+        bCadastrarCanais = new BotaoGrande("Cadastrar Canais", 300, 100);
+        bListarProgramas = new BotaoGrande("Listar Programas", 500, 50);
+        bCadastrarProgramas = new BotaoGrande("Cadastrar Programas", 500, 100);
+        bListarPessoas = new BotaoGrande("Listar Pessoas", 700, 50);
+        bCadastrarPessoas = new BotaoGrande("Cadastrar Pessoas", 700, 100);
 
         bListarCanais.addActionListener(this);
         bCadastrarCanais.addActionListener(this);
