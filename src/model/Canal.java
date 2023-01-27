@@ -50,6 +50,20 @@ public class Canal {
     // }
     // }
 
+    public ArrayList<Programa> getPrograma(String filtro) {
+        if (filtro != null) {
+            System.out.println("Estou filtrando para:" + filtro);
+            ArrayList<Programa> programasFiltrados = new ArrayList<>();
+            for (Programa programa : programas) {
+                if (programa.getNome().contains(filtro)) {
+                    programasFiltrados.add(programa);
+                }
+            }
+            return programasFiltrados;
+        }
+        return programas;
+    }
+
     // public String listarProgramas() {
     // String result = "";
     // for (Programa programa : programas) {
@@ -129,7 +143,7 @@ public class Canal {
         for (Programa programa : programas) {
             if (nome == programa.getNome()) {
                 return true;
-            } 
+            }
         }
         return false;
     }
@@ -143,7 +157,7 @@ public class Canal {
         // registrado!";
         // result += "========================================";
         // return result;
-        // return "    Canal " + numero + ": " + nome;
-        return  nome;
+        // return " Canal " + numero + ": " + nome;
+        return nome;
     }
 }

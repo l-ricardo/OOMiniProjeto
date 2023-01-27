@@ -37,7 +37,7 @@ public class TelaListaCanais extends JPanel implements ActionListener {
      * 
      * @param dados Base de dados
      */
-    TelaListaCanais(Dados dados,String filtro) {
+    TelaListaCanais(Dados dados, String filtro) {
         d = dados;
 
         this.setLayout(null);

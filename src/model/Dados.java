@@ -172,7 +172,6 @@ public class Dados {
                         return canaisFiltrados;
                 }
                 return canais;
-
         }
 
         public void setCanais(ArrayList<Canal> canais) {
