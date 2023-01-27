@@ -3,6 +3,7 @@ package view;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JRadioButton;
 
@@ -20,10 +21,11 @@ public class BotaoRadialCustomizado extends JRadioButton {
     public BotaoRadialCustomizado(String texto, int posX, int posY) {
         this.setText(texto);
         this.setBounds(posX, posY, 25, 25);
-        this.setFocusable(false);
-        this.setBackground(new Color(50, 48, 48));
         this.setFont(new Font("Times New Roman", Font.PLAIN, 16));
+        this.setBackground(new Color(50, 48, 48));
         this.setForeground(Color.white);
+        this.setBorder(BorderFactory.createEtchedBorder());
+        this.setFocusable(false);
         this.setIcon(new ImageIcon("assets/x_off.png"));
         this.setSelectedIcon(new ImageIcon("assets/x_on.png"));
     }
