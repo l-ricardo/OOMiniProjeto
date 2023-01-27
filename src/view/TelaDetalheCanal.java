@@ -41,7 +41,7 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
      */
     public TelaDetalheCanal(Dados dados) {
         this.d = dados;
-        
+
         // Configurando painel
         this.setLayout(null);
         this.setPreferredSize(new Dimension(1200, 600));
@@ -64,27 +64,15 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
         cbProgramas = new ArrayList<>(); // Inicializa array de checkboxes
         // TODO: Fazer metodos para retornar todos os programas juntos
         for (Programa programa : d.getProgramaTipoJornal()) {
-            JCheckBox cb = new JCheckBox(programa.toString());
-            cb.setFocusable(false);
-            cb.setFont(new Font("Times New Roman", Font.PLAIN, 16));
-            cb.setBackground(new Color(50, 48, 48));
-            cb.setForeground(Color.white);
+            CheckBoxCustomizada cb = new CheckBoxCustomizada(programa.toString(), 0, 0);
             cbProgramas.add(cb);
         }
         for (Programa programa : d.getProgramaTipoNovelaFilmeSerie()) {
-            JCheckBox cb = new JCheckBox(programa.toString());
-            cb.setFocusable(false);
-            cb.setFont(new Font("Times New Roman", Font.PLAIN, 16));
-            cb.setBackground(new Color(50, 48, 48));
-            cb.setForeground(Color.white);
+            CheckBoxCustomizada cb = new CheckBoxCustomizada(programa.toString(), 0, 0);
             cbProgramas.add(cb);
         }
         for (Programa programa : d.getProgramaTipoTalkShow()) {
-            JCheckBox cb = new JCheckBox(programa.toString());
-            cb.setFocusable(false);
-            cb.setFont(new Font("Times New Roman", Font.PLAIN, 16));
-            cb.setBackground(new Color(50, 48, 48));
-            cb.setForeground(Color.white);
+            CheckBoxCustomizada cb = new CheckBoxCustomizada(programa.toString(), 0, 0);
             cbProgramas.add(cb);
         }
 
@@ -104,7 +92,7 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
         salvar = new BotaoPequeno("Salvar", 50, 370);
         salvar.addActionListener(this);
         // -------------------------------------------------------------------------
-        
+
         // Adicionando componentes ao painel
         this.add(dicaNome);
         this.add(caixaNome);
@@ -143,7 +131,7 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
         atualizar = new BotaoPequeno("Atualizar", 50, 370);
         atualizar.addActionListener(this);
         // -------------------------------------------------------------------------
-        
+
         // Adicionando componente ao painel
         this.add(atualizar);
         this.updateUI();

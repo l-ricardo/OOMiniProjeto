@@ -7,8 +7,6 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -28,7 +26,7 @@ public class App extends JFrame implements ActionListener {
     BotaoGrande bListarPessoas, bCadastrarPessoas;
     BotaoGrande limparFiltros;
     CampoFiltragem filtroCanal, filtroPrograma, filtroPessoa;
-    JCheckBox dom, seg, ter, qua, qui, sex, sab;
+    CheckBoxCustomizada dom, seg, ter, qua, qui, sex, sab;
 
     /**
      * Constroi um painel para com o menu principal.
@@ -86,46 +84,13 @@ public class App extends JFrame implements ActionListener {
         limparFiltros.setSize(25, 25);
         limparFiltros.addActionListener(this);
 
-        ImageIcon sIconOn = new ImageIcon("assets/s_on.png");
-        ImageIcon tIconOn = new ImageIcon("assets/t_on.png");
-        ImageIcon qIconOn = new ImageIcon("assets/q_on.png");
-        ImageIcon dIconOn = new ImageIcon("assets/d_on.png");
-        ImageIcon sIconOff = new ImageIcon("assets/s_off.png");
-        ImageIcon tIconOff = new ImageIcon("assets/t_off.png");
-        ImageIcon qIconOff = new ImageIcon("assets/q_off.png");
-        ImageIcon dIconOff = new ImageIcon("assets/d_off.png");
-
-        dom = new JCheckBox(dIconOff);
-        seg = new JCheckBox(sIconOff);
-        ter = new JCheckBox(tIconOff);
-        qua = new JCheckBox(qIconOff);
-        qui = new JCheckBox(qIconOff);
-        sex = new JCheckBox(sIconOff);
-        sab = new JCheckBox(sIconOff);
-
-        dom.setSelectedIcon(dIconOn);
-        seg.setSelectedIcon(sIconOn);
-        ter.setSelectedIcon(tIconOn);
-        qua.setSelectedIcon(qIconOn);
-        qui.setSelectedIcon(qIconOn);
-        sex.setSelectedIcon(sIconOn);
-        sab.setSelectedIcon(sIconOn);
-
-        dom.setBackground(new Color(50, 48, 48));
-        seg.setBackground(new Color(50, 48, 48));
-        ter.setBackground(new Color(50, 48, 48));
-        qua.setBackground(new Color(50, 48, 48));
-        qui.setBackground(new Color(50, 48, 48));
-        sex.setBackground(new Color(50, 48, 48));
-        sab.setBackground(new Color(50, 48, 48));
-
-        dom.setBounds(952, 125, 25, 25);
-        seg.setBounds(980, 125, 25, 25);
-        ter.setBounds(1008, 125, 25, 25);
-        qua.setBounds(1036, 125, 25, 25);
-        qui.setBounds(1064, 125, 25, 25);
-        sex.setBounds(1092, 125, 25, 25);
-        sab.setBounds(1120, 125, 25, 25);
+        dom = new CheckBoxCustomizada("d", 952, 125);
+        seg = new CheckBoxCustomizada("s", 980, 125);
+        ter = new CheckBoxCustomizada("t", 1008, 125);
+        qua = new CheckBoxCustomizada("q", 1036, 125);
+        qui = new CheckBoxCustomizada("q", 1064, 125);
+        sex = new CheckBoxCustomizada("s", 1092, 125);
+        sab = new CheckBoxCustomizada("s", 1120, 125);
         // -------------------------------------------------------------------------
 
         // Adicionando componentes na tela
