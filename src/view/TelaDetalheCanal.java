@@ -103,7 +103,7 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
         this(dados);
 
         // Encontra o canal que se quer visualizar
-        this.canalDetalhado = d.acharCanal(nome);
+        this.canalDetalhado = d.getCanal(nome);
 
         // Preenche os campos com os dados do canal
         caixaNome.setText(canalDetalhado.getNome());
@@ -156,7 +156,7 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
                 // Adiciona os programas selecionados no novoCanal
                 for (JCheckBox cb : cbProgramas) {
                     if (cb.isSelected()) {
-                        novoCanal.getProgramas().add(d.acharPrograma(cb.getText()));
+                        novoCanal.getProgramas().add(d.getPrograma(cb.getText()));
                     }
                 }
                 d.getCanais().add(novoCanal);
@@ -185,7 +185,7 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
                 // Adiciona os programas selecionas no novoCanal
                 for (JCheckBox cb : cbProgramas) {
                     if (cb.isSelected()) {
-                        novoCanal.getProgramas().add(d.acharPrograma(cb.getText()));
+                        novoCanal.getProgramas().add(d.getPrograma(cb.getText()));
                     }
                 }
                 d.getCanais().set(d.getCanais().indexOf(canalDetalhado), novoCanal);

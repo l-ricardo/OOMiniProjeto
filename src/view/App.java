@@ -135,7 +135,14 @@ public class App extends JFrame implements ActionListener {
         if (clicado == bCadastrarCanais) {
             conteudo = new TelaDetalheCanal(d);
         }
-        if (clicado == bListarProgramas) { // TODO: WIP
+        if (clicado == bListarProgramas) {
+            if (!filtroPrograma.getText().contains("Insira o nome do programa...")) {
+                conteudo = new TelaListaProgramas(d, filtroPrograma.getText());
+            } else {
+                conteudo = new TelaListaProgramas(d, null);
+            }
+        }
+        // if (clicado == bListarProgramas) { // TODO: WIP
             // Tela lista programa com filtro de dia e canal
             // if ((filtroCanal.getText() != "Insira o nome do canal...") &&
             // (dom.isSelected() || seg.isSelected() || ter.isSelected()
@@ -147,7 +154,7 @@ public class App extends JFrame implements ActionListener {
             // // Tela lista programa sem filtro
             // // conteudo = new TelaDetalhePrograma(dados);
             // }
-        }
+        // }
         if (clicado == limparFiltros) {
             filtroCanal.setText("Insira o nome do canal...");
             filtroPrograma.setText("Insira o nome do programa...");

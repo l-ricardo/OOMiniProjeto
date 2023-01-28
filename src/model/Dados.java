@@ -155,28 +155,6 @@ public class Dados {
                 return canais;
         }
 
-        /**
-         * Método que retorna uma lista de canais, filtrada por uma string, caso filtro
-         * seja null se comporta como um getCanais()
-         * 
-         * @param filtro string do nome do canal que se esta se buscando
-         * @return Retorna um ArrayList de Canais.
-         */
-        public ArrayList<Canal> getCanais(String filtro) { // TODO: Otimizar esse metodo
-                if (filtro != null) {
-                        ArrayList<Canal> canaisFiltrados = new ArrayList<>();
-                        for (Canal canal : canais) {
-                                if (canal.getNome().contains(filtro)) {
-                                        canaisFiltrados.add(canal);
-                                }
-                        }
-                        Collections.sort(canaisFiltrados);
-                        return canaisFiltrados; // Ordena alfabeticamente pelo nome
-                }
-                Collections.sort(canais); // Ordena alfabeticamente pelo nome
-                return canais;
-        }
-
         public void setCanais(ArrayList<Canal> canais) {
                 this.canais = canais;
         }
@@ -231,62 +209,6 @@ public class Dados {
 
         // -------------------------- Metodos auxiliares ----------------------------
         /**
-         * Encontra um objeto programa no "banco de dados" d, atraves de seu nome.
-         * 
-         * @param nome Nome do programa
-         * @return O programa cujo nome é o mesmo do parametro nome
-         */
-        public Programa acharPrograma(String nome) {
-                Programa result = null;
-                for (Programa programa : programaTipoTalkShow) {
-                        if (nome == programa.getNome()) {
-                                result = programa;
-                        }
-                }
-                for (Programa programa : programaTipoJornal) {
-                        if (nome == programa.getNome()) {
-                                result = programa;
-                        }
-                }
-                for (Programa programa : programaTipoNovelaFilmeSerie) {
-                        if (nome == programa.getNome()) {
-                                result = programa;
-                        }
-                }
-                return result;
-        }
-
-        /**
-         * Encontra um objeto canal no "banco de dados" d, atraves de seu nome.
-         * 
-         * @param nome Nome do canal
-         * @return O canal cujo nome é o mesmo do parametro nome
-         */
-        public Canal acharCanal(String nome) {
-                Canal result = null;
-                for (Canal canal : canais) {
-                        if (nome == canal.getNome()) {
-                                result = canal;
-                        }
-                }
-                return result;
-        }
-
-        /**
-         * Deleta um canal desse "banco de dados" d, atraves de seu nome.
-         * 
-         * @param nome Nome do canal
-         */
-        public void deletarCanal(String nome) {
-                for (Canal canal : canais) {
-                        if (canal.getNome() == nome) {
-                                canais.remove(canal);
-                                return;
-                        }
-                }
-        }
-
-        /**
          * Junta todos os diferentes tipos de programas em um mesmo array e
          * os coloca em ordem alfabetica.
          * 
@@ -314,5 +236,143 @@ public class Dados {
                 todasPessoas.addAll(artistas);
                 Collections.sort(todasPessoas); // Ordena alfabeticamente pelo nome
                 return todasPessoas;
+        }
+
+        /**
+         * Método que retorna uma lista de canais, filtrada por uma string, caso filtro
+         * seja null se comporta como um getCanais()
+         * 
+         * @param filtro string do nome do canal que se esta se buscando
+         * @return Retorna um ArrayList de Canais.
+         */
+        public ArrayList<Canal> getCanais(String filtro) { // TODO: Otimizar esse metodo
+                if (filtro != null) {
+                        ArrayList<Canal> canaisFiltrados = new ArrayList<>();
+                        for (Canal canal : canais) {
+                                if (canal.getNome().contains(filtro)) {
+                                        canaisFiltrados.add(canal);
+                                }
+                        }
+                        Collections.sort(canaisFiltrados);
+                        return canaisFiltrados; // Ordena alfabeticamente pelo nome
+                }
+                Collections.sort(canais); // Ordena alfabeticamente pelo nome
+                return canais;
+        }
+
+        /**
+         * Método que retorna uma lista de programas, filtrada por uma string, caso
+         * filtro
+         * seja null se comporta como um getTodosProgramas()
+         * 
+         * @param filtro string do nome do programa que se esta se buscando
+         * @return Retorna um ArrayList de Programas.
+         */
+        public ArrayList<Programa> getTodosProgramas(String filtro) { // TODO: Otimizar esse metodo
+                if (filtro != null) {
+                        ArrayList<Programa> programasFiltrados = new ArrayList<>();
+                        for (Programa programa : getTodosProgramas()) {
+                                if (programa.getNome().contains(filtro)) {
+                                        programasFiltrados.add(programa);
+                                }
+                        }
+                        Collections.sort(programasFiltrados);
+                        return programasFiltrados; // Ordena alfabeticamente pelo nome
+                }
+                Collections.sort(getTodosProgramas()); // Ordena alfabeticamente pelo nome
+                return getTodosProgramas();
+        }
+
+        /**
+         * Encontra um unico objeto canal no "banco de dados" d, atraves de seu nome.
+         * 
+         * @param nome Nome do canal
+         * @return O canal cujo nome é o mesmo do parametro nome
+         */
+        public Canal getCanal(String nome) {
+                Canal result = null;
+                for (Canal canal : getCanais()) {
+                        if (canal.getNome().contains(nome)) {
+                                result = canal;
+                        }
+                }
+                return result;
+        }
+
+        /**
+         * Encontra um unico objeto programa no "banco de dados" d, atraves de seu nome.
+         * 
+         * @param nome Nome do programa
+         * @return O programa cujo nome é o mesmo do parametro nome
+         */
+        public Programa getPrograma(String nome) {
+                Programa result = null;
+                for (Programa programa : getTodosProgramas()) {
+                        if (programa.getNome().contains(nome)) {
+                                result = programa;
+                        }
+                }
+                return result;
+        }
+
+        /**
+         * Deleta um canal desse "banco de dados" d, atraves de seu nome.
+         * 
+         * @param nome Nome do canal
+         */
+        public void deletarCanal(String nome) {
+                for (Canal canal : getCanais()) {
+                        if (canal.getNome().equals(nome)) {
+                                getCanais().remove(canal);
+                                return;
+                        }
+                }
+        }
+
+        /**
+         * Deleta um programa desse "banco de dados" d, atraves de seu nome.
+         * 
+         * @param nome Nome do programa
+         */
+        public void deletarPrograma(String nome) {
+                for (Programa programa : getTodosProgramas()) {
+                        if (programa.getNome().equals(nome)) {
+                                if (programa instanceof NovelaFilmeSerie) {
+                                        getProgramaTipoNovelaFilmeSerie().remove(programa);
+                                        return;
+                                }
+                                if (programa instanceof TalkShow) {
+                                        getProgramaTipoTalkShow().remove(programa);
+                                        return;
+                                }
+                                if (programa instanceof Jornal) {
+                                        getProgramaTipoJornal().remove(programa);
+                                        return;
+                                }
+                        }
+                }
+        }
+        /**
+         * Deleta uma pessoa desse "banco de dados" d, atraves de seu nome.
+         * 
+         * @param nome Nome da pessoa
+         */
+        public void deletarPessoa(String nome) {
+                for (Pessoa pessoa : getTodasPessoas()) {
+                        if (pessoa.getNome().equals(nome)) {
+                                if (pessoa instanceof Artista) {
+                                        getArtistas().remove(pessoa);
+                                        return;
+                                }
+                                if (pessoa instanceof Personagem) {
+                                        getPersonagens().remove(pessoa);
+                                        return;
+                                }
+                                if (pessoa instanceof Pessoa) {
+                                        getPessoas().remove(pessoa);
+                                        return;
+                                }
+                        }
+                }
         }
 }
