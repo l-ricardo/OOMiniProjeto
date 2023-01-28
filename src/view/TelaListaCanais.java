@@ -3,7 +3,6 @@ package view;
 import java.util.ArrayList;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -39,12 +38,12 @@ public class TelaListaCanais extends JPanel implements ActionListener {
 
         // Configurando painel
         this.setLayout(null);
-        this.setPreferredSize(new Dimension(1200, 600));
+        this.setBounds(0, 200, 1200, 600);
         this.setBackground(new Color(126, 121, 121));
 
         // -------------------------- Componentes canal ---------------------------
         JLabel dicaCanal = new JLabel("Canais:");
-        dicaCanal.setBounds(450, 20, 300, 30);
+        dicaCanal.setBounds(450, 30, 300, 30);
 
         // Criando os botões radiais
         ButtonGroup grupoCanais = new ButtonGroup();
@@ -66,16 +65,16 @@ public class TelaListaCanais extends JPanel implements ActionListener {
 
         // Criando e adicionando o painel com os botões radiais à um painel rolável
         JScrollPane listaCanaisRolavel = new JScrollPane(listaCanais);
-        listaCanaisRolavel.setBounds(450, 50, 300, 450);
+        listaCanaisRolavel.setBounds(450, 60, 300, 400);
         listaCanaisRolavel.setBorder(BorderFactory.createEtchedBorder());
         listaCanaisRolavel.setBackground(new Color(50, 48, 48));
 
         // --------------------------- Botão visualizar ----------------------------
-        visualizar = new BotaoPequeno("Visualizar", 450, 500);
+        visualizar = new BotaoPequeno("Visualizar", 450, 460);
         visualizar.addActionListener(this);
 
         // ---------------------------- Botão deletar -----------------------------
-        deletar = new BotaoPequeno("Deletar", 600, 500);
+        deletar = new BotaoPequeno("Deletar", 600, 460);
         deletar.addActionListener(this);
         // -------------------------------------------------------------------------
 

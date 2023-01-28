@@ -3,7 +3,6 @@ package view;
 import java.util.ArrayList;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -40,22 +39,22 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
 
         // Configurando painel
         this.setLayout(null);
-        this.setPreferredSize(new Dimension(1200, 600));
+        this.setBounds(0, 200, 1200, 600);
         this.setBackground(new Color(126, 121, 121));
 
         // --------------------------- Componentes nome ---------------------------
         JLabel dicaNome = new JLabel("Nome:");
-        dicaNome.setBounds(50, 70, 300, 30);
-        caixaNome = new CampoDados("Insira aqui o nome do canal...", 50, 100);
+        dicaNome.setBounds(100, 30, 300, 30);
+        caixaNome = new CampoDados("Insira aqui o nome do canal...", 100, 60);
 
         // -------------------------- Componentes número --------------------------
         JLabel dicaNumero = new JLabel("Número:");
-        dicaNumero.setBounds(50, 170, 300, 30);
-        caixaNumero = new CampoDados("Insira aqui o número do canal...", 50, 200);
+        dicaNumero.setBounds(100, 130, 300, 30);
+        caixaNumero = new CampoDados("Insira aqui o número do canal...", 100, 160);
 
         // -------------------------- Componentes programa---------------------------
         JLabel dicaPrograma = new JLabel("Programação:");
-        dicaPrograma.setBounds(400, 70, 300, 30);
+        dicaPrograma.setBounds(450, 30, 300, 30);
 
         cbProgramas = new ArrayList<>(); // Inicializa array de checkboxes
         for (Programa programa : d.getTodosProgramas()) {
@@ -71,12 +70,12 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
         }
 
         JScrollPane painelProgramasRolavel = new JScrollPane(painelProgramas);
-        painelProgramasRolavel.setBounds(400, 100, 300, 300);
+        painelProgramasRolavel.setBounds(450,60, 300, 430);
         painelProgramasRolavel.setBorder(BorderFactory.createEtchedBorder());
         painelProgramasRolavel.setBackground(new Color(50, 48, 48));
 
         // ----------------------------- Botão salvar ------------------------------
-        salvar = new BotaoPequeno("Salvar", 50, 370);
+        salvar = new BotaoPequeno("Salvar", 100, 460);
         salvar.addActionListener(this);
         // -------------------------------------------------------------------------
 
@@ -115,7 +114,7 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
         salvar.setVisible(false);
 
         // --------------------------- Botão atualizar ----------------------------
-        atualizar = new BotaoPequeno("Atualizar", 50, 370);
+        atualizar = new BotaoPequeno("Atualizar", 100, 460);
         atualizar.addActionListener(this);
         // -------------------------------------------------------------------------
 

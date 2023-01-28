@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -38,16 +37,16 @@ public class App extends JFrame implements ActionListener {
 
         // Configurando janela
         this.setTitle("TeleGUIAdo");
-        this.setLayout(new BorderLayout());
+        this.setLayout(null);
         this.setSize(1200, 800);
+        this.getContentPane().setBackground(new Color(50, 48, 48));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
-        this.getContentPane().setBackground(new Color(50, 48, 48));
 
         // Criando um painel com o cabecalho
         JPanel cabecalho = new JPanel();
-        cabecalho.setPreferredSize(new Dimension(1200, 200));
         cabecalho.setLayout(null);
+        cabecalho.setBounds(0, 0, 1200, 200);
         cabecalho.setBackground(new Color(50, 48, 48));
 
         // -------------------------- Compontente titulo --------------------------
@@ -114,7 +113,7 @@ public class App extends JFrame implements ActionListener {
         cabecalho.add(sex);
         cabecalho.add(sab);
 
-        this.add(cabecalho, BorderLayout.NORTH);
+        this.add(cabecalho);
         this.setVisible(true);
         this.requestFocusInWindow();
     }
@@ -147,9 +146,9 @@ public class App extends JFrame implements ActionListener {
             }
         }
 
-        // if (clicado == bCadastrarProgramas) {
-        //     conteudo = new TelaDetalhePrograma(d);
-        // }
+        if (clicado == bCadastrarProgramas) {
+            conteudo = new TelaDetalhePrograma(d);
+        }
 
         // if (clicado == bListarPessoas) {
         //     if (!filtroPessoa.getText().contains("Insira o nome da pessoa...")) {
@@ -177,7 +176,7 @@ public class App extends JFrame implements ActionListener {
             this.requestFocusInWindow();
         }
 
-        this.add(conteudo, BorderLayout.CENTER);
+        this.add(conteudo, BorderLayout.SOUTH);
         conteudo.updateUI();
     }
 
