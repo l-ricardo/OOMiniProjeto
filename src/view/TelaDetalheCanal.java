@@ -127,23 +127,33 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
         this.updateUI();
     }
 
+    /**
+     * Detecta quando os botões "salvar" e "atualizar" são clicados além de
+     * verificar se os campos nome e número foram preenchidos corretamente e, se
+     * sim, cria ou atualiza um objeto Canal com as informações fornecidas.
+     * 
+     * @param e O evento detectado pelo sistema
+     * 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         Object clicado = e.getSource();
 
         if (clicado == salvar) {
             // Checa se os campos nome e numero foram preenchidos corretamente
-            if (caixaNome.ehTextoInvalido() || caixaNumero.ehTextoInvalido()
-                    || !caixaNumero.getText().matches("[0-9]+")) {
-                JOptionPane.showMessageDialog(null, "O que pode ter dado errado:\n"
-                        + " * O campo nome é de preenchimento obrigatório.\n"
-                        + " * O campo número é de preenchimento obrigatório.\n"
-                        + " * O camponúmero só pode ter números",
+            if (caixaNome.ehTextoInvalido()) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo nome é de preenchimento obrigatório.",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+            } else if (caixaNumero.ehTextoInvalido() || !caixaNumero.getText().matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo número é de preenchimento " +
+                                "obrigatório e só suporta números",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
             } else {
                 Canal novoCanal = new Canal(caixaNome.getText(),
                         Integer.parseInt(caixaNumero.getText()));
-                // Adiciona os programas selecionas no novoCanal
+                // Adiciona os programas selecionados no novoCanal
                 for (JCheckBox cb : cbProgramas) {
                     if (cb.isSelected()) {
                         novoCanal.getProgramas().add(d.acharPrograma(cb.getText()));
@@ -151,22 +161,23 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
                 }
                 d.getCanais().add(novoCanal);
 
-                // Desabilita o botao apos o primeiro cadastro para evitar o cadastro
+                // Desabilita o botão apos o primeiro cadastro para evitar o cadastro
                 // duplicado a cada click
                 caixaNome.setEditable(false);
                 caixaNumero.setEditable(false);
                 salvar.setEnabled(false);
-                // TODO: Checar se ja existe um canal com o mesmo nome e numero cadastrado
             }
         }
         if (clicado == atualizar) {
             // Checa se os campos nome e numero foram preenchidos corretamente
-            if (caixaNome.ehTextoInvalido() || caixaNumero.ehTextoInvalido()
-                    || !caixaNumero.getText().matches("[0-9]+")) {
-                JOptionPane.showMessageDialog(null, "O que pode ter dado errado:\n"
-                        + " * O campo nome é de preenchimento obrigatório.\n"
-                        + " * O campo número é de preenchimento obrigatório.\n"
-                        + " * O camponúmero só pode ter números",
+            if (caixaNome.ehTextoInvalido()) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo nome é de preenchimento obrigatório.",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+            } else if (caixaNumero.ehTextoInvalido() || !caixaNumero.getText().matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo número é de preenchimento " +
+                                "obrigatório e só suporta números",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
             } else {
                 Canal novoCanal = new Canal(caixaNome.getText(),
@@ -181,14 +192,13 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
 
                 // Desabilita o botao apos o primeiro cadastro para evitar o cadastro
                 // duplicado a cada click
-                atualizar.setEnabled(false);
                 caixaNome.setEditable(false);
                 caixaNumero.setEditable(false);
+                atualizar.setEnabled(false);
                 // TODO: Talvez remover a função de desabilitar o botao em favor de um lablel
                 // TODO: com feefback "O canal está atualizado"
                 // TODO: Fechar o Jdialog aqui
             }
         }
     }
-
 }
