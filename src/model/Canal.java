@@ -103,14 +103,6 @@ public class Canal implements Comparable<Canal> {
         System.out.println(programa.toString());
     }
 
-    public void adicionarPrograma(Programa programa) {
-        System.out.println("Funcionalidade ainda não implentada");
-    }
-
-    public void removerPrograma(Programa programa) {
-        System.out.println("Funcionalidade ainda não implentada");
-    }
-
     // Gets e Sets
     public String getNome() {
         return nome;

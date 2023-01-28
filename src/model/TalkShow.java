@@ -51,31 +51,6 @@ public class TalkShow extends Programa {
         this.apresentadores = apresentadores;
     }
 
-    // Outros metodos //TODO: Ajustar arrays abaixos se necessario
-    public void adicionarApresentador(Artista... apresentadores) {
-        System.out.println("Funcionalidade ainda não implentada");
-    }
-
-    public void removerApresentador(String apresentadorNome) {
-        System.out.println("Funcionalidade ainda não implentada");
-    }
-
-    public void adicionarMusico(Artista... musicos) {
-        System.out.println("Funcionalidade ainda não implentada");
-    }
-
-    public void removerMusico(String musicoNome) {
-        System.out.println("Funcionalidade ainda não implentada");
-    }
-
-    public void adicionarConvidado(Pessoa... convidados) {
-        System.out.println("Funcionalidade ainda não implentada");
-    }
-
-    public void removerConvidado(String convidadoNome) {
-        System.out.println("Funcionalidade ainda não implentada");
-    }
-
     // Gets e Sets
     public ArrayList<Artista> getApresentadores() {
         return apresentadores;

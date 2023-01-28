@@ -48,15 +48,6 @@ public class Jornal extends Programa {
         this.localidade = localidade;
     }
 
-    // Outros metodos //TODO: Ajustar arrays abaixos se necessario
-    public void adicionarAncora(Artista... ancoras) {
-        System.out.println("Funcionalidade ainda não implentada");
-    }
-
-    public void removerAncora(String ancoraNome) {
-        System.out.println("Funcionalidade ainda não implentada");
-    }
-
     // Gets e Sets
     public ArrayList<Artista> getAncoras() {
         return ancoras;
