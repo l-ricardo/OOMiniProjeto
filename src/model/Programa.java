@@ -47,8 +47,12 @@ public abstract class Programa implements Comparable<Programa> {
         this.nome = nome;
     }
 
-    public ArrayList<DayOfWeek> getDiasExibicao() {
-        return diasExibicao;
+    public ArrayList<Integer> getDiasExibicao() {
+        ArrayList<Integer> diasExibicaoNum = new ArrayList<Integer>();
+        for (DayOfWeek dia : this.diasExibicao) {
+            diasExibicaoNum.add(dia.getValue());
+        }
+        return diasExibicaoNum;
     }
 
     /**
