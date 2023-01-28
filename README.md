@@ -35,3 +35,5 @@ O projeto em questão cria um software de gerenciamento da Programação da TV a
 
 ## Para gerar o javadoc
 `javadoc src\model\*.java src\view\*.java -d docs`
+## Para gerar o javadoc
+`java -cp classpath org.junit.platform.launcher.core.Launcher src\test\Testes.java`
