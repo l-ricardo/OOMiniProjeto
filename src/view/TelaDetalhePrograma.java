@@ -32,9 +32,9 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
     Programa programaDetalhado;
 
     BotaoPequeno salvar, atualizar;
+    BotaoRadialCustomizado talkShow, jornal, novelaFilmeSerie;
     CheckBoxCustomizada animado, fav;
     CheckBoxCustomizada dom, seg, ter, qua, qui, sex, sab;
-    BotaoRadialCustomizado talkShow, jornal, novelaFilmeSerie;
     ArrayList<CheckBoxCustomizada> cbPersonagens, cbAncoras, cbApresentadores,
             cbMusicos, cbConvidados;
     JLabel dicaTipoPrograma, dicaNumTemporadas, dicaNumEpisodios, dicaAnimacao,
@@ -84,7 +84,7 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
 
         // -------------------------- Componente favorito --------------------------
         // TODO: Fazer estrela aqui
-        fav = new CheckBoxCustomizada("fav", 375, 130);
+        fav = new CheckBoxCustomizada("f", 375, 130);
 
         // --------------------- Componentes dias de exibição ---------------------
         JLabel dicaDiasExibicao = new JLabel("Dias de exibição:");
