@@ -13,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
 import model.Artista;
 import model.Dados;
@@ -33,7 +32,7 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
     Programa programaDetalhado;
 
     BotaoPequeno salvar, atualizar;
-    CheckBoxCustomizada animado;
+    CheckBoxCustomizada animado, fav;
     CheckBoxCustomizada dom, seg, ter, qua, qui, sex, sab;
     BotaoRadialCustomizado talkShow, jornal, novelaFilmeSerie;
     ArrayList<CheckBoxCustomizada> cbPersonagens, cbAncoras, cbApresentadores,
@@ -67,7 +66,7 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
         talkShow = new BotaoRadialCustomizado("Talk Show", 115, 60);
         jornal = new BotaoRadialCustomizado("Jornal", 210, 60);
         novelaFilmeSerie = new BotaoRadialCustomizado("Novela, filme ou serie", 310, 60);
-       
+
         ButtonGroup grupoBotoesTipo = new ButtonGroup();
         grupoBotoesTipo.add(talkShow);
         grupoBotoesTipo.add(jornal);
@@ -85,7 +84,7 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
 
         // -------------------------- Componente favorito --------------------------
         // TODO: Fazer estrela aqui
-        CheckBoxCustomizada fav = new CheckBoxCustomizada("fav", 375, 130);
+        fav = new CheckBoxCustomizada("fav", 375, 130);
 
         // --------------------- Componentes dias de exibição ---------------------
         JLabel dicaDiasExibicao = new JLabel("Dias de exibição:");
@@ -319,21 +318,33 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
         // Encontra o programa que se quer visualizar
         this.programaDetalhado = d.getPrograma(nome);
 
+        // Preenche os campos com os dados do programa
+        caixaNome.setText(programaDetalhado.getNome());
+        // TODO: Preencher dias
+        caixaHorario.setText(programaDetalhado.getHorario());
+        caixaDuracao.setText(String.valueOf(programaDetalhado.getDuracaoMin()));
+        caixaDescricao.setText(programaDetalhado.getDescricao());
+        fav.setSelected(programaDetalhado.isFavorito());
+
         // Configura a interface para o tipo de programa a ser visualizado
         if (programaDetalhado instanceof TalkShow) {
             modoTalkShow();
+            TalkShow talkShowDetalhado = (TalkShow) programaDetalhado;
+            // TODO: Preencher apresentadores, musicos e convidados
         } else if (programaDetalhado instanceof NovelaFilmeSerie) {
             modoNovelaFilmeSerie();
+            NovelaFilmeSerie novelaFilmeSerieDetalhado = (NovelaFilmeSerie) programaDetalhado;
+            caixaNumTemporadas.setText(String.valueOf(novelaFilmeSerieDetalhado.getnTemporadas()));
+            caixaNumEpisodios.setText(String.valueOf(novelaFilmeSerieDetalhado.getnTotalEpisodios()));
+            animado.setSelected(novelaFilmeSerieDetalhado.isAnimado());
+            // TODO: Preencher personagens
         } else if (programaDetalhado instanceof Jornal) {
             modoJornal();
+            Jornal jornalDetalhado = (Jornal) programaDetalhado;
+            caixaLocalidade.setText(jornalDetalhado.getLocalidade());
+            // TODO: Preencher ancoras
         }
 
-        // Preenche os campos com os dados do programa
-        caixaNome.setText(programaDetalhado.getNome());
-
-        caixaHorario.setText(programaDetalhado.getHorario());
-        caixaDuracao.setText(String.valueOf(programaDetalhado.getDuracaoMin()));
-        // TODO: Preeencher dados
         // caixaNumero.setText(String.valueOf(programaDetalhado.getNumero()));
         // for (CheckBoxCustomizada cb : cbProgramas) {
         // if (programaDetalhado.existePrograma(cb.getText())) {
@@ -346,7 +357,7 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
 
         // --------------------------- Botão atualizar ----------------------------
         atualizar = new BotaoPequeno("Atualizar", 100, 460);
-        // atualizar.addActionListener(this);
+        atualizar.addActionListener(this);
         // -------------------------------------------------------------------------
 
         // Adicionando componente ao painel
@@ -384,70 +395,95 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
                 // TODO: adicionar novos casos invalido aqui
             } else {
-                ArrayList<Integer> dias = new ArrayList<>();
-                getDiasSelecionados(dias);
                 if (talkShow.isSelected()) {
-                    TalkShow novoPrograma = new TalkShow(caixaNome.getText(), dias, caixaHorario.getText(),
-                            Integer.parseInt(caixaDuracao.getText()));
-
-                    d.getProgramaTipoTalkShow().add(novoPrograma);
-                } else if (jornal.isSelected()) {
-                    Jornal novoPrograma = new Jornal(caixaNome.getText(), dias, caixaHorario.getText(),
-                            Integer.parseInt(caixaDuracao.getText()));
-                    d.getProgramaTipoJornal().add(novoPrograma);
-                } else {
-                    NovelaFilmeSerie novoPrograma = new NovelaFilmeSerie(caixaNome.getText(), dias,
-                            caixaHorario.getText(), Integer.parseInt(caixaDuracao.getText()));
-                    d.getProgramaTipoNovelaFilmeSerie().add(novoPrograma);
+                    d.getProgramaTipoTalkShow().add((TalkShow) cadastroPrograma());
+                }
+                if (jornal.isSelected()) {
+                    d.getProgramaTipoJornal().add((Jornal) cadastroPrograma());
+                }
+                if (novelaFilmeSerie.isSelected()) {
+                    d.getProgramaTipoNovelaFilmeSerie().add((NovelaFilmeSerie) cadastroPrograma());
                 }
             }
-            // // Adiciona os programas selecionados no novoPrograma
-            // for (CheckBoxCustomizada cb : cbProgramas) {
-            // if (cb.isSelected()) {
-            // novoPrograma.getProgramas().add(d.getPrograma(cb.getText()));
-            // }
-            // }
 
             // Desabilita o botão apos o primeiro cadastro para evitar o cadastro
             // duplicado a cada click
             salvar.setEnabled(false);
         }
-    }
-    // if (clicado == atualizar) {
-    // // Checa se os campos nome e numero foram preenchidos corretamente
-    // if (caixaNome.ehTextoInvalido()) {
-    // JOptionPane.showMessageDialog(null,
-    // "O campo nome é de preenchimento obrigatório.",
-    // "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-    // } else if (caixaNumero.ehTextoInvalido() ||
-    // !caixaNumero.getText().matches("[0-9]+")) {
-    // JOptionPane.showMessageDialog(null,
-    // "O campo número é de preenchimento " +
-    // "obrigatório e só suporta números",
-    // "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-    // } else {
-    // Programa novoPrograma = new Programa(caixaNome.getText(),
-    // Integer.parseInt(caixaNumero.getText()));
-    // // Adiciona os programas selecionas no novoPrograma
-    // for (CheckBoxCustomizada cb : cbProgramas) {
-    // if (cb.isSelected()) {
-    // novoPrograma.getProgramas().add(d.getPrograma(cb.getText()));
-    // }
-    // }
-    // d.getProgramas().set(d.getProgramas().indexOf(programaDetalhado),
-    // novoPrograma);
+        if (clicado == atualizar){
+            // Checa se os campos nome e numero foram preenchidos corretamente
+            if (caixaNome.ehTextoInvalido()) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo nome é de preenchimento obrigatório.",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+                // TODO: adicionar novos casos invalido aqui
 
-    // // Desabilita o botao apos o primeiro cadastro para evitar o cadastro
-    // // duplicado a cada click
-    // caixaNome.setEditable(false);
-    // caixaNumero.setEditable(false);
-    // atualizar.setEnabled(false);
-    // // TODO: Talvez remover a função de desabilitar o botao em favor de um lablel
-    // // TODO: com feefback "O programa está atualizado"
-    // // TODO: Fechar o Jdialog aqui
-    // }
-    // }
-    // }
+            } else {
+                if (talkShow.isSelected()) {
+                    d.getProgramaTipoTalkShow().set(d.getProgramaTipoTalkShow().indexOf(programaDetalhado),
+                            (TalkShow) cadastroPrograma());
+                }
+                if (jornal.isSelected()) {
+                    d.getProgramaTipoJornal().set(d.getProgramaTipoJornal().indexOf(programaDetalhado),
+                            (Jornal) cadastroPrograma());
+                }
+                if (novelaFilmeSerie.isSelected()) {
+                    d.getProgramaTipoNovelaFilmeSerie().set(
+                            d.getProgramaTipoNovelaFilmeSerie().indexOf(programaDetalhado),
+                            (NovelaFilmeSerie) cadastroPrograma());
+                }
+            }
+        // Desabilita o botao apos o primeiro cadastro para evitar o cadastro
+        // duplicado a cada click
+        atualizar.setEnabled(false);}
+    }
+
+    private Programa cadastroPrograma() {
+        ArrayList<Integer> dias = new ArrayList<>();
+        getDiasSelecionados(dias);
+        if (talkShow.isSelected()) {
+            TalkShow novoPrograma = new TalkShow(
+                    caixaNome.getText(),
+                    dias,
+                    caixaHorario.getText(),
+                    Integer.parseInt(caixaDuracao.getText()));
+            novoPrograma.setFavorito(fav.isSelected());
+            novoPrograma.setDescricao(caixaDescricao.getText());
+            // TODO: Preencher apresentadores, musicos e convidados. Ex:
+            // Adiciona os programas selecionados no novoPrograma
+            // for (CheckBoxCustomizada cb : cbProgramas) {
+            // if (cb.isSelected()) {
+            // novoPrograma.getProgramas().add(d.getPrograma(cb.getText()));
+            // }
+            //
+            return novoPrograma;
+
+        } else if (jornal.isSelected()) {
+            Jornal novoPrograma = new Jornal(
+                    caixaNome.getText(),
+                    dias,
+                    caixaHorario.getText(),
+                    Integer.parseInt(caixaDuracao.getText()));
+            novoPrograma.setLocalidade(caixaLocalidade.getText());
+            novoPrograma.setFavorito(fav.isSelected());
+            novoPrograma.setDescricao(caixaDescricao.getText());
+            // TODO: Preencher personagens
+            return novoPrograma;
+
+        } else {
+            NovelaFilmeSerie novoPrograma = new NovelaFilmeSerie(
+                    caixaNome.getText(),
+                    dias,
+                    caixaHorario.getText(),
+                    Integer.parseInt(caixaDuracao.getText()));
+            novoPrograma.setnTemporadas(Integer.parseInt(caixaNumTemporadas.getText()));
+            novoPrograma.setnTotalEpisodios(Integer.parseInt(caixaNumEpisodios.getText()));
+            novoPrograma.setFavorito(fav.isSelected());
+            novoPrograma.setDescricao(caixaDescricao.getText());
+            return novoPrograma;
+            // TODO: Preencher ancoras
+        }
+    }
 
     private void modoJornal() {
         dicaNumTemporadas.setVisible(false);
