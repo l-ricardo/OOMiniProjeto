@@ -122,9 +122,11 @@ public class App extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object clicado = e.getSource();
+
         if (conteudo != null) {
             conteudo.setVisible(false);
         }
+
         if (clicado == bListarCanais) {
             if (!filtroCanal.getText().contains("Insira o nome do canal...")) {
                 conteudo = new TelaListaCanais(d, filtroCanal.getText());
@@ -132,9 +134,11 @@ public class App extends JFrame implements ActionListener {
                 conteudo = new TelaListaCanais(d, null);
             }
         }
+
         if (clicado == bCadastrarCanais) {
             conteudo = new TelaDetalheCanal(d);
         }
+
         if (clicado == bListarProgramas) {
             if (!filtroPrograma.getText().contains("Insira o nome do programa...")) {
                 conteudo = new TelaListaProgramas(d, filtroPrograma.getText());
@@ -142,19 +146,23 @@ public class App extends JFrame implements ActionListener {
                 conteudo = new TelaListaProgramas(d, null);
             }
         }
-        // if (clicado == bListarProgramas) { // TODO: WIP
-            // Tela lista programa com filtro de dia e canal
-            // if ((filtroCanal.getText() != "Insira o nome do canal...") &&
-            // (dom.isSelected() || seg.isSelected() || ter.isSelected()
-            // || qua.isSelected() || qui.isSelected() || sex.isSelected()
-            // || sab.isSelected())) {
 
-            // // conteudo = new TelaDetalhePrograma(dados, filtro);
-            // } else {
-            // // Tela lista programa sem filtro
-            // // conteudo = new TelaDetalhePrograma(dados);
-            // }
+        // if (clicado == bCadastrarProgramas) {
+        //     conteudo = new TelaDetalhePrograma(d);
         // }
+
+        // if (clicado == bListarPessoas) {
+        //     if (!filtroPessoa.getText().contains("Insira o nome da pessoa...")) {
+        //         conteudo = new TelaListaPessoas(d, filtroPessoa.getText());
+        //     } else {
+        //         conteudo = new TelaListaPessoas(d, null);
+        //     }
+        // }
+
+        // if (clicado == bCadastrarPessoas) {
+        //     conteudo = new TelaDetalhePessoa(d);
+        // }
+
         if (clicado == limparFiltros) {
             filtroCanal.setText("Insira o nome do canal...");
             filtroPrograma.setText("Insira o nome do programa...");
