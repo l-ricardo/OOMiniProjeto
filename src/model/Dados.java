@@ -49,14 +49,14 @@ public class Dados {
                 pessoas.add(new Pessoa("Seu João", 'M'));
 
                 programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Avenida Brasil",
-                                new ArrayList<Integer>(Arrays.asList(2, 3, 4, 5, 6)), "21:00", 120, 16,
+                                new ArrayList<Integer>(Arrays.asList(2, 3, 4, 5, 6)), "21:00", 120,
                                 new ArrayList<Personagem>(Arrays.asList(
                                                 personagens.get(0),
                                                 personagens.get(1),
                                                 personagens.get(2))),
                                 1, 300));
                 programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Bagulhos Sinistros",
-                                new ArrayList<Integer>(Arrays.asList(7)), "7:00", 60, 12,
+                                new ArrayList<Integer>(Arrays.asList(7)), "7:00", 60,
                                 new ArrayList<Personagem>(Arrays.asList(
                                                 personagens.get(3),
                                                 personagens.get(4),
@@ -67,32 +67,32 @@ public class Dados {
                                 4, 32));
                 programaTipoNovelaFilmeSerie.get(1).setFavorito(true);
                 programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Vingadores",
-                                new ArrayList<Integer>(Arrays.asList(6)), "13:00", 210, 14,
+                                new ArrayList<Integer>(Arrays.asList(6)), "13:00", 210,
                                 new ArrayList<Personagem>(Arrays.asList(
                                                 personagens.get(0),
                                                 personagens.get(3))),
                                 0, 1));
                 programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Bob Esponja",
-                                new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6, 7)), "10:00", 20, 0,
+                                new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6, 7)), "10:00", 20,
                                 new ArrayList<Personagem>(Arrays.asList(
                                                 personagens.get(9))),
                                 15, 1200));
                 programaTipoNovelaFilmeSerie.get(3).setAnimado(true);
 
                 programaTipoJornal.add(new Jornal("Jornal Nacional",
-                                new ArrayList<Integer>(Arrays.asList(2, 3, 4, 5, 6)), "20:00", 60, 0,
+                                new ArrayList<Integer>(Arrays.asList(2, 3, 4, 5, 6)), "20:00", 60,
                                 new ArrayList<Artista>(Arrays.asList(
                                                 artistas.get(5),
                                                 artistas.get(6))),
                                 "Nacional"));
 
                 programaTipoTalkShow.add(new TalkShow("Mais Você",
-                                new ArrayList<Integer>(Arrays.asList(2, 3, 4, 5, 6)), "8:00", 90, 0,
+                                new ArrayList<Integer>(Arrays.asList(2, 3, 4, 5, 6)), "8:00", 90,
                                 new ArrayList<Artista>(Arrays.asList(
                                                 artistas.get(0),
                                                 artistas.get(1)))));
                 programaTipoTalkShow.add(new TalkShow("Hora do Faro",
-                                new ArrayList<Integer>(Arrays.asList(7)), "15:00", 60, 10,
+                                new ArrayList<Integer>(Arrays.asList(7)), "15:00", 60,
                                 new ArrayList<Artista>(Arrays.asList(
                                                 artistas.get(2)))));
                 programaTipoTalkShow.get(1).setConvidados(
@@ -100,15 +100,15 @@ public class Dados {
                                                 pessoas.get(0),
                                                 pessoas.get(1))));
                 programaTipoTalkShow.add(new TalkShow("Programa do Silvio Santos",
-                                new ArrayList<Integer>(Arrays.asList(1)), "16:00", 300, 0,
+                                new ArrayList<Integer>(Arrays.asList(1)), "16:00", 300,
                                 new ArrayList<Artista>(Arrays.asList(
                                                 artistas.get(3)))));
                 programaTipoTalkShow.add(new TalkShow("Roda Roda Jequiti",
-                                new ArrayList<Integer>(Arrays.asList(1)), "5:00", 90, 0,
+                                new ArrayList<Integer>(Arrays.asList(1)), "5:00", 90,
                                 new ArrayList<Artista>(Arrays.asList(
                                                 artistas.get(3)))));
                 programaTipoTalkShow.add(new TalkShow("Caldeirao",
-                                new ArrayList<Integer>(Arrays.asList(7)), "15:00", 240, 0,
+                                new ArrayList<Integer>(Arrays.asList(7)), "15:00", 240,
                                 new ArrayList<Artista>(Arrays.asList(
                                                 artistas.get(4)))));
                 programaTipoTalkShow.get(4).setMusicos(
@@ -352,6 +352,7 @@ public class Dados {
                         }
                 }
         }
+
         /**
          * Deleta uma pessoa desse "banco de dados" d, atraves de seu nome.
          * 

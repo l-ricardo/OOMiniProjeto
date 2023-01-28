@@ -11,25 +11,39 @@ public class Jornal extends Programa {
     private String localidade;
 
     /**
-     * Construtor que recebe o nome de um noticiario, os dias da semana que o
-     * noticiario é transmitido, o horário de exibição, a duração do noticiario e a
-     * classificação indicativa.
+     * Construtor que recebe o nome de um Jornal, os dias da semana que o Jornal
+     * é transmitido, o horário de exibição, a duração do Jornal.
      * 
-     * @param nome                    Nome do noticiario
-     * @param dias                    ArrayList de inteiros que representa os dias
-     *                                da semana que o noticiario é transmitido (1
-     *                                para Domingo até 7 para Sábado.)
-     * @param horario                 Horário de exibição do noticiario
-     * @param duracaoMin              Duração do noticiario em minutos
-     * @param classificacaoIndicativa Classificação indicativa do noticiario (0 para
-     *                                classificacao livre)
-     * @param ancoras                 ArrayList de Artistas que representam os
-     *                                ancoras do noticiario
-     * @param localidade              Se o noticiario é Local, Nacional, etc...
+     * @param nome       Nome do Jornal
+     * @param dias       ArrayList de inteiros que representa os dias
+     *                   da semana que o Jornal é transmitido (1 para
+     *                   Domingo até 7 para Sábado.)
+     * @param horario    Horário de exibição do Jornal
+     * @param duracaoMin Duração do Jornal em minutos
+     * 
+     */
+    public Jornal(String nome, ArrayList<Integer> dias, String horario,
+            int duracaoMin) {
+        super(nome, dias, horario, duracaoMin);
+    }
+
+    /**
+     * Construtor que recebe o nome de um noticiario, os dias da semana que o
+     * noticiario é transmitido, o horário de exibição, a duração do noticiario.
+     * 
+     * @param nome       Nome do noticiario
+     * @param dias       ArrayList de inteiros que representa os dias
+     *                   da semana que o noticiario é transmitido (1
+     *                   para Domingo até 7 para Sábado.)
+     * @param horario    Horário de exibição do noticiario
+     * @param duracaoMin Duração do noticiario em minutos
+     * @param ancoras    ArrayList de Artistas que representam os
+     *                   ancoras do noticiario
+     * @param localidade Se o noticiario é Local, Nacional, etc...
      */
     public Jornal(String nome, ArrayList<Integer> dias, String horario, int duracaoMin,
-            int classificacaoIndicativa, ArrayList<Artista> ancoras, String localidade) {
-        super(nome, dias, horario, duracaoMin, classificacaoIndicativa);
+            ArrayList<Artista> ancoras, String localidade) {
+        super(nome, dias, horario, duracaoMin);
         this.ancoras = ancoras;
         this.localidade = localidade;
     }

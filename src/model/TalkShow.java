@@ -15,42 +15,39 @@ public class TalkShow extends Programa {
 
     /**
      * Construtor que recebe o nome de um TalkShow, os dias da semana que o TalkShow
-     * é transmitido, o horário de exibição, a duração do TalkShow e a classificação
-     * indicativa.
+     * é transmitido, o horário de exibição, a duração do TalkShow.
      * 
-     * @param nome                    Nome do TalkShow
-     * @param dias                    ArrayList de inteiros que representa os dias
-     *                                da semana que o TalkShow é transmitido (1 para
-     *                                Domingo até 7 para Sábado.)
-     * @param horario                 Horário de exibição do TalkShow
-     * @param duracaoMin              Duração do TalkShow em minutos
-     * @param classificacaoIndicativa Classificação indicativa do TalkShow (0 para
-     *                                classificacao livre)
+     * @param nome       Nome do TalkShow
+     * @param dias       ArrayList de inteiros que representa os dias
+     *                   da semana que o TalkShow é transmitido (1 para
+     *                   Domingo até 7 para Sábado.)
+     * @param horario    Horário de exibição do TalkShow
+     * @param duracaoMin Duração do TalkShow em minutos
+     * 
      */
     public TalkShow(String nome, ArrayList<Integer> dias, String horario,
-            int duracaoMin, int classificacaoIndicativa) {
-        super(nome, dias, horario, duracaoMin, classificacaoIndicativa);
+            int duracaoMin) {
+        super(nome, dias, horario, duracaoMin);
     }
 
     /**
      * Construtor que recebe o nome de um TalkShow, os dias da semana que o TalkShow
-     * é transmitido, o horário de exibição, a duração do TalkShow, a classificação
-     * indicativa e os apresentadores.
+     * é transmitido, o horário de exibição, a duração do TalkShow e os
+     * apresentadores.
      * 
-     * @param nome                    Nome do TalkShow
-     * @param dias                    ArrayList de inteiros que representa os dias
-     *                                da semana que o TalkShow é transmitido (1 para
-     *                                Domingo até 7 para Sábado.)
-     * @param horario                 Horário de exibição do TalkShow
-     * @param duracaoMin              Duração do TalkShow em minutos
-     * @param classificacaoIndicativa Classificação indicativa do TalkShow (0 para
-     *                                classificacao livre)
-     * @param apresentadores          ArrayList de Artistas que representam os
-     *                                apresentadores do TalkShow
+     * @param nome           Nome do TalkShow
+     * @param dias           ArrayList de inteiros que representa os dias
+     *                       da semana que o TalkShow é transmitido (1 para
+     *                       Domingo até 7 para Sábado.)
+     * @param horario        Horário de exibição do TalkShow
+     * @param duracaoMin     Duração do TalkShow em minutos
+     * 
+     * @param apresentadores ArrayList de Artistas que representam os
+     *                       apresentadores do TalkShow
      */
     public TalkShow(String nome, ArrayList<Integer> dias, String horario, int duracaoMin,
-            int classificacaoIndicativa, ArrayList<Artista> apresentadores) {
-        super(nome, dias, horario, duracaoMin, classificacaoIndicativa);
+            ArrayList<Artista> apresentadores) {
+        super(nome, dias, horario, duracaoMin);
         this.apresentadores = apresentadores;
     }
 

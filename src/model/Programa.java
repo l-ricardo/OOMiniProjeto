@@ -12,7 +12,6 @@ public abstract class Programa implements Comparable<Programa> {
     private ArrayList<DayOfWeek> diasExibicao = new ArrayList<>();
     private String horario;
     private int duracaoMin;
-    private int classificacaoIndicativa; // 0 significa Livre
     private String descricao;
     private boolean favorito;
     {
@@ -22,25 +21,21 @@ public abstract class Programa implements Comparable<Programa> {
 
     /**
      * Construtor que recebe o nome do programa, os dias da semana que o programa é
-     * transmitido, o horário de exibição, a duração do programa e a classificação
-     * indicativa.
+     * transmitido, o horário de exibição, a duração do programa.
      * 
-     * @param nome                    Nome do programa
-     * @param dias                    ArrayList de inteiros que representa os dias
-     *                                da semana que o programa é transmitido (1 para
-     *                                Domingo até 7 para Sábado.)
-     * @param horario                 Horário de exibição do programa
-     * @param duracaoMin              Duração do programa em minutos
-     * @param classificacaoIndicativa Classificação indicativa do programa (0 para
-     *                                classificacao livre)
+     * @param nome       Nome do programa
+     * @param dias       ArrayList de inteiros que representa os dias
+     *                   da semana que o programa é transmitido (1 para
+     *                   Domingo até 7 para Sábado.)
+     * @param horario    Horário de exibição do programa
+     * @param duracaoMin Duração do programa em minutos
      */
     public Programa(String nome, ArrayList<Integer> dias, String horario,
-            int duracaoMin, int classificacaoIndicativa) {
+            int duracaoMin) {
         this.nome = nome;
         this.setDiasExibicao(dias);
         this.horario = horario;
         this.duracaoMin = duracaoMin;
-        this.classificacaoIndicativa = classificacaoIndicativa;
     }
 
     // Gets e Sets
@@ -93,14 +88,6 @@ public abstract class Programa implements Comparable<Programa> {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public int getClassificacaoIndicativa() {
-        return classificacaoIndicativa;
-    }
-
-    public void setClassificacaoIndicativa(int classificacaoIndicativa) {
-        this.classificacaoIndicativa = classificacaoIndicativa;
     }
 
     public boolean isFavorito() {
