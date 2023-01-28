@@ -297,6 +297,7 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
         this.add(painelConvidadosRolavel);
 
         modoTalkShow();
+        this.talkShow.setSelected(true);
         this.add(salvar);
     }
 
@@ -320,19 +321,46 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
 
         // Preenche os campos com os dados do programa
         caixaNome.setText(programaDetalhado.getNome());
-        // TODO: Preencher dias
+        for (int dia : programaDetalhado.getDiasExibicao()) {
+            switch (dia) {
+                case 1:
+                    dom.setSelected(true);
+                    break;
+                case 2:
+                    seg.setSelected(true);
+                    break;
+                case 3:
+                    ter.setSelected(true);
+                    break;
+                case 4:
+                    qua.setSelected(true);
+                    break;
+                case 5:
+                    qui.setSelected(true);
+                    break;
+                case 6:
+                    sex.setSelected(true);
+                    break;
+                case 7:
+                    sab.setSelected(true);
+                    break;
+            }
+        }
         caixaHorario.setText(programaDetalhado.getHorario());
         caixaDuracao.setText(String.valueOf(programaDetalhado.getDuracaoMin()));
         caixaDescricao.setText(programaDetalhado.getDescricao());
         fav.setSelected(programaDetalhado.isFavorito());
 
-        // Configura a interface para o tipo de programa a ser visualizado
+        // Configura a interface para o tipo de programa a ser visualizado e preenche
+        // dados restantes
         if (programaDetalhado instanceof TalkShow) {
             modoTalkShow();
+            talkShow.setSelected(true);
             TalkShow talkShowDetalhado = (TalkShow) programaDetalhado;
             // TODO: Preencher apresentadores, musicos e convidados
         } else if (programaDetalhado instanceof NovelaFilmeSerie) {
             modoNovelaFilmeSerie();
+            novelaFilmeSerie.setSelected(true);
             NovelaFilmeSerie novelaFilmeSerieDetalhado = (NovelaFilmeSerie) programaDetalhado;
             caixaNumTemporadas.setText(String.valueOf(novelaFilmeSerieDetalhado.getnTemporadas()));
             caixaNumEpisodios.setText(String.valueOf(novelaFilmeSerieDetalhado.getnTotalEpisodios()));
@@ -340,6 +368,7 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
             // TODO: Preencher personagens
         } else if (programaDetalhado instanceof Jornal) {
             modoJornal();
+            jornal.setSelected(true);
             Jornal jornalDetalhado = (Jornal) programaDetalhado;
             caixaLocalidade.setText(jornalDetalhado.getLocalidade());
             // TODO: Preencher ancoras
@@ -393,7 +422,22 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
                 JOptionPane.showMessageDialog(null,
                         "O campo nome é de preenchimento obrigatório.",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-                // TODO: adicionar novos casos invalido aqui
+            } else if (getDiasSelecionados().size() == 0) {
+                JOptionPane.showMessageDialog(null,
+                        "A seleção de pelo menos um dia se exibição é obrigatória",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+            } else if (caixaHorario.ehTextoInvalido()) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo horário é de preenchimento obrigatório.",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+            } else if (caixaDuracao.ehTextoInvalido()) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo duração é de preenchimento obrigatório.",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+            } else if (!caixaDuracao.getText().matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo duração só suporta números",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
             } else {
                 if (talkShow.isSelected()) {
                     d.getProgramaTipoTalkShow().add((TalkShow) cadastroPrograma());
@@ -402,7 +446,17 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
                     d.getProgramaTipoJornal().add((Jornal) cadastroPrograma());
                 }
                 if (novelaFilmeSerie.isSelected()) {
-                    d.getProgramaTipoNovelaFilmeSerie().add((NovelaFilmeSerie) cadastroPrograma());
+                    if (!caixaNumEpisodios.getText().matches("[0-9]+")) {
+                        JOptionPane.showMessageDialog(null,
+                                "O campo episódios só suporta números",
+                                "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+                    } else if (!caixaNumTemporadas.getText().matches("[0-9]+")) {
+                        JOptionPane.showMessageDialog(null,
+                                "O campo temporadas só suporta números",
+                                "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        d.getProgramaTipoNovelaFilmeSerie().add((NovelaFilmeSerie) cadastroPrograma());
+                    }
                 }
             }
 
@@ -410,14 +464,28 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
             // duplicado a cada click
             salvar.setEnabled(false);
         }
-        if (clicado == atualizar){
+        if (clicado == atualizar) {
             // Checa se os campos nome e numero foram preenchidos corretamente
             if (caixaNome.ehTextoInvalido()) {
                 JOptionPane.showMessageDialog(null,
                         "O campo nome é de preenchimento obrigatório.",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-                // TODO: adicionar novos casos invalido aqui
-
+            } else if (getDiasSelecionados().size() == 0) {
+                JOptionPane.showMessageDialog(null,
+                        "A seleção de pelo menos um dia se exibição é obrigatória",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+            } else if (caixaHorario.ehTextoInvalido()) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo horário é de preenchimento obrigatório.",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+            } else if (caixaDuracao.ehTextoInvalido()) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo duração é de preenchimento obrigatório.",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+            } else if (!caixaDuracao.getText().matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo duração só suporta números",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
             } else {
                 if (talkShow.isSelected()) {
                     d.getProgramaTipoTalkShow().set(d.getProgramaTipoTalkShow().indexOf(programaDetalhado),
@@ -428,19 +496,29 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
                             (Jornal) cadastroPrograma());
                 }
                 if (novelaFilmeSerie.isSelected()) {
-                    d.getProgramaTipoNovelaFilmeSerie().set(
-                            d.getProgramaTipoNovelaFilmeSerie().indexOf(programaDetalhado),
-                            (NovelaFilmeSerie) cadastroPrograma());
+                    if (!caixaNumEpisodios.getText().matches("[0-9]+")) {
+                        JOptionPane.showMessageDialog(null,
+                                "O campo episódios só suporta números",
+                                "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+                    } else if (!caixaNumTemporadas.getText().matches("[0-9]+")) {
+                        JOptionPane.showMessageDialog(null,
+                                "O campo temporadas só suporta números",
+                                "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        d.getProgramaTipoNovelaFilmeSerie().set(
+                                d.getProgramaTipoNovelaFilmeSerie().indexOf(programaDetalhado),
+                                (NovelaFilmeSerie) cadastroPrograma());
+                    }
                 }
             }
-        // Desabilita o botao apos o primeiro cadastro para evitar o cadastro
-        // duplicado a cada click
-        atualizar.setEnabled(false);}
+            // Desabilita o botao apos o primeiro cadastro para evitar o cadastro
+            // duplicado a cada click
+            atualizar.setEnabled(false);
+        }
     }
 
     private Programa cadastroPrograma() {
-        ArrayList<Integer> dias = new ArrayList<>();
-        getDiasSelecionados(dias);
+        ArrayList<Integer> dias = getDiasSelecionados();
         if (talkShow.isSelected()) {
             TalkShow novoPrograma = new TalkShow(
                     caixaNome.getText(),
@@ -554,7 +632,8 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
         painelConvidadosRolavel.setVisible(true);
     }
 
-    private void getDiasSelecionados(ArrayList<Integer> dias) {
+    private ArrayList<Integer> getDiasSelecionados() {
+        ArrayList<Integer> dias = new ArrayList<Integer>();
         if (dom.isSelected()) {
             dias.add(1);
         }
@@ -576,5 +655,7 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
         if (sab.isSelected()) {
             dias.add(7);
         }
+        return dias;
     }
+
 }

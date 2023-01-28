@@ -65,7 +65,7 @@ public class CheckBoxCustomizada extends JCheckBox {
 
             default:
                 this.setText(tipo);
-                // this.setBounds(posX, posY, 25, 25);
+                this.setBounds(posX, posY, 25, 25);
                 this.setIcon(new ImageIcon("assets/x_off.png"));
                 this.setSelectedIcon(new ImageIcon("assets/x_on.png"));
                 break;

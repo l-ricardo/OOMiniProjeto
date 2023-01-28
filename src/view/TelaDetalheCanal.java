@@ -70,7 +70,7 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
         }
 
         JScrollPane painelProgramasRolavel = new JScrollPane(painelProgramas);
-        painelProgramasRolavel.setBounds(450,60, 300, 430);
+        painelProgramasRolavel.setBounds(450, 60, 300, 430);
         painelProgramasRolavel.setBorder(BorderFactory.createEtchedBorder());
         painelProgramasRolavel.setBackground(new Color(50, 48, 48));
 
@@ -141,10 +141,13 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
                 JOptionPane.showMessageDialog(null,
                         "O campo nome é de preenchimento obrigatório.",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-            } else if (caixaNumero.ehTextoInvalido() || !caixaNumero.getText().matches("[0-9]+")) {
+            } else if (caixaNumero.ehTextoInvalido()) {
                 JOptionPane.showMessageDialog(null,
-                        "O campo número é de preenchimento " +
-                                "obrigatório e só suporta números",
+                        "O campo número é de preenchimento obrigatório ",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+            } else if (!caixaNumero.getText().matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo número só suporta números",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
             } else {
                 Canal novoCanal = new Canal(caixaNome.getText(),
@@ -170,10 +173,13 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
                 JOptionPane.showMessageDialog(null,
                         "O campo nome é de preenchimento obrigatório.",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-            } else if (caixaNumero.ehTextoInvalido() || !caixaNumero.getText().matches("[0-9]+")) {
+            } else if (caixaNumero.ehTextoInvalido()) {
                 JOptionPane.showMessageDialog(null,
-                        "O campo número é de preenchimento " +
-                                "obrigatório e só suporta números",
+                        "O campo número é de preenchimento obrigatório ",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+            } else if (!caixaNumero.getText().matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo número só suporta números",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
             } else {
                 Canal novoCanal = new Canal(caixaNome.getText(),
@@ -191,9 +197,6 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
                 caixaNome.setEditable(false);
                 caixaNumero.setEditable(false);
                 atualizar.setEnabled(false);
-                // TODO: Talvez remover a função de desabilitar o botao em favor de um lablel
-                // TODO: com feefback "O canal está atualizado"
-                // TODO: Fechar o Jdialog aqui
             }
         }
     }
