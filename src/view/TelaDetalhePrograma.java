@@ -8,35 +8,43 @@ import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 import model.Artista;
 import model.Dados;
+import model.Jornal;
+import model.NovelaFilmeSerie;
 import model.Personagem;
 import model.Pessoa;
 import model.Programa;
+import model.TalkShow;
 
 /**
  * Cria uma tela de conteúdo que estende de JPanel, com as funcionalidades de
  * criação e edição de programas.
  */
-public class TelaDetalhePrograma extends JPanel {// implements ActionListener {
+public class TelaDetalhePrograma extends JPanel implements ActionListener {
     Dados d;
     Programa programaDetalhado;
 
-    CampoDados caixaNome, caixaHorario, caixaDuracao, caixaDescricao, caixaNumTemporadas, caixaNumEpisodios;
     BotaoPequeno salvar, atualizar;
-    ArrayList<CheckBoxCustomizada> cbPersonagens, cbAncoras, cbApresentadores, cbMusicos, cbConvidados;
-
-    // TODO: remover declaracao duplicada dos abaixo
-    JLabel dicaNumTemporadas, dicaNumEpisodios, dicaAnimacao, dicaPersonagem, dicaAncora, dicaApresentador, dicaMusico,
-            dicaConvidado;
     CheckBoxCustomizada animado;
-    JScrollPane painelPersonagensRolavel, painelAncorasRolavel, painelApresentadoresRolavel, painelMusicosRolavel,
-            painelConvidadosRolavel;
+    CheckBoxCustomizada dom, seg, ter, qua, qui, sex, sab;
+    BotaoRadialCustomizado talkShow, jornal, novelaFilmeSerie;
+    ArrayList<CheckBoxCustomizada> cbPersonagens, cbAncoras, cbApresentadores,
+            cbMusicos, cbConvidados;
+    JLabel dicaTipoPrograma, dicaNumTemporadas, dicaNumEpisodios, dicaAnimacao,
+            dicaPersonagem, dicaAncora, dicaApresentador, dicaMusico,
+            dicaConvidado, dicaLocalidade, legendaTipoPrograma;
+    CampoDados caixaNome, caixaHorario, caixaDuracao, caixaDescricao,
+            caixaNumTemporadas, caixaNumEpisodios, caixaLocalidade;
+    JScrollPane painelPersonagensRolavel, painelAncorasRolavel,
+            painelApresentadoresRolavel, painelMusicosRolavel, painelConvidadosRolavel;
 
     /**
      * Constroi um painel para cadastro de dados da Classe Programa.
@@ -52,11 +60,22 @@ public class TelaDetalhePrograma extends JPanel {// implements ActionListener {
         this.setBackground(new Color(126, 121, 121));
 
         // ------------------ Componentes tipo programa ------------------
-        JLabel dicaTipoPrograma = new JLabel("Tipo de programa:");
+        dicaTipoPrograma = new JLabel("Tipo de programa:");
         dicaTipoPrograma.setBounds(100, 30, 300, 30);
-        BotaoRadialCustomizado talkShow = new BotaoRadialCustomizado("Talk Show", 150, 60);
-        BotaoRadialCustomizado jornal = new BotaoRadialCustomizado("Jornal", 200, 60);
-        BotaoRadialCustomizado novelaFilmeSerie = new BotaoRadialCustomizado("Novela, filme ou serie", 250, 60);
+        legendaTipoPrograma = new JLabel(" TalkShow              Jornal          Novela/Filme/Serie");
+        legendaTipoPrograma.setBounds(100, 80, 300, 30);
+        talkShow = new BotaoRadialCustomizado("Talk Show", 115, 60);
+        jornal = new BotaoRadialCustomizado("Jornal", 210, 60);
+        novelaFilmeSerie = new BotaoRadialCustomizado("Novela, filme ou serie", 310, 60);
+       
+        ButtonGroup grupoBotoesTipo = new ButtonGroup();
+        grupoBotoesTipo.add(talkShow);
+        grupoBotoesTipo.add(jornal);
+        grupoBotoesTipo.add(novelaFilmeSerie);
+
+        talkShow.addActionListener(this);
+        jornal.addActionListener(this);
+        novelaFilmeSerie.addActionListener(this);
 
         // --------------------------- Componentes nome ---------------------------
         JLabel dicaNome = new JLabel("Nome:");
@@ -71,13 +90,13 @@ public class TelaDetalhePrograma extends JPanel {// implements ActionListener {
         // --------------------- Componentes dias de exibição ---------------------
         JLabel dicaDiasExibicao = new JLabel("Dias de exibição:");
         dicaDiasExibicao.setBounds(100, 175, 300, 30);
-        CheckBoxCustomizada dom = new CheckBoxCustomizada("d", 100, 205);
-        CheckBoxCustomizada seg = new CheckBoxCustomizada("s", 125, 205);
-        CheckBoxCustomizada ter = new CheckBoxCustomizada("t", 150, 205);
-        CheckBoxCustomizada qua = new CheckBoxCustomizada("q", 175, 205);
-        CheckBoxCustomizada qui = new CheckBoxCustomizada("q", 200, 205);
-        CheckBoxCustomizada sex = new CheckBoxCustomizada("s", 225, 205);
-        CheckBoxCustomizada sab = new CheckBoxCustomizada("s", 250, 205);
+        dom = new CheckBoxCustomizada("d", 100, 205);
+        seg = new CheckBoxCustomizada("s", 125, 205);
+        ter = new CheckBoxCustomizada("t", 150, 205);
+        qua = new CheckBoxCustomizada("q", 175, 205);
+        qui = new CheckBoxCustomizada("q", 200, 205);
+        sex = new CheckBoxCustomizada("s", 225, 205);
+        sab = new CheckBoxCustomizada("s", 250, 205);
 
         // -------------------------- Componentes horário --------------------------
         JLabel dicaHorario = new JLabel("Horário:");
@@ -91,37 +110,31 @@ public class TelaDetalhePrograma extends JPanel {// implements ActionListener {
         caixaDuracao = new CampoDados("Quanto tempo dura...", 250, 270);
         caixaDuracao.setSize(150, 30);
 
-        // ------------------ Componentes classificacao indicativa ------------------
-        JLabel dicaClassificacaoIndicativa = new JLabel("Classificação indicativa:");
-        dicaClassificacaoIndicativa.setBounds(100, 315, 300, 30);
-        BotaoRadialCustomizado livre = new BotaoRadialCustomizado("L", 100, 345);
-        BotaoRadialCustomizado dez = new BotaoRadialCustomizado("10", 100, 370);
-        BotaoRadialCustomizado doze = new BotaoRadialCustomizado("12", 100, 395);
-        BotaoRadialCustomizado quatorze = new BotaoRadialCustomizado("14", 100, 420);
-        BotaoRadialCustomizado dezesseis = new BotaoRadialCustomizado("16", 100, 445);
-        BotaoRadialCustomizado dezoito = new BotaoRadialCustomizado("18", 100, 470);
-
         // ------------------------- Componentes descrição -------------------------
         JLabel dicaDescricao = new JLabel("Descrição:");
-        dicaDescricao.setBounds(125, 315, 275, 30);
-        caixaDescricao = new CampoDados("Insira aqui a descrição do programa...", 125, 345);
-        caixaDescricao.setSize(275, 150);
+        dicaDescricao.setBounds(100, 315, 275, 30);
+        caixaDescricao = new CampoDados("Insira aqui a descrição do programa...", 100, 345);
+
+        // ------------------------ Componentes localidade ------------------------
+        dicaLocalidade = new JLabel("Localidade:");
+        dicaLocalidade.setBounds(800, 30, 300, 30);
+        caixaLocalidade = new CampoDados("Insira aqui em que esfera o jornal é exibido...", 800, 60);
 
         // ------------------------ Componentes temporadas ------------------------
         dicaNumTemporadas = new JLabel("Número de temporadas:");
         dicaNumTemporadas.setBounds(800, 30, 300, 30);
-        caixaNumTemporadas = new CampoDados("Insira aqui o número de temporadas...", 800, 60);
+        caixaNumTemporadas = new CampoDados("Quantas temporadas...", 800, 60);
         caixaNumTemporadas.setSize(150, 30);
 
         // ------------------------- Componentes episodios -------------------------
         dicaNumEpisodios = new JLabel("Número de episódios:");
         dicaNumEpisodios.setBounds(950, 30, 300, 30);
-        caixaNumEpisodios = new CampoDados("Insira aqui o número de episódios...", 950, 60);
+        caixaNumEpisodios = new CampoDados("Quantos episódios?", 950, 60);
         caixaNumEpisodios.setSize(150, 30);
 
         // -------------------------- Componente animado --------------------------
-        dicaAnimacao = new JLabel("É animação:");
-        dicaAnimacao.setBounds(800, 100, 300, 30);
+        dicaAnimacao = new JLabel("Animação?");
+        dicaAnimacao.setBounds(840, 100, 275, 30);
         animado = new CheckBoxCustomizada("Animação", 800, 100);
 
         // ----------------------- Componentes personagens ------------------------
@@ -208,13 +221,13 @@ public class TelaDetalhePrograma extends JPanel {// implements ActionListener {
         }
 
         painelMusicosRolavel = new JScrollPane(painelMusicos);
-        painelMusicosRolavel.setBounds(800, 60, 300, 430);
+        painelMusicosRolavel.setBounds(800, 60, 300, 200);
         painelMusicosRolavel.setBorder(BorderFactory.createEtchedBorder());
         painelMusicosRolavel.setBackground(new Color(50, 48, 48));
 
         // ------------------------ Componentes convidados -------------------------
         dicaConvidado = new JLabel("Convidados:");
-        dicaConvidado.setBounds(800, 30, 300, 30);
+        dicaConvidado.setBounds(800, 260, 300, 30);
 
         cbConvidados = new ArrayList<>(); // Inicializa array de checkboxes
         for (Pessoa convidados : d.getPessoas()) {
@@ -230,17 +243,18 @@ public class TelaDetalhePrograma extends JPanel {// implements ActionListener {
         }
 
         painelConvidadosRolavel = new JScrollPane(painelConvidados);
-        painelConvidadosRolavel.setBounds(800, 60, 300, 430);
+        painelConvidadosRolavel.setBounds(800, 290, 300, 200);
         painelConvidadosRolavel.setBorder(BorderFactory.createEtchedBorder());
         painelConvidadosRolavel.setBackground(new Color(50, 48, 48));
 
         // ----------------------------- Botão salvar ------------------------------
         salvar = new BotaoPequeno("Salvar", 100, 460);
-        // salvar.addActionListener(this);
+        salvar.addActionListener(this);
         // -------------------------------------------------------------------------
 
         // Adicionando componentes ao painel
         this.add(dicaTipoPrograma);
+        this.add(legendaTipoPrograma);
         this.add(novelaFilmeSerie);
         this.add(jornal);
         this.add(talkShow);
@@ -259,13 +273,6 @@ public class TelaDetalhePrograma extends JPanel {// implements ActionListener {
         this.add(caixaHorario);
         this.add(dicaDuracao);
         this.add(caixaDuracao);
-        this.add(dicaClassificacaoIndicativa);
-        this.add(livre);
-        this.add(dez);
-        this.add(doze);
-        this.add(quatorze);
-        this.add(dezesseis);
-        this.add(dezoito);
         this.add(dicaDescricao);
         this.add(caixaDescricao);
 
@@ -278,6 +285,8 @@ public class TelaDetalhePrograma extends JPanel {// implements ActionListener {
         this.add(dicaPersonagem);
         this.add(painelPersonagensRolavel);
 
+        this.add(dicaLocalidade);
+        this.add(caixaLocalidade);
         this.add(dicaAncora);
         this.add(painelAncorasRolavel);
 
@@ -288,8 +297,6 @@ public class TelaDetalhePrograma extends JPanel {// implements ActionListener {
         this.add(dicaConvidado);
         this.add(painelConvidadosRolavel);
 
-        // modoNovelaFilmeSerie();
-        // modoJornal();
         modoTalkShow();
         this.add(salvar);
     }
@@ -303,11 +310,29 @@ public class TelaDetalhePrograma extends JPanel {// implements ActionListener {
     public TelaDetalhePrograma(Dados dados, String nome) {
         this(dados);
 
+        dicaTipoPrograma.setVisible(false);
+        legendaTipoPrograma.setVisible(false);
+        talkShow.setVisible(false);
+        jornal.setVisible(false);
+        novelaFilmeSerie.setVisible(false);
+
         // Encontra o programa que se quer visualizar
         this.programaDetalhado = d.getPrograma(nome);
 
+        // Configura a interface para o tipo de programa a ser visualizado
+        if (programaDetalhado instanceof TalkShow) {
+            modoTalkShow();
+        } else if (programaDetalhado instanceof NovelaFilmeSerie) {
+            modoNovelaFilmeSerie();
+        } else if (programaDetalhado instanceof Jornal) {
+            modoJornal();
+        }
+
         // Preenche os campos com os dados do programa
         caixaNome.setText(programaDetalhado.getNome());
+
+        caixaHorario.setText(programaDetalhado.getHorario());
+        caixaDuracao.setText(String.valueOf(programaDetalhado.getDuracaoMin()));
         // TODO: Preeencher dados
         // caixaNumero.setText(String.valueOf(programaDetalhado.getNumero()));
         // for (CheckBoxCustomizada cb : cbProgramas) {
@@ -329,48 +354,65 @@ public class TelaDetalhePrograma extends JPanel {// implements ActionListener {
         this.updateUI();
     }
 
-    // /**
-    // * Detecta quando os botões "salvar" e "atualizar" são clicados além de
-    // * verificar se os campos nome e número foram preenchidos corretamente e, se
-    // * sim, cria ou atualiza um objeto Programa com as informações fornecidas.
-    // *
-    // * @param e O evento detectado pelo sistema
-    // *
-    // */
-    // @Override
-    // public void actionPerformed(ActionEvent e) {
-    // Object clicado = e.getSource();
+    /**
+     * Detecta quando os botões "salvar" e "atualizar" são clicados além de
+     * verificar se os campos nome e número foram preenchidos corretamente e, se
+     * sim, cria ou atualiza um objeto Programa com as informações fornecidas.
+     *
+     * @param e O evento detectado pelo sistema
+     *
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object clicado = e.getSource();
+        // Muda os campos de preenchimento comforme o tipo de programa selecionado
+        if (clicado == talkShow) {
+            modoTalkShow();
+        }
+        if (clicado == novelaFilmeSerie) {
+            modoNovelaFilmeSerie();
+        }
+        if (clicado == jornal) {
+            modoJornal();
+        }
 
-    // if (clicado == salvar) {
-    // // Checa se os campos nome e numero foram preenchidos corretamente
-    // if (caixaNome.ehTextoInvalido()) {
-    // JOptionPane.showMessageDialog(null,
-    // "O campo nome é de preenchimento obrigatório.",
-    // "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-    // } else if (caixaNumero.ehTextoInvalido() ||
-    // !caixaNumero.getText().matches("[0-9]+")) {
-    // JOptionPane.showMessageDialog(null,
-    // "O campo número é de preenchimento " +
-    // "obrigatório e só suporta números",
-    // "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-    // } else {
-    // Programa novoPrograma = new Programa(caixaNome.getText(),
-    // Integer.parseInt(caixaNumero.getText()));
-    // // Adiciona os programas selecionados no novoPrograma
-    // for (CheckBoxCustomizada cb : cbProgramas) {
-    // if (cb.isSelected()) {
-    // novoPrograma.getProgramas().add(d.getPrograma(cb.getText()));
-    // }
-    // }
-    // d.getProgramas().add(novoPrograma);
+        if (clicado == salvar) {
+            // Checa se os campos nome e numero foram preenchidos corretamente
+            if (caixaNome.ehTextoInvalido()) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo nome é de preenchimento obrigatório.",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+                // TODO: adicionar novos casos invalido aqui
+            } else {
+                ArrayList<Integer> dias = new ArrayList<>();
+                getDiasSelecionados(dias);
+                if (talkShow.isSelected()) {
+                    TalkShow novoPrograma = new TalkShow(caixaNome.getText(), dias, caixaHorario.getText(),
+                            Integer.parseInt(caixaDuracao.getText()));
 
-    // // Desabilita o botão apos o primeiro cadastro para evitar o cadastro
-    // // duplicado a cada click
-    // caixaNome.setEditable(false);
-    // caixaNumero.setEditable(false);
-    // salvar.setEnabled(false);
-    // }
-    // }
+                    d.getProgramaTipoTalkShow().add(novoPrograma);
+                } else if (jornal.isSelected()) {
+                    Jornal novoPrograma = new Jornal(caixaNome.getText(), dias, caixaHorario.getText(),
+                            Integer.parseInt(caixaDuracao.getText()));
+                    d.getProgramaTipoJornal().add(novoPrograma);
+                } else {
+                    NovelaFilmeSerie novoPrograma = new NovelaFilmeSerie(caixaNome.getText(), dias,
+                            caixaHorario.getText(), Integer.parseInt(caixaDuracao.getText()));
+                    d.getProgramaTipoNovelaFilmeSerie().add(novoPrograma);
+                }
+            }
+            // // Adiciona os programas selecionados no novoPrograma
+            // for (CheckBoxCustomizada cb : cbProgramas) {
+            // if (cb.isSelected()) {
+            // novoPrograma.getProgramas().add(d.getPrograma(cb.getText()));
+            // }
+            // }
+
+            // Desabilita o botão apos o primeiro cadastro para evitar o cadastro
+            // duplicado a cada click
+            salvar.setEnabled(false);
+        }
+    }
     // if (clicado == atualizar) {
     // // Checa se os campos nome e numero foram preenchidos corretamente
     // if (caixaNome.ehTextoInvalido()) {
@@ -406,6 +448,7 @@ public class TelaDetalhePrograma extends JPanel {// implements ActionListener {
     // }
     // }
     // }
+
     private void modoJornal() {
         dicaNumTemporadas.setVisible(false);
         caixaNumTemporadas.setVisible(false);
@@ -416,6 +459,8 @@ public class TelaDetalhePrograma extends JPanel {// implements ActionListener {
         dicaPersonagem.setVisible(false);
         painelPersonagensRolavel.setVisible(false);
 
+        dicaLocalidade.setVisible(true);
+        caixaLocalidade.setVisible(true);
         dicaAncora.setVisible(true);
         painelAncorasRolavel.setVisible(true);
 
@@ -437,6 +482,8 @@ public class TelaDetalhePrograma extends JPanel {// implements ActionListener {
         dicaPersonagem.setVisible(true);
         painelPersonagensRolavel.setVisible(true);
 
+        dicaLocalidade.setVisible(false);
+        caixaLocalidade.setVisible(false);
         dicaAncora.setVisible(false);
         painelAncorasRolavel.setVisible(false);
 
@@ -458,6 +505,8 @@ public class TelaDetalhePrograma extends JPanel {// implements ActionListener {
         dicaPersonagem.setVisible(false);
         painelPersonagensRolavel.setVisible(false);
 
+        dicaLocalidade.setVisible(false);
+        caixaLocalidade.setVisible(false);
         dicaAncora.setVisible(false);
         painelAncorasRolavel.setVisible(false);
 
@@ -467,5 +516,29 @@ public class TelaDetalhePrograma extends JPanel {// implements ActionListener {
         painelMusicosRolavel.setVisible(true);
         dicaConvidado.setVisible(true);
         painelConvidadosRolavel.setVisible(true);
+    }
+
+    private void getDiasSelecionados(ArrayList<Integer> dias) {
+        if (dom.isSelected()) {
+            dias.add(1);
+        }
+        if (seg.isSelected()) {
+            dias.add(2);
+        }
+        if (ter.isSelected()) {
+            dias.add(3);
+        }
+        if (qua.isSelected()) {
+            dias.add(4);
+        }
+        if (qui.isSelected()) {
+            dias.add(5);
+        }
+        if (sex.isSelected()) {
+            dias.add(6);
+        }
+        if (sab.isSelected()) {
+            dias.add(7);
+        }
     }
 }

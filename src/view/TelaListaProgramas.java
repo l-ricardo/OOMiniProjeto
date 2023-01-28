@@ -104,7 +104,8 @@ public class TelaListaProgramas extends JPanel implements ActionListener {
             TelaDetalhePrograma painelEdicao = new TelaDetalhePrograma(d, programaSelecionado);
             dialogoEdicao.add(painelEdicao);
             dialogoEdicao.setVisible(true);
-            dialogoEdicao.setSize(800, 600);
+            dialogoEdicao.setSize(1200, 600);
+            dialogoEdicao.setLocationRelativeTo(null);
         }
 
         // Se o botão clicado for o deletar, chama o método deletarPrograma do banco de

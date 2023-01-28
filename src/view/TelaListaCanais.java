@@ -104,7 +104,9 @@ public class TelaListaCanais extends JPanel implements ActionListener {
             TelaDetalheCanal painelEdicao = new TelaDetalheCanal(d, canalSelecionado);
             dialogoEdicao.add(painelEdicao);
             dialogoEdicao.setVisible(true);
-            dialogoEdicao.setSize(800, 600);
+            dialogoEdicao.setSize(850, 600);
+            dialogoEdicao.setLocationRelativeTo(null);
+
         }
 
         // Se o botão clicado for o deletar, chama o método deletarCanal do banco de

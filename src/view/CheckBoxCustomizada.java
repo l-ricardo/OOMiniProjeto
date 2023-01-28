@@ -2,9 +2,11 @@ package view;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Insets;
 
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
+import javax.swing.border.EmptyBorder;
 
 /**
  * Classe que cria uma checkbox, com a identidade visual do projeto.
@@ -25,6 +27,9 @@ public class CheckBoxCustomizada extends JCheckBox {
         this.setFocusable(false);
         this.setFont(new Font("Times New Roman", Font.PLAIN, 16));
         this.setForeground(Color.white);
+        this.setBorder(new EmptyBorder(0, 0, 0, 0));
+        this.setIconTextGap(0);
+        this.setMargin(new Insets(0, 0, 0, 0));
         // TODO: Descobrir como remover padding de checkbox
 
         switch (tipo) {
@@ -52,8 +57,9 @@ public class CheckBoxCustomizada extends JCheckBox {
                 this.setSelectedIcon(new ImageIcon("assets/d_on.png"));
                 break;
 
-                default:
+            default:
                 this.setText(tipo);
+                this.setBounds(posX, posY, 25, 25);
                 this.setIcon(new ImageIcon("assets/x_off.png"));
                 this.setSelectedIcon(new ImageIcon("assets/x_on.png"));
                 break;

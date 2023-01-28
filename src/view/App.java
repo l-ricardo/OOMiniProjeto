@@ -42,6 +42,7 @@ public class App extends JFrame implements ActionListener {
         this.getContentPane().setBackground(new Color(50, 48, 48));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
+        this.setLocationRelativeTo(null);
 
         // Criando um painel com o cabecalho
         JPanel cabecalho = new JPanel();
