@@ -20,7 +20,7 @@ public class BotaoPequeno extends JButton {
      */
     public BotaoPequeno(String texto, int posX, int posY) {
         this.setText(texto);
-        this.setBounds(posX, posY, 200, 30);
+        this.setBounds(posX, posY, 150, 30);
         this.setFont(new Font("Comic Sans", Font.BOLD, 14));
         this.setBackground(new Color(50, 48, 48));
         this.setForeground(Color.white);

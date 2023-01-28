@@ -111,7 +111,7 @@ public class Dados {
                                 new ArrayList<Integer>(Arrays.asList(7)), "15:00", 240, 0,
                                 new ArrayList<Artista>(Arrays.asList(
                                                 artistas.get(4)))));
-                programaTipoTalkShow.get(4).setBanda(
+                programaTipoTalkShow.get(4).setMusicos(
                                 new ArrayList<Artista>(Arrays.asList(
                                                 artistas.get(7))));
 

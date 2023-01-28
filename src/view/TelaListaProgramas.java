@@ -44,7 +44,7 @@ public class TelaListaProgramas extends JPanel implements ActionListener {
 
         // -------------------------- Componentes programa ---------------------------
         JLabel dicaPrograma = new JLabel("Programas:");
-        dicaPrograma.setBounds(50, 20, 300, 30);
+        dicaPrograma.setBounds(450, 20, 300, 30);
 
         // Criando os botões radiais
         ButtonGroup grupoProgramas = new ButtonGroup();
@@ -66,16 +66,16 @@ public class TelaListaProgramas extends JPanel implements ActionListener {
 
         // Criando e adicionando o painel com os botões radiais à um painel rolável
         JScrollPane listaProgramasRolavel = new JScrollPane(listaProgramas);
-        listaProgramasRolavel.setBounds(50, 50, 400, 450);
+        listaProgramasRolavel.setBounds(450, 50, 300, 450);
         listaProgramasRolavel.setBorder(BorderFactory.createEtchedBorder());
         listaProgramasRolavel.setBackground(new Color(50, 48, 48));
 
         // --------------------------- Botão visualizar ----------------------------
-        visualizar = new BotaoPequeno("Visualizar", 50, 500);
+        visualizar = new BotaoPequeno("Visualizar", 450, 500);
         visualizar.addActionListener(this);
 
         // ---------------------------- Botão deletar -----------------------------
-        deletar = new BotaoPequeno("Deletar", 250, 500);
+        deletar = new BotaoPequeno("Deletar", 600, 500);
         deletar.addActionListener(this);
         // -------------------------------------------------------------------------
 

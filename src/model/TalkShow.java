@@ -5,12 +5,12 @@ import java.util.ArrayList;
 /**
  * Uma classe que estende programa e que pode representar qualquer tipo de
  * TalkShow, programa de entreterimento ou auditorio onde se tem opcionalmente
- * mas não obrigatorimente pessoas o fazendo como apresentadores, banda ou
- * musicos e convidados.
+ * mas não obrigatorimente pessoas o fazendo como apresentadores, musicos e
+ * convidados.
  */
 public class TalkShow extends Programa {
     private ArrayList<Artista> apresentadores = new ArrayList<>();
-    private ArrayList<Artista> banda = new ArrayList<>();
+    private ArrayList<Artista> musicos = new ArrayList<>();
     private ArrayList<Pessoa> convidados = new ArrayList<>();
 
     /**
@@ -88,12 +88,12 @@ public class TalkShow extends Programa {
         this.apresentadores = apresentadores;
     }
 
-    public ArrayList<Artista> getBanda() {
-        return banda;
+    public ArrayList<Artista> getMusicos() {
+        return musicos;
     }
 
-    public void setBanda(ArrayList<Artista> banda) {
-        this.banda = banda;
+    public void setMusicos(ArrayList<Artista> musicos) {
+        this.musicos = musicos;
     }
 
     public ArrayList<Pessoa> getConvidados() {
@@ -117,9 +117,9 @@ public class TalkShow extends Programa {
         // for (Artista apresentador : apresentadores) {
         // result += apresentador.toString() + "\n";
         // }
-        // if (banda != null) {
-        // result += "--------------- Banda ----------------\n";
-        // for (Artista musico : banda) {
+        // if (musicos != null) {
+        // result += "--------------- Musicos ----------------\n";
+        // for (Artista musico : musicos) {
         // result += musico.toString() + "\n";
         // }
         // }

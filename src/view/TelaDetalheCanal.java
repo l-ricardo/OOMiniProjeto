@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -29,7 +28,6 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
 
     CampoDados caixaNome, caixaNumero;
     BotaoPequeno salvar, atualizar;
-    JList<CheckBoxCustomizada> listaProgramas;
     ArrayList<CheckBoxCustomizada> cbProgramas;
 
     /**
@@ -65,17 +63,17 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
             cbProgramas.add(cb);
         }
 
-        JPanel listaProgramas = new JPanel(); // Cria painel onde ficam as checkboxes
-        listaProgramas.setLayout(new BoxLayout(listaProgramas, BoxLayout.Y_AXIS));
-        listaProgramas.setBackground(new Color(50, 48, 48));
+        JPanel painelProgramas = new JPanel(); // Cria painel onde ficam as checkboxes
+        painelProgramas.setLayout(new BoxLayout(painelProgramas, BoxLayout.Y_AXIS));
+        painelProgramas.setBackground(new Color(50, 48, 48));
         for (CheckBoxCustomizada cb : cbProgramas) {
-            listaProgramas.add(cb);
+            painelProgramas.add(cb);
         }
 
-        JScrollPane listaProgramasRolavel = new JScrollPane(listaProgramas);
-        listaProgramasRolavel.setBounds(400, 100, 300, 300);
-        listaProgramasRolavel.setBorder(BorderFactory.createEtchedBorder());
-        listaProgramasRolavel.setBackground(new Color(50, 48, 48));
+        JScrollPane painelProgramasRolavel = new JScrollPane(painelProgramas);
+        painelProgramasRolavel.setBounds(400, 100, 300, 300);
+        painelProgramasRolavel.setBorder(BorderFactory.createEtchedBorder());
+        painelProgramasRolavel.setBackground(new Color(50, 48, 48));
 
         // ----------------------------- Botão salvar ------------------------------
         salvar = new BotaoPequeno("Salvar", 50, 370);
@@ -88,7 +86,7 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
         this.add(dicaNumero);
         this.add(caixaNumero);
         this.add(dicaPrograma);
-        this.add(listaProgramasRolavel);
+        this.add(painelProgramasRolavel);
         this.add(salvar);
     }
 
