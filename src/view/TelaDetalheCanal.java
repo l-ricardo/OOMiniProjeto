@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
-import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -30,8 +29,8 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
 
     CampoDados caixaNome, caixaNumero;
     BotaoPequeno salvar, atualizar;
-    JList<JCheckBox> listaProgramas;
-    ArrayList<JCheckBox> cbProgramas;
+    JList<CheckBoxCustomizada> listaProgramas;
+    ArrayList<CheckBoxCustomizada> cbProgramas;
 
     /**
      * Constroi um painel para cadastro de dados da Classe Canal.
@@ -69,7 +68,7 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
         JPanel listaProgramas = new JPanel(); // Cria painel onde ficam as checkboxes
         listaProgramas.setLayout(new BoxLayout(listaProgramas, BoxLayout.Y_AXIS));
         listaProgramas.setBackground(new Color(50, 48, 48));
-        for (JCheckBox cb : cbProgramas) {
+        for (CheckBoxCustomizada cb : cbProgramas) {
             listaProgramas.add(cb);
         }
 
@@ -108,7 +107,7 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
         // Preenche os campos com os dados do canal
         caixaNome.setText(canalDetalhado.getNome());
         caixaNumero.setText(String.valueOf(canalDetalhado.getNumero()));
-        for (JCheckBox cb : cbProgramas) {
+        for (CheckBoxCustomizada cb : cbProgramas) {
             if (canalDetalhado.existePrograma(cb.getText())) {
                 cb.setSelected(true);
             }
@@ -154,7 +153,7 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
                 Canal novoCanal = new Canal(caixaNome.getText(),
                         Integer.parseInt(caixaNumero.getText()));
                 // Adiciona os programas selecionados no novoCanal
-                for (JCheckBox cb : cbProgramas) {
+                for (CheckBoxCustomizada cb : cbProgramas) {
                     if (cb.isSelected()) {
                         novoCanal.getProgramas().add(d.getPrograma(cb.getText()));
                     }
@@ -183,7 +182,7 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
                 Canal novoCanal = new Canal(caixaNome.getText(),
                         Integer.parseInt(caixaNumero.getText()));
                 // Adiciona os programas selecionas no novoCanal
-                for (JCheckBox cb : cbProgramas) {
+                for (CheckBoxCustomizada cb : cbProgramas) {
                     if (cb.isSelected()) {
                         novoCanal.getProgramas().add(d.getPrograma(cb.getText()));
                     }
