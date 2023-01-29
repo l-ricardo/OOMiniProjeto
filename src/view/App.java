@@ -231,9 +231,7 @@ public class App extends JFrame implements ActionListener {
     public static void main(String[] args) {
         Dados d = new Dados();
         new App(d);
-        // TODO: Atualizar diagramas de classes e pacotes (Herança abstrata pontilhado)
         // TODO: Criar UniTests
-        // TODO: Otimizar todos os Override se actionPerformed
     }
     // -----------------------------------------------------------------------------
 }

@@ -101,8 +101,6 @@ public class TelaListaProgramas extends JPanel implements ActionListener {
      */
     public TelaListaProgramas(Dados dados, String filtroCanal, ArrayList<Integer> diasSelecionados) {
         this(dados, null);
-        // TODO: COMO PEGAR APENAS PROGRMAS DO CANAL filtroCanal E COM O DIA PRESENTE EM
-        // TODO: diasSelecionados
         // Canal a qual pertencem os programas que serão potencialmente listados
         Canal canalAnalizado = d.getCanal(filtroCanal);
 
