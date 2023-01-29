@@ -230,7 +230,6 @@ public class App extends JFrame implements ActionListener {
     public static void main(String[] args) {
         Dados d = new Dados();
         new App(d);
-        // TODO: Criar UniTests
     }
     // -----------------------------------------------------------------------------
 }
