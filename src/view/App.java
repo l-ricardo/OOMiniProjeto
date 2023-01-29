@@ -119,6 +119,13 @@ public class App extends JFrame implements ActionListener {
         this.requestFocusInWindow();
     }
 
+    // --------------------------------- Listeners ---------------------------------
+    /**
+     * Muda o conteudo dependendo do botão clicado e também reage ao clique do botão
+     * de limpar filtros.
+     *
+     * @param e O clique que desencadeou o evento
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         Object clicado = e.getSource();
@@ -141,6 +148,7 @@ public class App extends JFrame implements ActionListener {
 
         if (clicado == bListarProgramas) {
             if (!filtroPrograma.getText().contains("Insira o nome do programa...")) {
+
                 conteudo = new TelaListaProgramas(d, filtroPrograma.getText());
             } else {
                 conteudo = new TelaListaProgramas(d, null);
@@ -181,9 +189,9 @@ public class App extends JFrame implements ActionListener {
         conteudo.updateUI();
     }
 
-    // -------------------------------------------------------------------------
-    // --------------------------------- MAIN ---------------------------------
-    // -------------------------------------------------------------------------
+    // -----------------------------------------------------------------------------
+    // ----------------------------------- MAIN -----------------------------------
+    // -----------------------------------------------------------------------------
     public static void main(String[] args) {
         Dados d = new Dados();
         new App(d);
@@ -191,5 +199,5 @@ public class App extends JFrame implements ActionListener {
         // TODO: Criar UniTests
         // TODO: Otimizar todos os Override se actionPerformed
     }
+    // -----------------------------------------------------------------------------
 }
-// -------------------------------------------------------------------------

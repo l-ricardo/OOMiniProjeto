@@ -419,129 +419,7 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
         this.updateUI();
     }
 
-    /**
-     * Detecta quando os botões "salvar" e "atualizar" são clicados além de
-     * verificar se os campos nome e número foram preenchidos corretamente e, se
-     * sim, cria ou atualiza um objeto Programa com as informações fornecidas.
-     *
-     * @param e O evento detectado pelo sistema
-     *
-     */
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        Object clicado = e.getSource();
-        // Muda os campos de preenchimento comforme o tipo de programa selecionado
-        if (clicado == talkShow) {
-            modoTalkShow();
-        }
-        if (clicado == novelaFilmeSerie) {
-            modoNovelaFilmeSerie();
-        }
-        if (clicado == jornal) {
-            modoJornal();
-        }
-
-        if (clicado == salvar) {
-            // Checa se os campos nome e numero foram preenchidos corretamente
-            if (caixaNome.ehTextoInvalido()) {
-                JOptionPane.showMessageDialog(null,
-                        "O campo nome é de preenchimento obrigatório.",
-                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-            } else if (getDiasSelecionados().size() == 0) {
-                JOptionPane.showMessageDialog(null,
-                        "A seleção de pelo menos um dia se exibição é obrigatória",
-                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-            } else if (caixaHorario.ehTextoInvalido()) {
-                JOptionPane.showMessageDialog(null,
-                        "O campo horário é de preenchimento obrigatório.",
-                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-            } else if (caixaDuracao.ehTextoInvalido()) {
-                JOptionPane.showMessageDialog(null,
-                        "O campo duração é de preenchimento obrigatório.",
-                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-            } else if (!caixaDuracao.getText().matches("[0-9]+")) {
-                JOptionPane.showMessageDialog(null,
-                        "O campo duração só suporta números",
-                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-            } else {
-                if (talkShow.isSelected()) {
-                    d.getProgramaTipoTalkShow().add((TalkShow) cadastroPrograma());
-                }
-                if (jornal.isSelected()) {
-                    d.getProgramaTipoJornal().add((Jornal) cadastroPrograma());
-                }
-                if (novelaFilmeSerie.isSelected()) {
-                    if (!caixaNumEpisodios.getText().matches("[0-9]+")) {
-                        JOptionPane.showMessageDialog(null,
-                                "O campo episódios só suporta números",
-                                "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-                    } else if (!caixaNumTemporadas.getText().matches("[0-9]+")) {
-                        JOptionPane.showMessageDialog(null,
-                                "O campo temporadas só suporta números",
-                                "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-                    } else {
-                        d.getProgramaTipoNovelaFilmeSerie().add((NovelaFilmeSerie) cadastroPrograma());
-                    }
-                }
-                // Desabilita o botão apos o primeiro cadastro para evitar o cadastro
-                // duplicado a cada click
-                salvar.setEnabled(false);
-            }
-
-        }
-        if (clicado == atualizar) {
-            // Checa se os campos nome e numero foram preenchidos corretamente
-            if (caixaNome.ehTextoInvalido()) {
-                JOptionPane.showMessageDialog(null,
-                        "O campo nome é de preenchimento obrigatório.",
-                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-            } else if (getDiasSelecionados().size() == 0) {
-                JOptionPane.showMessageDialog(null,
-                        "A seleção de pelo menos um dia se exibição é obrigatória",
-                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-            } else if (caixaHorario.ehTextoInvalido()) {
-                JOptionPane.showMessageDialog(null,
-                        "O campo horário é de preenchimento obrigatório.",
-                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-            } else if (caixaDuracao.ehTextoInvalido()) {
-                JOptionPane.showMessageDialog(null,
-                        "O campo duração é de preenchimento obrigatório.",
-                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-            } else if (!caixaDuracao.getText().matches("[0-9]+")) {
-                JOptionPane.showMessageDialog(null,
-                        "O campo duração só suporta números",
-                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-            } else {
-                if (talkShow.isSelected()) {
-                    d.getProgramaTipoTalkShow().set(d.getProgramaTipoTalkShow().indexOf(programaDetalhado),
-                            (TalkShow) cadastroPrograma());
-                }
-                if (jornal.isSelected()) {
-                    d.getProgramaTipoJornal().set(d.getProgramaTipoJornal().indexOf(programaDetalhado),
-                            (Jornal) cadastroPrograma());
-                }
-                if (novelaFilmeSerie.isSelected()) {
-                    if (!caixaNumEpisodios.getText().matches("[0-9]+")) {
-                        JOptionPane.showMessageDialog(null,
-                                "O campo episódios só suporta números",
-                                "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-                    } else if (!caixaNumTemporadas.getText().matches("[0-9]+")) {
-                        JOptionPane.showMessageDialog(null,
-                                "O campo temporadas só suporta números",
-                                "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-                    } else {
-                        d.getProgramaTipoNovelaFilmeSerie().set(
-                                d.getProgramaTipoNovelaFilmeSerie().indexOf(programaDetalhado),
-                                (NovelaFilmeSerie) cadastroPrograma());
-                    }
-                }
-                // Desabilita o botao apos o primeiro cadastro para evitar o cadastro
-                // duplicado a cada click
-                atualizar.setEnabled(false);
-            }
-        }
-    }
-
+    // ---------------------------- Metodos Auxiliares ----------------------------
     private Programa cadastroPrograma() {
         ArrayList<Integer> dias = getDiasSelecionados();
         if (talkShow.isSelected()) {
@@ -709,5 +587,128 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
         }
         return dias;
     }
+    
+    // --------------------------------- Listeners ---------------------------------
+    /**
+     * Detecta quando os botões "salvar" e "atualizar" são clicados além de
+     * verificar se os campos nome e número foram preenchidos corretamente e, se
+     * sim, cria ou atualiza um objeto Programa com as informações fornecidas.
+     *
+     * @param e O evento detectado pelo sistema
+     *
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object clicado = e.getSource();
+        // Muda os campos de preenchimento comforme o tipo de programa selecionado
+        if (clicado == talkShow) {
+            modoTalkShow();
+        }
+        if (clicado == novelaFilmeSerie) {
+            modoNovelaFilmeSerie();
+        }
+        if (clicado == jornal) {
+            modoJornal();
+        }
 
+        if (clicado == salvar) {
+            // Checa se os campos nome e numero foram preenchidos corretamente
+            if (caixaNome.ehTextoInvalido()) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo nome é de preenchimento obrigatório.",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+            } else if (getDiasSelecionados().size() == 0) {
+                JOptionPane.showMessageDialog(null,
+                        "A seleção de pelo menos um dia se exibição é obrigatória",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+            } else if (caixaHorario.ehTextoInvalido()) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo horário é de preenchimento obrigatório.",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+            } else if (caixaDuracao.ehTextoInvalido()) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo duração é de preenchimento obrigatório.",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+            } else if (!caixaDuracao.getText().matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo duração só suporta números",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+            } else {
+                if (talkShow.isSelected()) {
+                    d.getProgramaTipoTalkShow().add((TalkShow) cadastroPrograma());
+                }
+                if (jornal.isSelected()) {
+                    d.getProgramaTipoJornal().add((Jornal) cadastroPrograma());
+                }
+                if (novelaFilmeSerie.isSelected()) {
+                    if (!caixaNumEpisodios.getText().matches("[0-9]+")) {
+                        JOptionPane.showMessageDialog(null,
+                                "O campo episódios só suporta números",
+                                "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+                    } else if (!caixaNumTemporadas.getText().matches("[0-9]+")) {
+                        JOptionPane.showMessageDialog(null,
+                                "O campo temporadas só suporta números",
+                                "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        d.getProgramaTipoNovelaFilmeSerie().add((NovelaFilmeSerie) cadastroPrograma());
+                    }
+                }
+                // Desabilita o botão apos o primeiro cadastro para evitar o cadastro
+                // duplicado a cada click
+                salvar.setEnabled(false);
+            }
+
+        }
+        if (clicado == atualizar) {
+            // Checa se os campos nome e numero foram preenchidos corretamente
+            if (caixaNome.ehTextoInvalido()) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo nome é de preenchimento obrigatório.",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+            } else if (getDiasSelecionados().size() == 0) {
+                JOptionPane.showMessageDialog(null,
+                        "A seleção de pelo menos um dia se exibição é obrigatória",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+            } else if (caixaHorario.ehTextoInvalido()) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo horário é de preenchimento obrigatório.",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+            } else if (caixaDuracao.ehTextoInvalido()) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo duração é de preenchimento obrigatório.",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+            } else if (!caixaDuracao.getText().matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(null,
+                        "O campo duração só suporta números",
+                        "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+            } else {
+                if (talkShow.isSelected()) {
+                    d.getProgramaTipoTalkShow().set(d.getProgramaTipoTalkShow().indexOf(programaDetalhado),
+                            (TalkShow) cadastroPrograma());
+                }
+                if (jornal.isSelected()) {
+                    d.getProgramaTipoJornal().set(d.getProgramaTipoJornal().indexOf(programaDetalhado),
+                            (Jornal) cadastroPrograma());
+                }
+                if (novelaFilmeSerie.isSelected()) {
+                    if (!caixaNumEpisodios.getText().matches("[0-9]+")) {
+                        JOptionPane.showMessageDialog(null,
+                                "O campo episódios só suporta números",
+                                "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+                    } else if (!caixaNumTemporadas.getText().matches("[0-9]+")) {
+                        JOptionPane.showMessageDialog(null,
+                                "O campo temporadas só suporta números",
+                                "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        d.getProgramaTipoNovelaFilmeSerie().set(
+                                d.getProgramaTipoNovelaFilmeSerie().indexOf(programaDetalhado),
+                                (NovelaFilmeSerie) cadastroPrograma());
+                    }
+                }
+                // Desabilita o botao apos o primeiro cadastro para evitar o cadastro
+                // duplicado a cada click
+                atualizar.setEnabled(false);
+            }
+        }
+    }
 }

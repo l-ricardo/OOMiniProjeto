@@ -122,7 +122,8 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
         this.add(atualizar);
         this.updateUI();
     }
-
+    
+    // --------------------------------- Listeners ---------------------------------
     /**
      * Detecta quando os botões "salvar" e "atualizar" são clicados além de
      * verificar se os campos nome e número foram preenchidos corretamente e, se

@@ -35,7 +35,8 @@ public class CampoDados extends JTextField implements FocusListener {
         this.setCaretColor(Color.white);
         this.addFocusListener(this);
     }
-
+    
+    // ---------------------------- Metodos Auxiliares ----------------------------
     /**
      * Checa se o texto digitado pelo usuario é valido, os casos invalidos são
      * quando o texto é o texto padrão do campo de texto e quando o campo está
@@ -46,7 +47,8 @@ public class CampoDados extends JTextField implements FocusListener {
     public boolean ehTextoInvalido() {
         return this.getText().equals(texto) || this.getText().isEmpty();
     }
-
+    
+    // --------------------------------- Listeners ---------------------------------
     /**
      * Quando o usuário clicar no campo de texto e o campo estiver preenchido com o
      * texto padrão, o campo de texto será limpo.
@@ -61,7 +63,7 @@ public class CampoDados extends JTextField implements FocusListener {
             this.setText("");
         }
     }
-
+    
     /**
      * Se o campo de texto estiver vazio e o usuário perder o foco do campo,
      * ele será preenchido como o texto padrão

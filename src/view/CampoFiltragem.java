@@ -35,7 +35,8 @@ public class CampoFiltragem extends JTextField implements FocusListener {
         this.setCaretColor(Color.white);
         this.addFocusListener(this);
     }
-
+    
+    // --------------------------------- Listeners ---------------------------------
     /**
      * Quando o usuário clicar no campo de texto e o campo estiver preenchido com o
      * texto padrão, o campo de texto será limpo.

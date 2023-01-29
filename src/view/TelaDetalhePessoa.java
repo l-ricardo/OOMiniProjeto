@@ -1,27 +1,18 @@
 package view;
 
-import java.util.ArrayList;
-
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.Font;
 
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
-import model.Pessoa;
 import model.Dados;
-import model.Programa;
 
 /**
  * Cria uma tela de conteúdo que estende de JPanel, com as funcionalidades de
  * criação e edição de pessoas.
  */
-public class TelaDetalhePessoa extends JPanel implements ActionListener {
+public class TelaDetalhePessoa extends JPanel {
     Dados d;
 
     /**
@@ -30,10 +21,17 @@ public class TelaDetalhePessoa extends JPanel implements ActionListener {
      * @param dados Base de dados
      */
     public TelaDetalhePessoa(Dados dados) {
-        d = dados;
-        JLabel mensagemTelaCadastrarPessoas = new JLabel("Não implementado :(");
-        mensagemTelaCadastrarPessoas.setBounds(200, 200, 800, 30);
-        mensagemTelaCadastrarPessoas.setFont(new Font("Arial", Font.BOLD, 50));
+        this.d = dados;
+
+        // Configurando painel
+        this.setLayout(null);
+        this.setBounds(0, 200, 1200, 600);
+        this.setBackground(new Color(126, 121, 121));
+
+        // Mensagem WIP
+        JLabel mensagemTelaCadastrarPessoas = new JLabel("    Não implementado :(");
+        mensagemTelaCadastrarPessoas.setBounds(0, 0, 1200, 600);
+        mensagemTelaCadastrarPessoas.setFont(new Font("Arial", Font.BOLD, 100));
         add(mensagemTelaCadastrarPessoas);
     }
 
@@ -44,6 +42,6 @@ public class TelaDetalhePessoa extends JPanel implements ActionListener {
      * @param nome  Nome do pessoa a ser editado/atualizado
      */
     public TelaDetalhePessoa(Dados dados, String nome) {
-this();
+        this(dados);
     }
 }

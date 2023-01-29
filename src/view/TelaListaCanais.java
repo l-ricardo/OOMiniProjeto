@@ -84,7 +84,8 @@ public class TelaListaCanais extends JPanel implements ActionListener {
         this.add(visualizar);
         this.add(deletar);
     }
-
+    
+    // --------------------------------- Listeners ---------------------------------
     /**
      * 
      * Detecta quando os botões "visualizar" e "deletar" são clicados além de salvar
