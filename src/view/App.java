@@ -151,17 +151,17 @@ public class App extends JFrame implements ActionListener {
             conteudo = new TelaDetalhePrograma(d);
         }
 
-        // if (clicado == bListarPessoas) {
-        //     if (!filtroPessoa.getText().contains("Insira o nome da pessoa...")) {
-        //         conteudo = new TelaListaPessoas(d, filtroPessoa.getText());
-        //     } else {
-        //         conteudo = new TelaListaPessoas(d, null);
-        //     }
-        // }
+        if (clicado == bListarPessoas) {
+            if (!filtroPessoa.getText().contains("Insira o nome da pessoa...")) {
+                conteudo = new TelaListaPessoas(d, filtroPessoa.getText());
+            } else {
+                conteudo = new TelaListaPessoas(d, null);
+            }
+        }
 
-        // if (clicado == bCadastrarPessoas) {
-        //     conteudo = new TelaDetalhePessoa(d);
-        // }
+        if (clicado == bCadastrarPessoas) {
+            conteudo = new TelaDetalhePessoa(d);
+        }
 
         if (clicado == limparFiltros) {
             filtroCanal.setText("Insira o nome do canal...");
@@ -181,6 +181,9 @@ public class App extends JFrame implements ActionListener {
         conteudo.updateUI();
     }
 
+    // -------------------------------------------------------------------------
+    // --------------------------------- MAIN ---------------------------------
+    // -------------------------------------------------------------------------
     public static void main(String[] args) {
         Dados d = new Dados();
         new App(d);
@@ -189,3 +192,4 @@ public class App extends JFrame implements ActionListener {
         // TODO: Otimizar todos os Override se actionPerformed
     }
 }
+// -------------------------------------------------------------------------
