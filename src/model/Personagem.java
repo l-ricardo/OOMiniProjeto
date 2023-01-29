@@ -64,13 +64,13 @@ public class Personagem extends Pessoa {
     // ---------------------------- Metodos Auxiliares ----------------------------
     /**
      * 
-     * Verifica se existe uma pessoa com o nome especificado associado a essa
+     * Verifica se existe um ator com o nome especificado associado a essa
      * classe.
      * 
-     * @param nome Nome da pessoa
-     * @return Retorna 'true' se o pessoa existir e 'false' caso contrário.
+     * @param nome Nome do ator
+     * @return Retorna 'true' se o ator existir e 'false' caso contrário.
      */
-    public boolean existePessoa(String nome) {
+    public boolean existeAtor(String nome) {
         if (nome == ator.getNome()) {
             return true;
         }
