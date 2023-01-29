@@ -639,7 +639,7 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
 
         if (clicado == salvar) {
             // Checa se os campos nome e numero foram preenchidos corretamente
-            if (caixaNome.ehTextoInvalido()) {
+            if (caixaNome.isTextoInvalido()) {
                 JOptionPane.showMessageDialog(null,
                         "O campo nome é de preenchimento obrigatório.",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
@@ -647,11 +647,11 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
                 JOptionPane.showMessageDialog(null,
                         "A seleção de pelo menos um dia se exibição é obrigatória",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-            } else if (caixaHorario.ehTextoInvalido()) {
+            } else if (caixaHorario.isTextoInvalido()) {
                 JOptionPane.showMessageDialog(null,
                         "O campo horário é de preenchimento obrigatório.",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-            } else if (caixaDuracao.ehTextoInvalido()) {
+            } else if (caixaDuracao.isTextoInvalido()) {
                 JOptionPane.showMessageDialog(null,
                         "O campo duração é de preenchimento obrigatório.",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
@@ -687,7 +687,7 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
         }
         if (clicado == atualizar) {
             // Checa se os campos nome e numero foram preenchidos corretamente
-            if (caixaNome.ehTextoInvalido()) {
+            if (caixaNome.isTextoInvalido()) {
                 JOptionPane.showMessageDialog(null,
                         "O campo nome é de preenchimento obrigatório.",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
@@ -695,11 +695,11 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
                 JOptionPane.showMessageDialog(null,
                         "A seleção de pelo menos um dia se exibição é obrigatória",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-            } else if (caixaHorario.ehTextoInvalido()) {
+            } else if (caixaHorario.isTextoInvalido()) {
                 JOptionPane.showMessageDialog(null,
                         "O campo horário é de preenchimento obrigatório.",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-            } else if (caixaDuracao.ehTextoInvalido()) {
+            } else if (caixaDuracao.isTextoInvalido()) {
                 JOptionPane.showMessageDialog(null,
                         "O campo duração é de preenchimento obrigatório.",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);

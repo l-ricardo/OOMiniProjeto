@@ -138,11 +138,11 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
 
         if (clicado == salvar) {
             // Checa se os campos nome e numero foram preenchidos corretamente
-            if (caixaNome.ehTextoInvalido()) {
+            if (caixaNome.isTextoInvalido()) {
                 JOptionPane.showMessageDialog(null,
                         "O campo nome é de preenchimento obrigatório.",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-            } else if (caixaNumero.ehTextoInvalido()) {
+            } else if (caixaNumero.isTextoInvalido()) {
                 JOptionPane.showMessageDialog(null,
                         "O campo número é de preenchimento obrigatório ",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
@@ -170,11 +170,11 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
         }
         if (clicado == atualizar) {
             // Checa se os campos nome e numero foram preenchidos corretamente
-            if (caixaNome.ehTextoInvalido()) {
+            if (caixaNome.isTextoInvalido()) {
                 JOptionPane.showMessageDialog(null,
                         "O campo nome é de preenchimento obrigatório.",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-            } else if (caixaNumero.ehTextoInvalido()) {
+            } else if (caixaNumero.isTextoInvalido()) {
                 JOptionPane.showMessageDialog(null,
                         "O campo número é de preenchimento obrigatório ",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
