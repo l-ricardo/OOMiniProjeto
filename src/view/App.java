@@ -136,7 +136,7 @@ public class App extends JFrame implements ActionListener {
         }
 
         if (clicado == bListarCanais) {
-            if (!filtroCanal.getText().contains("Insira o nome do canal...")) {
+            if (!filtroCanal.isTextoInvalido()) {
                 conteudo = new TelaListaCanais(d, filtroCanal.getText());
             } else {
                 conteudo = new TelaListaCanais(d, null);
@@ -148,10 +148,9 @@ public class App extends JFrame implements ActionListener {
         }
 
         if (clicado == bListarProgramas) {
-            if (!filtroCanal.getText().contains("Insira o nome do canal...")
-                    && getDiasSelecionados().size() != 0) {
+            if (!filtroCanal.isTextoInvalido() && getDiasSelecionados().size() != 0) {
                 conteudo = new TelaListaProgramas(d, filtroCanal.getText(), getDiasSelecionados());
-            } else if (!filtroPrograma.getText().contains("Insira o nome do programa...")) {
+            } else if (!filtroPrograma.isTextoInvalido()) {
                 conteudo = new TelaListaProgramas(d, filtroPrograma.getText());
             } else {
                 conteudo = new TelaListaProgramas(d, null);
@@ -163,7 +162,7 @@ public class App extends JFrame implements ActionListener {
         }
 
         if (clicado == bListarPessoas) {
-            if (!filtroPessoa.getText().contains("Insira o nome da pessoa...")) {
+            if (!filtroPessoa.isTextoInvalido()) {
                 conteudo = new TelaListaPessoas(d, filtroPessoa.getText());
             } else {
                 conteudo = new TelaListaPessoas(d, null);
@@ -175,9 +174,9 @@ public class App extends JFrame implements ActionListener {
         }
 
         if (clicado == limparFiltros) {
-            filtroCanal.setText("Insira o nome do canal...");
-            filtroPrograma.setText("Insira o nome do programa...");
-            filtroPessoa.setText("Insira o nome da pessoa...");
+            filtroCanal.setTextoPadrao();
+            filtroPrograma.setTextoPadrao();
+            filtroPessoa.setTextoPadrao();
             dom.setSelected(false);
             seg.setSelected(false);
             ter.setSelected(false);

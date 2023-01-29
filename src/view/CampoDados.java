@@ -38,6 +38,13 @@ public class CampoDados extends JTextField implements FocusListener {
 
     // ---------------------------- Metodos Auxiliares ----------------------------
     /**
+     * Retorna o texto do campo ao padrão usado no construtor.
+     */
+    public void setTextoPadrao() {
+        this.setText(texto);
+    }
+
+    /**
      * Checa se o texto digitado pelo usuario é valido, os casos invalidos são
      * quando o texto é o texto padrão do campo de texto e quando o campo está
      * vazio.

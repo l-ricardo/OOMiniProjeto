@@ -103,34 +103,42 @@ public class TelaListaProgramas extends JPanel implements ActionListener {
         this(dados, null);
         // Canal a qual pertencem os programas que serão potencialmente listados
         Canal canalAnalizado = d.getCanal(filtroCanal);
-
-        // Cria novo array apenas com botoes de programas presentes no canal
-        ArrayList<BotaoRadialCustomizado> rbProgramasFiltragemPorCanal = new ArrayList<>();
-        for (BotaoRadialCustomizado rb : rbProgramas) {
-            if (canalAnalizado.existePrograma(rb.getText())) {
-                rbProgramasFiltragemPorCanal.add(rb);
+        if (canalAnalizado != null) {
+            // Cria novo array apenas com botoes de programas presentes no canal
+            ArrayList<BotaoRadialCustomizado> rbProgramasFiltragemPorCanal = new ArrayList<>();
+            for (BotaoRadialCustomizado rb : rbProgramas) {
+                if (canalAnalizado.existePrograma(rb.getText())) {
+                    rbProgramasFiltragemPorCanal.add(rb);
+                }
             }
-        }
 
-        // Cria novo array apenas com botoes de programas exibidos nos dias selecionados
-        ArrayList<BotaoRadialCustomizado> rbProgramasFiltragemCompleta = new ArrayList<>();
-        for (BotaoRadialCustomizado rb : rbProgramasFiltragemPorCanal) {
-            Programa programa = d.getPrograma(rb.getText());
-            if (programa.isExibido(diasSelecionados)) {
-                rbProgramasFiltragemCompleta.add(rb);
+            // Cria novo array apenas com botoes de programas exibidos nos dias selecionados
+            ArrayList<BotaoRadialCustomizado> rbProgramasFiltragemCompleta = new ArrayList<>();
+            for (BotaoRadialCustomizado rb : rbProgramasFiltragemPorCanal) {
+                Programa programa = d.getPrograma(rb.getText());
+                if (programa.isExibido(diasSelecionados)) {
+                    rbProgramasFiltragemCompleta.add(rb);
+                }
             }
-        }
 
-        // Remove botoes de radio que foram construidos pelo metodo this() e coloca os
-        // que passaram nos filtros
-        for (BotaoRadialCustomizado rb : rbProgramas) {
-            listaProgramas.remove(rb);
+            // Remove botoes de radio que foram construidos pelo metodo this() e coloca os
+            // que passaram nos filtros
+            for (BotaoRadialCustomizado rb : rbProgramas) {
+                listaProgramas.remove(rb);
+            }
+            for (BotaoRadialCustomizado rb : rbProgramasFiltragemCompleta) {
+                listaProgramas.add(rb);
+            }
+            listaProgramas.revalidate();
+            listaProgramas.repaint();
+        } else {
+             // Quando o canal do filtro não é achado (null) nao lista nada.
+            for (BotaoRadialCustomizado rb : rbProgramas) {
+                listaProgramas.remove(rb);
+            }
+            listaProgramas.revalidate();
+            listaProgramas.repaint();
         }
-        for (BotaoRadialCustomizado rb : rbProgramasFiltragemCompleta) {
-            listaProgramas.add(rb);
-        }
-        listaProgramas.revalidate();
-        listaProgramas.repaint();
 
     }
 
