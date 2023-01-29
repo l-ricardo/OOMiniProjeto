@@ -38,19 +38,14 @@ public class Canal implements Comparable<Canal> {
         this.programas = programas;
     }
 
-    // Metodos Obrigatorios //TODO: Rever esses metodos
-    // public void pesquisarPrograma(String nomeProgramaAlvo) {
-    // for (Programa programa : programas) {
-    // if (programa == null) {
-    // break;
-    // }
-    // if (programa.getNome() == nomeProgramaAlvo) {
-    // System.out.println(programa.toString());
-    // }
-    // }
-    // }
-
-    public ArrayList<Programa> getPrograma(String filtro) {
+    /**
+     * Retorna um array de programas que fazem pertencem a esse canal, e tem o nome
+     * parecido com o do filtro
+     * 
+     * @param filtro Nome do canal alvo
+     * @return
+     */
+    public ArrayList<Programa> getProgramaPorCanal(String filtro) {
         if (filtro != null) {
             System.out.println("Estou filtrando para:" + filtro);
             ArrayList<Programa> programasFiltrados = new ArrayList<>();
@@ -62,45 +57,6 @@ public class Canal implements Comparable<Canal> {
             return programasFiltrados;
         }
         return programas;
-    }
-
-    // public String listarProgramas() {
-    // String result = "";
-    // for (Programa programa : programas) {
-    // if (programa == null) {
-    // break;
-    // }
-    // result += programa.getNome() + "\n";
-    // }
-    // return result;
-    // }
-
-    // public String listarProgramas(String diaAlvo) {
-    // String result = "";
-    // for (Programa programa : programas) {
-    // if (programa == null) {
-    // break;
-    // }
-    // for (Horario horario : programa.getHorarios()) { // Warn! Horarios nao pode
-    // ser null
-    // if (diaAlvo == horario.getDiaSemana()) {
-    // result += programa.getNome() + "\n";
-    // break;
-    // }
-    // }
-    // }
-    // return result;
-    // }
-
-    // Outros metodos
-    public void favoritarPrograma(Programa programa) {
-        programa.setFavorito(true);
-        System.out.println(programa.toString());
-    }
-
-    public void desfavoritarPrograma(Programa programa) {
-        programa.setFavorito(false);
-        System.out.println(programa.toString());
     }
 
     // Gets e Sets
@@ -131,6 +87,14 @@ public class Canal implements Comparable<Canal> {
         }
     }
 
+    /**
+     * 
+     * Verifica se existe um programa com o nome especificado agregado a essa
+     * classe.
+     * 
+     * @param nome Nome do programa
+     * @return Retorna 'true' se o programa existir e 'false' caso contrário.
+     */
     public boolean existePrograma(String nome) {
         for (Programa programa : programas) {
             if (nome == programa.getNome()) {

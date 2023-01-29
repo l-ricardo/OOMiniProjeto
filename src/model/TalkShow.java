@@ -76,6 +76,56 @@ public class TalkShow extends Programa {
         this.convidados = convidados;
     }
 
+    /**
+     * 
+     * Verifica se existe um apresentador com o nome especificado agregado a essa
+     * classe.
+     * 
+     * @param nome Nome do apresentador
+     * @return Retorna 'true' se o apresentador existir e 'false' caso contrário.
+     */
+    public boolean existeApresentador(String nome) {
+        for (Artista apresentador : apresentadores) {
+            if (nome == apresentador.getNome()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * Verifica se existe um musico com o nome especificado agregado a essa classe.
+     * 
+     * @param nome Nome do musico
+     * @return Retorna 'true' se o musico existir e 'false' caso contrário.
+     */
+    public boolean existeMusico(String nome) {
+        for (Artista musico : musicos) {
+            if (nome == musico.getNome()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 
+     * Verifica se existe um convidado com o nome especificado agregado a essa
+     * classe.
+     * 
+     * @param nome Nome do convidado
+     * @return Retorna 'true' se o convidado existir e 'false' caso contrário.
+     */
+    public boolean existeConvidado(String nome) {
+        for (Pessoa convidado : convidados) {
+            if (nome == convidado.getNome()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         // String result = "========================================\n"

@@ -17,8 +17,9 @@ public class NovelaFilmeSerie extends Programa {
         animado = false;
     }
 
-        /**
-     * Construtor que recebe o nome de uma Novela, Filme ou Serie, os dias da semana que
+    /**
+     * Construtor que recebe o nome de uma Novela, Filme ou Serie, os dias da semana
+     * que
      * é transmitido, o horário de exibição, a duração do programa.
      * 
      * @param nome       Nome da Novela, Filme ou Serie.
@@ -78,6 +79,23 @@ public class NovelaFilmeSerie extends Programa {
             }
         }
         System.out.println(result);
+    }
+
+    /**
+     * 
+     * Verifica se existe um personagem com o nome especificado agregado a essa
+     * classe.
+     * 
+     * @param nome Nome do personagem
+     * @return Retorna 'true' se o personagem existir e 'false' caso contrário.
+     */
+    public boolean existePersonagem(String nome) {
+        for (Personagem personagem : personagens) {
+            if (nome == personagem.getNome()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     // Gets e Sets

@@ -30,7 +30,6 @@ public class CheckBoxCustomizada extends JCheckBox {
         this.setBorder(new EmptyBorder(0, 0, 0, 0));
         this.setIconTextGap(0);
         this.setMargin(new Insets(0, 0, 0, 0));
-        // TODO: Descobrir como remover padding de checkbox
 
         switch (tipo) {
             case "s":

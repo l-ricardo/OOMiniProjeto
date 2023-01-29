@@ -61,10 +61,26 @@ public class Personagem extends Pessoa {
         this.protagonista = protagonista;
     }
 
+    /**
+     * 
+     * Verifica se existe uma pessoa com o nome especificado associado a essa
+     * classe.
+     * 
+     * @param nome Nome da pessoa
+     * @return Retorna 'true' se o pessoa existir e 'false' caso contrário.
+     */
+    public boolean existePessoa(String nome) {
+        if (nome == ator.getNome()) {
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         if (ator != null) {
-            return ator.toString() + " como " + nome;
+            // return ator.toString() + " como " + nome;
+            return nome;
         }
         return nome;
     }

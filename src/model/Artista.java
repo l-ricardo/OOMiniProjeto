@@ -8,9 +8,11 @@ package model;
 public class Artista extends Pessoa {
     private String tipo; // Ex: Humorista, Jornalista, Entrevistador, etc...
     private boolean musico;
+    private boolean ancora;
     private String instrumento;
     {
         musico = false;
+        ancora = false;
     }
 
     // Construtores
@@ -60,6 +62,14 @@ public class Artista extends Pessoa {
         this.musico = musico;
     }
 
+    public boolean isAncora() {
+        return ancora;
+    }
+
+    public void setAncora(boolean ancora) {
+        this.ancora = ancora;
+    }
+
     public String getInstrumento() {
         return instrumento;
     }
@@ -70,9 +80,10 @@ public class Artista extends Pessoa {
 
     @Override
     public String toString() {
-        if (isMusico()) {
-            return tipo + " " + nome + " no " + instrumento;
-        }
-        return tipo + " " + nome;
+        // if (isMusico()) {
+        // return tipo + " " + nome + " no " + instrumento;
+        // }
+        // return tipo + " " + nome;
+        return nome;
     }
 }

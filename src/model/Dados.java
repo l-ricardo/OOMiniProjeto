@@ -22,7 +22,9 @@ public class Dados {
                 artistas.add(new Artista("Marcos Mion", 'M', "Apresentador"));
                 artistas.add(new Artista("William Boner", 'M', "Jornalista"));
                 artistas.add(new Artista("Renata Vasconcelos", 'F', "Jornalista"));
-                artistas.add(new Artista("Lucio Mauro", 'M', "Musico", "Vocal e guitarra"));
+                artistas.add(new Artista("Lucio Mauro", 'M', "Musico", "Vocal"));
+                ((Artista) getPessoa("William Boner")).setAncora(true);
+                ((Artista) getPessoa("Renata Vasconcelos")).setAncora(true);
 
                 personagens.add(new Personagem("Carminha", 'F',
                                 new Pessoa("Adriana Esteves", 'F'), true));
@@ -160,6 +162,7 @@ public class Dados {
         }
 
         public ArrayList<Artista> getArtistas() {
+                Collections.sort(artistas); // Ordena alfabeticamente pelo nome
                 return artistas;
         }
 
@@ -168,6 +171,7 @@ public class Dados {
         }
 
         public ArrayList<Personagem> getPersonagens() {
+                Collections.sort(personagens); // Ordena alfabeticamente pelo nome
                 return personagens;
         }
 
@@ -176,6 +180,7 @@ public class Dados {
         }
 
         public ArrayList<Pessoa> getPessoas() {
+                Collections.sort(pessoas); // Ordena alfabeticamente pelo nome
                 return pessoas;
         }
 
@@ -184,6 +189,7 @@ public class Dados {
         }
 
         public ArrayList<NovelaFilmeSerie> getProgramaTipoNovelaFilmeSerie() {
+                Collections.sort(programaTipoNovelaFilmeSerie); // Ordena alfabeticamente pelo nome
                 return programaTipoNovelaFilmeSerie;
         }
 
@@ -192,6 +198,7 @@ public class Dados {
         }
 
         public ArrayList<TalkShow> getProgramaTipoTalkShow() {
+                Collections.sort(programaTipoTalkShow); // Ordena alfabeticamente pelo nome
                 return programaTipoTalkShow;
         }
 
@@ -200,6 +207,7 @@ public class Dados {
         }
 
         public ArrayList<Jornal> getProgramaTipoJornal() {
+                Collections.sort(programaTipoJornal); // Ordena alfabeticamente pelo nome
                 return programaTipoJornal;
         }
 
@@ -245,7 +253,7 @@ public class Dados {
          * @param filtro string do nome do canal que se esta se buscando
          * @return Retorna um ArrayList de Canais.
          */
-        public ArrayList<Canal> getCanais(String filtro) { // TODO: Otimizar esse metodo
+        public ArrayList<Canal> getCanais(String filtro) {
                 if (filtro != null) {
                         ArrayList<Canal> canaisFiltrados = new ArrayList<>();
                         for (Canal canal : canais) {
@@ -256,19 +264,18 @@ public class Dados {
                         Collections.sort(canaisFiltrados);
                         return canaisFiltrados; // Ordena alfabeticamente pelo nome
                 }
-                Collections.sort(canais); // Ordena alfabeticamente pelo nome
-                return canais;
+                return getCanais();
         }
 
         /**
-         * Método que retorna uma lista de programas, filtrada por uma string, caso
-         * filtro
-         * seja null se comporta como um getTodosProgramas()
+         * Sobrecarga do getTodosProgramas(), método que retorna uma lista de programas,
+         * filtrada por uma string, caso filtro seja null se comporta como o
+         * getTodosProgramas()
          * 
          * @param filtro string do nome do programa que se esta se buscando
          * @return Retorna um ArrayList de Programas.
          */
-        public ArrayList<Programa> getTodosProgramas(String filtro) { // TODO: Otimizar esse metodo
+        public ArrayList<Programa> getTodosProgramas(String filtro) {
                 if (filtro != null) {
                         ArrayList<Programa> programasFiltrados = new ArrayList<>();
                         for (Programa programa : getTodosProgramas()) {
@@ -279,12 +286,34 @@ public class Dados {
                         Collections.sort(programasFiltrados);
                         return programasFiltrados; // Ordena alfabeticamente pelo nome
                 }
-                Collections.sort(getTodosProgramas()); // Ordena alfabeticamente pelo nome
                 return getTodosProgramas();
         }
 
         /**
-         * Encontra um unico objeto canal no "banco de dados" d, atraves de seu nome.
+         * Sobrecarga do getTodasPessoas(), método que retorna uma lista de pessoas,
+         * filtrada por uma string, caso filtro seja null se comporta como o
+         * getTodasPessoas()
+         * 
+         * @param filtro string do nome da pessoa que se esta se buscando
+         * @return Retorna um ArrayList de Pessoas.
+         */
+        public ArrayList<Pessoa> getTodasPessoas(String filtro) {
+                if (filtro != null) {
+                        ArrayList<Pessoa> pessoasFiltradas = new ArrayList<>();
+                        for (Pessoa pessoa : getTodasPessoas()) {
+                                if (pessoa.getNome().contains(filtro)) {
+                                        pessoasFiltradas.add(pessoa);
+                                }
+                        }
+                        Collections.sort(pessoasFiltradas);
+                        return pessoasFiltradas; // Ordena alfabeticamente pelo nome
+                }
+                return getTodasPessoas();
+        }
+
+        /**
+         * Encontra um unico objeto canal no "banco de dados" d, quando seu nome é
+         * exatamente igual ao do nome passado como parametro.
          * 
          * @param nome Nome do canal
          * @return O canal cujo nome é o mesmo do parametro nome
@@ -292,7 +321,7 @@ public class Dados {
         public Canal getCanal(String nome) {
                 Canal result = null;
                 for (Canal canal : getCanais()) {
-                        if (canal.getNome().contains(nome)) {
+                        if (canal.getNome().equals(nome)) {
                                 result = canal;
                         }
                 }
@@ -300,7 +329,8 @@ public class Dados {
         }
 
         /**
-         * Encontra um unico objeto programa no "banco de dados" d, atraves de seu nome.
+         * Encontra um unico objeto programa no "banco de dados" d, quando seu nome é
+         * exatamente igual ao do nome passado como parametro.
          * 
          * @param nome Nome do programa
          * @return O programa cujo nome é o mesmo do parametro nome
@@ -308,8 +338,25 @@ public class Dados {
         public Programa getPrograma(String nome) {
                 Programa result = null;
                 for (Programa programa : getTodosProgramas()) {
-                        if (programa.getNome().contains(nome)) {
+                        if (programa.getNome().equals(nome)) {
                                 result = programa;
+                        }
+                }
+                return result;
+        }
+
+        /**
+         * Encontra um unico objeto pessoa no "banco de dados" d, quando seu nome é
+         * exatamente igual ao do nome passado como parametro.
+         * 
+         * @param nome Nome da pessoa
+         * @return A pessoa cujo nome é o mesmo do parametro nome
+         */
+        public Pessoa getPessoa(String nome) {
+                Pessoa result = null;
+                for (Pessoa pessoa : getTodasPessoas()) {
+                        if (pessoa.getNome().equals(nome)) {
+                                result = pessoa;
                         }
                 }
                 return result;
@@ -375,5 +422,35 @@ public class Dados {
                                 }
                         }
                 }
+        }
+
+        /**
+         * Seleciona entre os artistas apenas aqueles que são musicos e os retona.
+         * 
+         * @param musicos Array de musicos
+         */
+        public ArrayList<Artista> getMusicos() {
+                ArrayList<Artista> musicos = new ArrayList<>();
+                for (Artista artista : artistas) {
+                        if (artista.isMusico()) {
+                                musicos.add(artista);
+                        }
+                }
+                return musicos;
+        }
+
+        /**
+         * Seleciona entre os artistas apenas aqueles que são ancoras e os retona.
+         * 
+         * @param ancoras Array de ancoras
+         */
+        public ArrayList<Artista> getAncoras() {
+                ArrayList<Artista> ancoras = new ArrayList<>();
+                for (Artista artista : artistas) {
+                        if (artista.isAncora()) {
+                                ancoras.add(artista);
+                        }
+                }
+                return ancoras;
         }
 }

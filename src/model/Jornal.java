@@ -65,6 +65,22 @@ public class Jornal extends Programa {
         this.localidade = localidade;
     }
 
+    /**
+     * 
+     * Verifica se existe um ancora com o nome especificado agregado a essa classe.
+     * 
+     * @param nome Nome do ancora
+     * @return Retorna 'true' se o ancora existir e 'false' caso contrário.
+     */
+    public boolean existeAncora(String nome) {
+        for (Artista ancora : ancoras) {
+            if (nome == ancora.getNome()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         // String result = "========================================\n"

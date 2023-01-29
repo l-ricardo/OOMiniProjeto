@@ -83,8 +83,8 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
         caixaNome.setSize(275, 30);
 
         // -------------------------- Componente favorito --------------------------
-        // TODO: Fazer estrela aqui
-        fav = new CheckBoxCustomizada("f", 375, 130);
+        fav = new CheckBoxCustomizada("f", 377, 131);
+        fav.setBackground(new Color(126, 121, 121));
 
         // --------------------- Componentes dias de exibição ---------------------
         JLabel dicaDiasExibicao = new JLabel("Dias de exibição:");
@@ -163,7 +163,7 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
         dicaAncora.setBounds(450, 30, 300, 30);
 
         cbAncoras = new ArrayList<>(); // Inicializa array de checkboxes
-        for (Artista ancora : d.getArtistas()) {
+        for (Artista ancora : d.getAncoras()) {
             CheckBoxCustomizada cb = new CheckBoxCustomizada(ancora.toString(), 0, 0);
             cbAncoras.add(cb);
         }
@@ -207,7 +207,7 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
         dicaMusico.setBounds(800, 30, 300, 30);
 
         cbMusicos = new ArrayList<>(); // Inicializa array de checkboxes
-        for (Artista musico : d.getArtistas()) {
+        for (Artista musico : d.getMusicos()) {
             CheckBoxCustomizada cb = new CheckBoxCustomizada(musico.toString(), 0, 0);
             cbMusicos.add(cb);
         }
@@ -357,7 +357,27 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
             modoTalkShow();
             talkShow.setSelected(true);
             TalkShow talkShowDetalhado = (TalkShow) programaDetalhado;
-            // TODO: Preencher apresentadores, musicos e convidados
+            for (CheckBoxCustomizada cb : cbApresentadores) {
+                // Itera sobre os checkboxes e marca ele como selecionado se existir dentro do
+                // programa que esta sendo detalhado uma pessoa com o nome do texto do botao
+                if (talkShowDetalhado.existeApresentador(cb.getText())) {
+                    cb.setSelected(true);
+                }
+            }
+            for (CheckBoxCustomizada cb : cbMusicos) {
+                // Itera sobre os checkboxes e marca ele como selecionado se existir dentro do
+                // programa que esta sendo detalhado uma pessoa com o nome do texto do botao
+                if (talkShowDetalhado.existeMusico(cb.getText())) {
+                    cb.setSelected(true);
+                }
+            }
+            for (CheckBoxCustomizada cb : cbConvidados) {
+                // Itera sobre os checkboxes e marca ele como selecionado se existir dentro do
+                // programa que esta sendo detalhado uma pessoa com o nome do texto do botao
+                if (talkShowDetalhado.existeConvidado(cb.getText())) {
+                    cb.setSelected(true);
+                }
+            }
         } else if (programaDetalhado instanceof NovelaFilmeSerie) {
             modoNovelaFilmeSerie();
             novelaFilmeSerie.setSelected(true);
@@ -365,21 +385,26 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
             caixaNumTemporadas.setText(String.valueOf(novelaFilmeSerieDetalhado.getnTemporadas()));
             caixaNumEpisodios.setText(String.valueOf(novelaFilmeSerieDetalhado.getnTotalEpisodios()));
             animado.setSelected(novelaFilmeSerieDetalhado.isAnimado());
-            // TODO: Preencher personagens
+            for (CheckBoxCustomizada cb : cbPersonagens) {
+                // Itera sobre os checkboxes e marca ele como selecionado se existir dentro do
+                // programa que esta sendo detalhado uma pessoa com o nome do texto do botao
+                if (novelaFilmeSerieDetalhado.existePersonagem(cb.getText())) {
+                    cb.setSelected(true);
+                }
+            }
         } else if (programaDetalhado instanceof Jornal) {
             modoJornal();
             jornal.setSelected(true);
             Jornal jornalDetalhado = (Jornal) programaDetalhado;
             caixaLocalidade.setText(jornalDetalhado.getLocalidade());
-            // TODO: Preencher ancoras
+            for (CheckBoxCustomizada cb : cbAncoras) {
+                // Itera sobre os checkboxes e marca ele como selecionado se existir dentro do
+                // programa que esta sendo detalhado uma pessoa com o nome do texto do botao
+                if (jornalDetalhado.existeAncora(cb.getText())) {
+                    cb.setSelected(true);
+                }
+            }
         }
-
-        // caixaNumero.setText(String.valueOf(programaDetalhado.getNumero()));
-        // for (CheckBoxCustomizada cb : cbProgramas) {
-        // if (programaDetalhado.existePrograma(cb.getText())) {
-        // cb.setSelected(true);
-        // }
-        // }
 
         // Esconde o botão salvar que foi criado pelo this(dados)
         salvar.setVisible(false);
@@ -458,11 +483,11 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
                         d.getProgramaTipoNovelaFilmeSerie().add((NovelaFilmeSerie) cadastroPrograma());
                     }
                 }
+                // Desabilita o botão apos o primeiro cadastro para evitar o cadastro
+                // duplicado a cada click
+                salvar.setEnabled(false);
             }
 
-            // Desabilita o botão apos o primeiro cadastro para evitar o cadastro
-            // duplicado a cada click
-            salvar.setEnabled(false);
         }
         if (clicado == atualizar) {
             // Checa se os campos nome e numero foram preenchidos corretamente
@@ -510,10 +535,10 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
                                 (NovelaFilmeSerie) cadastroPrograma());
                     }
                 }
+                // Desabilita o botao apos o primeiro cadastro para evitar o cadastro
+                // duplicado a cada click
+                atualizar.setEnabled(false);
             }
-            // Desabilita o botao apos o primeiro cadastro para evitar o cadastro
-            // duplicado a cada click
-            atualizar.setEnabled(false);
         }
     }
 
@@ -527,13 +552,27 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
                     Integer.parseInt(caixaDuracao.getText()));
             novoPrograma.setFavorito(fav.isSelected());
             novoPrograma.setDescricao(caixaDescricao.getText());
-            // TODO: Preencher apresentadores, musicos e convidados. Ex:
-            // Adiciona os programas selecionados no novoPrograma
-            // for (CheckBoxCustomizada cb : cbProgramas) {
-            // if (cb.isSelected()) {
-            // novoPrograma.getProgramas().add(d.getPrograma(cb.getText()));
-            // }
-            //
+            for (CheckBoxCustomizada cb : cbApresentadores) {
+                // Itera sobre os checkboxes e se ele esta selecionado adiciona a pessoa com
+                // mesmo nome ao novo programa
+                if (cb.isSelected()) {
+                    novoPrograma.getApresentadores().add((Artista) (d.getPessoa(cb.getText())));
+                }
+            }
+            for (CheckBoxCustomizada cb : cbMusicos) {
+                // Itera sobre os checkboxes e se ele esta selecionado adiciona a pessoa com
+                // mesmo nome ao novo programa
+                if (cb.isSelected()) {
+                    novoPrograma.getMusicos().add((Artista) (d.getPessoa(cb.getText())));
+                }
+            }
+            for (CheckBoxCustomizada cb : cbConvidados) {
+                // Itera sobre os checkboxes e se ele esta selecionado adiciona a pessoa com
+                // mesmo nome ao novo programa
+                if (cb.isSelected()) {
+                    novoPrograma.getConvidados().add(d.getPessoa(cb.getText()));
+                }
+            }
             return novoPrograma;
 
         } else if (jornal.isSelected()) {
@@ -545,7 +584,13 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
             novoPrograma.setLocalidade(caixaLocalidade.getText());
             novoPrograma.setFavorito(fav.isSelected());
             novoPrograma.setDescricao(caixaDescricao.getText());
-            // TODO: Preencher personagens
+            for (CheckBoxCustomizada cb : cbAncoras) {
+                // Itera sobre os checkboxes e se ele esta selecionado adiciona a pessoa com
+                // mesmo nome ao novo programa
+                if (cb.isSelected()) {
+                    novoPrograma.getAncoras().add((Artista) (d.getPessoa(cb.getText())));
+                }
+            }
             return novoPrograma;
 
         } else {
@@ -557,9 +602,16 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
             novoPrograma.setnTemporadas(Integer.parseInt(caixaNumTemporadas.getText()));
             novoPrograma.setnTotalEpisodios(Integer.parseInt(caixaNumEpisodios.getText()));
             novoPrograma.setFavorito(fav.isSelected());
+            novoPrograma.setAnimado(animado.isSelected());
             novoPrograma.setDescricao(caixaDescricao.getText());
+            for (CheckBoxCustomizada cb : cbPersonagens) {
+                // Itera sobre os checkboxes e se ele esta selecionado adiciona a pessoa com
+                // mesmo nome ao novo programa
+                if (cb.isSelected()) {
+                    novoPrograma.getPersonagens().add((Personagem) (d.getPessoa(cb.getText())));
+                }
+            }
             return novoPrograma;
-            // TODO: Preencher ancoras
         }
     }
 
