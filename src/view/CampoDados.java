@@ -44,8 +44,29 @@ public class CampoDados extends JTextField implements FocusListener {
      * 
      * @return Retorna true se o texto for invalido, se valido retorna false
      */
-    public boolean ehTextoInvalido() {
+    public boolean isTextoInvalido() {
         return this.getText().equals(texto) || this.getText().isEmpty();
+    }
+
+    /**
+     * Checa se o número digitado pelo usuario é valido, os casos invalidos são
+     * quando o texto digitado no campo contem algum caractere não numérico.
+     * 
+     * @return Retorna true se o número for invalido, se valido retorna false
+     */
+    public boolean isNumeroInvalido() {
+        return !this.getText().matches("[0-9]+");
+    }
+
+    /**
+     * Checa se o horário digitado pelo usuario é valido, os casos invalidos são
+     * quando o texto digitado no campo contem algum caractere não numérico, que não
+     * obedeça a expressão de horas:minutos do tipo HH:MM.
+     * 
+     * @return Retorna true se o horario for invalido, se valido retorna false
+     */
+    public boolean isHorarioInvalido() {
+        return !(this.getText().matches("^([01]?[0-9]|2[0-3]):[0-5][0-9]$"));
     }
 
     // --------------------------------- Listeners ---------------------------------

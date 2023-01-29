@@ -123,6 +123,25 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
         this.updateUI();
     }
 
+    // ---------------------------- Metodos Auxiliares ----------------------------
+    /**
+     * Cria um novo objeto com base nos dados entrados pelo usuário nos campos de
+     * texto e de checkbox.
+     * 
+     * @return Um novo canal cadastrado da classe Canal
+     */
+    private Canal cadastroNovoCanal() {
+        Canal novoCanal = new Canal(caixaNome.getText(),
+                Integer.parseInt(caixaNumero.getText()));
+        // Adiciona os programas selecionados no novoCanal
+        for (CheckBoxCustomizada cb : cbProgramas) {
+            if (cb.isSelected()) {
+                novoCanal.getProgramas().add(d.getPrograma(cb.getText()));
+            }
+        }
+        return novoCanal;
+    }
+
     // --------------------------------- Listeners ---------------------------------
     /**
      * Detecta quando os botões "salvar" e "atualizar" são clicados além de
@@ -137,7 +156,6 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
         Object clicado = e.getSource();
 
         if (clicado == salvar) {
-            // Checa se os campos nome e numero foram preenchidos corretamente
             if (caixaNome.isTextoInvalido()) {
                 JOptionPane.showMessageDialog(null,
                         "O campo nome é de preenchimento obrigatório.",
@@ -146,30 +164,18 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
                 JOptionPane.showMessageDialog(null,
                         "O campo número é de preenchimento obrigatório ",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-            } else if (!caixaNumero.getText().matches("[0-9]+")) {
+            } else if (caixaNumero.isNumeroInvalido()) {
                 JOptionPane.showMessageDialog(null,
                         "O campo número só suporta números",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
             } else {
-                Canal novoCanal = new Canal(caixaNome.getText(),
-                        Integer.parseInt(caixaNumero.getText()));
-                // Adiciona os programas selecionados no novoCanal
-                for (CheckBoxCustomizada cb : cbProgramas) {
-                    if (cb.isSelected()) {
-                        novoCanal.getProgramas().add(d.getPrograma(cb.getText()));
-                    }
-                }
-                d.getCanais().add(novoCanal);
-
-                // Desabilita o botão apos o primeiro cadastro para evitar o cadastro
-                // duplicado a cada click
-                caixaNome.setEditable(false);
-                caixaNumero.setEditable(false);
+                d.getCanais().add(cadastroNovoCanal());
+                // Desabilita o botao para evitar cadastro duplicado
                 salvar.setEnabled(false);
             }
         }
+
         if (clicado == atualizar) {
-            // Checa se os campos nome e numero foram preenchidos corretamente
             if (caixaNome.isTextoInvalido()) {
                 JOptionPane.showMessageDialog(null,
                         "O campo nome é de preenchimento obrigatório.",
@@ -178,25 +184,13 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
                 JOptionPane.showMessageDialog(null,
                         "O campo número é de preenchimento obrigatório ",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
-            } else if (!caixaNumero.getText().matches("[0-9]+")) {
+            } else if (caixaNumero.isNumeroInvalido()) {
                 JOptionPane.showMessageDialog(null,
                         "O campo número só suporta números",
                         "Fora de sintonia", JOptionPane.ERROR_MESSAGE);
             } else {
-                Canal novoCanal = new Canal(caixaNome.getText(),
-                        Integer.parseInt(caixaNumero.getText()));
-                // Adiciona os programas selecionas no novoCanal
-                for (CheckBoxCustomizada cb : cbProgramas) {
-                    if (cb.isSelected()) {
-                        novoCanal.getProgramas().add(d.getPrograma(cb.getText()));
-                    }
-                }
-                d.getCanais().set(d.getCanais().indexOf(canalDetalhado), novoCanal);
-
-                // Desabilita o botao apos o primeiro cadastro para evitar o cadastro
-                // duplicado a cada click
-                caixaNome.setEditable(false);
-                caixaNumero.setEditable(false);
+                d.getCanais().set(d.getCanais().indexOf(canalDetalhado), cadastroNovoCanal());
+                // Desabilita o botao para evitar cadastro duplicado
                 atualizar.setEnabled(false);
             }
         }
