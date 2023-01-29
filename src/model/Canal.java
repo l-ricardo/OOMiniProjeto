@@ -86,7 +86,7 @@ public class Canal implements Comparable<Canal> {
      * parecido com o do filtro
      * 
      * @param filtro Nome do canal alvo
-     * @return
+     * @return Retorna progrmas que estao nesse canal e tem o nome igual ao filtro
      */
     public ArrayList<Programa> getProgramaPorCanal(String filtro) { // TODO: URGENTE E WIP
         if (filtro != null) {

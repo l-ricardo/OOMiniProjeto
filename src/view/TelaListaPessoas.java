@@ -31,7 +31,9 @@ public class TelaListaPessoas extends JPanel implements ActionListener {
     /**
      * Constroi um painel para listagem de dados da Classe Pessoa.
      * 
-     * @param dados Base de dados
+     * @param dados  Base de dados
+     * @param filtro Filtro de pessoas que devem aparecer na listagem, se null
+     *               lista todos.
      */
     public TelaListaPessoas(Dados dados, String filtro) {
         this.d = dados;
@@ -84,7 +86,7 @@ public class TelaListaPessoas extends JPanel implements ActionListener {
         this.add(visualizar);
         this.add(deletar);
     }
-    
+
     // --------------------------------- Listeners ---------------------------------
     /**
      * 

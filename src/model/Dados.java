@@ -427,7 +427,7 @@ public class Dados {
         /**
          * Seleciona entre os artistas apenas aqueles que são musicos e os retona.
          * 
-         * @param musicos Array de musicos
+         * @return Retorna array com artistas que são musicos
          */
         public ArrayList<Artista> getMusicos() {
                 ArrayList<Artista> musicos = new ArrayList<>();
@@ -442,7 +442,7 @@ public class Dados {
         /**
          * Seleciona entre os artistas apenas aqueles que são ancoras e os retona.
          * 
-         * @param ancoras Array de ancoras
+         * @return Retorna array com artistas que são ancoras
          */
         public ArrayList<Artista> getAncoras() {
                 ArrayList<Artista> ancoras = new ArrayList<>();

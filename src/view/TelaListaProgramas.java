@@ -18,7 +18,8 @@ import model.Dados;
 import model.Programa;
 
 /**
- * Cria uma tela de conteúdo que estende de JPanel e faz uma listagem de programas
+ * Cria uma tela de conteúdo que estende de JPanel e faz uma listagem de
+ * programas
  * cadastrados.
  */
 public class TelaListaProgramas extends JPanel implements ActionListener {
@@ -31,7 +32,9 @@ public class TelaListaProgramas extends JPanel implements ActionListener {
     /**
      * Constroi um painel para listagem de dados da Classe Programa.
      * 
-     * @param dados Base de dados
+     * @param dados  Base de dados
+     * @param filtro Filtro de programas que devem aparecer na listagem, se null
+     *               lista todos.
      */
     public TelaListaProgramas(Dados dados, String filtro) {
         this.d = dados;
@@ -84,7 +87,7 @@ public class TelaListaProgramas extends JPanel implements ActionListener {
         this.add(visualizar);
         this.add(deletar);
     }
-    
+
     // --------------------------------- Listeners ---------------------------------
     /**
      * 
