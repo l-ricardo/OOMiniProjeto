@@ -151,7 +151,7 @@ public class Dados {
                 canais.add(new Canal("n", 106));
         }
 
-        // Gets e sets
+        // -------------------------------- Gets e Sets --------------------------------
         public ArrayList<Canal> getCanais() {
                 Collections.sort(canais); // Ordena alfabeticamente pelo nome
                 return canais;

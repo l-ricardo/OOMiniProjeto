@@ -8,7 +8,6 @@ import java.util.ArrayList;
  * ficticias.
  */
 public class NovelaFilmeSerie extends Programa {
-
     private ArrayList<Personagem> personagens = new ArrayList<>();
     private boolean animado;
     private int nTemporadas;
@@ -17,6 +16,7 @@ public class NovelaFilmeSerie extends Programa {
         animado = false;
     }
 
+    // -------------------------------- Contrutores --------------------------------
     /**
      * Construtor que recebe o nome de uma Novela, Filme ou Serie, os dias da semana
      * que
@@ -64,41 +64,7 @@ public class NovelaFilmeSerie extends Programa {
         this.nTotalEpisodios = nTotalEpisodios;
     }
 
-    // Outros métodos
-    public void listarPersonagens() {
-        listarPersonagens(false);
-    }
-
-    public void listarPersonagens(boolean apenasProtagonistas) {
-        String result = "";
-        for (Personagem personagem : personagens) {
-            if (apenasProtagonistas) {
-                result += personagem.isProtagonista() ? personagem.toString() + "\n" : "";
-            } else {
-                result += personagem.toString() + "\n";
-            }
-        }
-        System.out.println(result);
-    }
-
-    /**
-     * 
-     * Verifica se existe um personagem com o nome especificado agregado a essa
-     * classe.
-     * 
-     * @param nome Nome do personagem
-     * @return Retorna 'true' se o personagem existir e 'false' caso contrário.
-     */
-    public boolean existePersonagem(String nome) {
-        for (Personagem personagem : personagens) {
-            if (nome == personagem.getNome()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    // Gets e Sets
+    // -------------------------------- Gets e Sets --------------------------------
     public ArrayList<Personagem> getPersonagens() {
         return personagens;
     }
@@ -131,6 +97,41 @@ public class NovelaFilmeSerie extends Programa {
         this.nTotalEpisodios = nTotalEpisodios;
     }
 
+    // ---------------------------- Metodos Auxiliares ----------------------------
+    public void listarPersonagens() { // TODO: AINDA NECESSARIO?
+        listarPersonagens(false);
+    }
+
+    public void listarPersonagens(boolean apenasProtagonistas) { // TODO: AINDA NECESSARIO?
+        String result = "";
+        for (Personagem personagem : personagens) {
+            if (apenasProtagonistas) {
+                result += personagem.isProtagonista() ? personagem.toString() + "\n" : "";
+            } else {
+                result += personagem.toString() + "\n";
+            }
+        }
+        System.out.println(result);
+    }
+
+    /**
+     * 
+     * Verifica se existe um personagem com o nome especificado agregado a essa
+     * classe.
+     * 
+     * @param nome Nome do personagem
+     * @return Retorna 'true' se o personagem existir e 'false' caso contrário.
+     */
+    public boolean existePersonagem(String nome) {
+        for (Personagem personagem : personagens) {
+            if (nome == personagem.getNome()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // --------------------------------- toString ---------------------------------
     @Override
     public String toString() {
         // String result = "========================================\n"

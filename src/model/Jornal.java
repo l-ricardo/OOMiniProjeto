@@ -9,7 +9,8 @@ import java.util.ArrayList;
 public class Jornal extends Programa {
     private ArrayList<Artista> ancoras;
     private String localidade;
-
+    
+    // -------------------------------- Contrutores --------------------------------
     /**
      * Construtor que recebe o nome de um Jornal, os dias da semana que o Jornal
      * é transmitido, o horário de exibição, a duração do Jornal.
@@ -48,7 +49,7 @@ public class Jornal extends Programa {
         this.localidade = localidade;
     }
 
-    // Gets e Sets
+    // -------------------------------- Gets e Sets --------------------------------
     public ArrayList<Artista> getAncoras() {
         return ancoras;
     }
@@ -64,7 +65,8 @@ public class Jornal extends Programa {
     public void setLocalidade(String localidade) {
         this.localidade = localidade;
     }
-
+    
+    // ---------------------------- Metodos Auxiliares ----------------------------
     /**
      * 
      * Verifica se existe um ancora com o nome especificado agregado a essa classe.
@@ -80,7 +82,8 @@ public class Jornal extends Programa {
         }
         return false;
     }
-
+    
+    // --------------------------------- toString ---------------------------------
     @Override
     public String toString() {
         // String result = "========================================\n"

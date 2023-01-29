@@ -15,7 +15,7 @@ public class Artista extends Pessoa {
         ancora = false;
     }
 
-    // Construtores
+    // -------------------------------- Contrutores --------------------------------
     /**
      * Contrutor que recebe nome, sexo e qual o tipo de artista uma pessoa é.
      * 
@@ -45,7 +45,7 @@ public class Artista extends Pessoa {
         this.instrumento = instrumento;
     }
 
-    // Gets e Sets
+    // -------------------------------- Gets e Sets --------------------------------
     public String getTipo() {
         return tipo;
     }
@@ -78,6 +78,7 @@ public class Artista extends Pessoa {
         this.instrumento = instrumento;
     }
 
+    // --------------------------------- toString ---------------------------------
     @Override
     public String toString() {
         // if (isMusico()) {

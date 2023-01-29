@@ -12,7 +12,8 @@ public class TalkShow extends Programa {
     private ArrayList<Artista> apresentadores = new ArrayList<>();
     private ArrayList<Artista> musicos = new ArrayList<>();
     private ArrayList<Pessoa> convidados = new ArrayList<>();
-
+    
+    // -------------------------------- Contrutores --------------------------------
     /**
      * Construtor que recebe o nome de um TalkShow, os dias da semana que o TalkShow
      * é transmitido, o horário de exibição, a duração do TalkShow.
@@ -51,7 +52,7 @@ public class TalkShow extends Programa {
         this.apresentadores = apresentadores;
     }
 
-    // Gets e Sets
+    // -------------------------------- Gets e Sets --------------------------------
     public ArrayList<Artista> getApresentadores() {
         return apresentadores;
     }
@@ -76,6 +77,7 @@ public class TalkShow extends Programa {
         this.convidados = convidados;
     }
 
+    // ---------------------------- Metodos Auxiliares ----------------------------
     /**
      * 
      * Verifica se existe um apresentador com o nome especificado agregado a essa
@@ -125,7 +127,8 @@ public class TalkShow extends Programa {
         }
         return false;
     }
-
+    
+    // --------------------------------- toString ---------------------------------
     @Override
     public String toString() {
         // String result = "========================================\n"

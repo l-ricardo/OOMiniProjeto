@@ -6,8 +6,8 @@ package model;
 public class Pessoa implements Comparable<Pessoa> {
     protected String nome;
     protected char sexo;
-
-    // Construtores
+    
+    // -------------------------------- Contrutores --------------------------------
     /**
      * Contrutor que recebe o nome e o sexo de uma pessoa.
      * 
@@ -19,7 +19,7 @@ public class Pessoa implements Comparable<Pessoa> {
         this.sexo = sexo;
     }
 
-    // Gets e Sets
+    // -------------------------------- Gets e Sets --------------------------------
     public String getNome() {
         return nome;
     }
@@ -36,11 +36,7 @@ public class Pessoa implements Comparable<Pessoa> {
         this.sexo = sexo;
     }
 
-    @Override
-    public String toString() {
-        return nome;
-    }
-
+    // ---------------------------- Metodos Auxiliares ----------------------------
     /**
      * Esse override ensina a biblioteca java.util qual atributo de pessoa deve
      * ser usado na comparação entre pessoas. Possibilita o uso do método
@@ -52,5 +48,11 @@ public class Pessoa implements Comparable<Pessoa> {
     @Override
     public int compareTo(Pessoa outroPessoa) {
         return this.nome.compareTo(outroPessoa.nome);
+    }
+    
+    // --------------------------------- toString ---------------------------------
+    @Override
+    public String toString() {
+        return nome;
     }
 }

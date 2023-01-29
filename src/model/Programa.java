@@ -18,7 +18,8 @@ public abstract class Programa implements Comparable<Programa> {
         favorito = false;
         descricao = "Nenhuma descrição foi fornecida";
     }
-
+    
+    // -------------------------------- Contrutores --------------------------------
     /**
      * Construtor que recebe o nome do programa, os dias da semana que o programa é
      * transmitido, o horário de exibição, a duração do programa.
@@ -38,7 +39,7 @@ public abstract class Programa implements Comparable<Programa> {
         this.duracaoMin = duracaoMin;
     }
 
-    // Gets e Sets
+    // -------------------------------- Gets e Sets --------------------------------
     public String getNome() {
         return nome;
     }
@@ -47,6 +48,14 @@ public abstract class Programa implements Comparable<Programa> {
         this.nome = nome;
     }
 
+    /**
+     * Metodo get para dias de exibição do programa porém deve retorna um
+     * ArrayList de interios onde 1 representa Domingo, 2 representa Segunda até 7
+     * que representa Sábado.
+     * 
+     * @return ArrayList de inteiros que representa os dias da semana que o programa
+     *         é transmitido
+     */
     public ArrayList<Integer> getDiasExibicao() {
         ArrayList<Integer> diasExibicaoNum = new ArrayList<Integer>();
         for (DayOfWeek dia : this.diasExibicao) {
@@ -102,6 +111,7 @@ public abstract class Programa implements Comparable<Programa> {
         this.favorito = favorito;
     }
 
+    // ---------------------------- Metodos Auxiliares ----------------------------
     /**
      * Esse override ensina a biblioteca java.util qual atributo de programa deve
      * ser usado na comparação entre programas. Possibilita o uso do método

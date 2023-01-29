@@ -10,7 +10,8 @@ public class Canal implements Comparable<Canal> {
     private String nome;
     private int numero;
     private ArrayList<Programa> programas = new ArrayList<>();
-
+    
+    // -------------------------------- Contrutores --------------------------------
     /**
      * Contrutor que recebe o nome do canal e o número em que ele pode ser
      * sintonizado.
@@ -38,28 +39,7 @@ public class Canal implements Comparable<Canal> {
         this.programas = programas;
     }
 
-    /**
-     * Retorna um array de programas que fazem pertencem a esse canal, e tem o nome
-     * parecido com o do filtro
-     * 
-     * @param filtro Nome do canal alvo
-     * @return
-     */
-    public ArrayList<Programa> getProgramaPorCanal(String filtro) {
-        if (filtro != null) {
-            System.out.println("Estou filtrando para:" + filtro);
-            ArrayList<Programa> programasFiltrados = new ArrayList<>();
-            for (Programa programa : programas) {
-                if (programa.getNome().contains(filtro)) {
-                    programasFiltrados.add(programa);
-                }
-            }
-            return programasFiltrados;
-        }
-        return programas;
-    }
-
-    // Gets e Sets
+    // -------------------------------- Gets e Sets --------------------------------
     public String getNome() {
         return nome;
     }
@@ -87,6 +67,7 @@ public class Canal implements Comparable<Canal> {
         }
     }
 
+    // ---------------------------- Metodos Auxiliares ----------------------------
     /**
      * 
      * Verifica se existe um programa com o nome especificado agregado a essa
@@ -104,17 +85,25 @@ public class Canal implements Comparable<Canal> {
         return false;
     }
 
-    @Override
-    public String toString() {
-        // String result = "========================================\n"
-        // + "Canal " + numero + ": " + nome + "\n"
-        // + "------------- Programação --------------\n";
-        // result += programas != null ? listarProgramas() : "Não existe nenhum programa
-        // registrado!";
-        // result += "========================================";
-        // return result;
-        // return " Canal " + numero + ": " + nome;
-        return nome;
+    /**
+     * Retorna um array de programas que fazem pertencem a esse canal, e tem o nome
+     * parecido com o do filtro
+     * 
+     * @param filtro Nome do canal alvo
+     * @return
+     */
+    public ArrayList<Programa> getProgramaPorCanal(String filtro) { // TODO: URGENTE E WIP
+        if (filtro != null) {
+            System.out.println("Estou filtrando para:" + filtro);
+            ArrayList<Programa> programasFiltrados = new ArrayList<>();
+            for (Programa programa : programas) {
+                if (programa.getNome().contains(filtro)) {
+                    programasFiltrados.add(programa);
+                }
+            }
+            return programasFiltrados;
+        }
+        return programas;
     }
 
     /**
@@ -128,5 +117,19 @@ public class Canal implements Comparable<Canal> {
     @Override
     public int compareTo(Canal outroCanal) {
         return this.nome.compareTo(outroCanal.nome);
+    }
+
+    // --------------------------------- toString ---------------------------------
+    @Override
+    public String toString() {
+        // String result = "========================================\n"
+        // + "Canal " + numero + ": " + nome + "\n"
+        // + "------------- Programação --------------\n";
+        // result += programas != null ? listarProgramas() : "Não existe nenhum programa
+        // registrado!";
+        // result += "========================================";
+        // return result;
+        // return " Canal " + numero + ": " + nome;
+        return nome;
     }
 }

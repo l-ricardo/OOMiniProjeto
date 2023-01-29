@@ -11,7 +11,7 @@ public class Personagem extends Pessoa {
         protagonista = false;
     }
 
-    // Construtores
+    // -------------------------------- Contrutores --------------------------------
     /**
      * Contrutor que recebe o nome de um personagem, seu sexo e o ator ou dublador
      * que intrepreta tal personagem.
@@ -44,7 +44,7 @@ public class Personagem extends Pessoa {
         this.protagonista = protagonista;
     }
 
-    // Gets e Sets
+    // -------------------------------- Gets e Sets --------------------------------
     public Pessoa getAtor() {
         return ator;
     }
@@ -61,6 +61,7 @@ public class Personagem extends Pessoa {
         this.protagonista = protagonista;
     }
 
+    // ---------------------------- Metodos Auxiliares ----------------------------
     /**
      * 
      * Verifica se existe uma pessoa com o nome especificado associado a essa
@@ -75,7 +76,8 @@ public class Personagem extends Pessoa {
         }
         return false;
     }
-
+    
+    // --------------------------------- toString ---------------------------------
     @Override
     public String toString() {
         if (ator != null) {
