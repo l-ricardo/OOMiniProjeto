@@ -55,7 +55,7 @@ public class CampoDados extends JTextField implements FocusListener {
      * @return Retorna true se o número for invalido, se valido retorna false
      */
     public boolean isNumeroInvalido() {
-        return !this.getText().matches("[0-9]+");
+        return !(this.getText().matches("[0-9]+"));
     }
 
     /**
