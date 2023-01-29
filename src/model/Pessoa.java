@@ -1,12 +1,12 @@
 package model;
 
 /**
- * Uma classe que representa uma pessoa real.
+ * Classe que modela uma pessoa real.
  */
 public class Pessoa implements Comparable<Pessoa> {
-    protected String nome;
-    protected char sexo;
-    
+    private String nome;
+    private char sexo;
+
     // -------------------------------- Contrutores --------------------------------
     /**
      * Contrutor que recebe o nome e o sexo de uma pessoa.
@@ -49,7 +49,7 @@ public class Pessoa implements Comparable<Pessoa> {
     public int compareTo(Pessoa outroPessoa) {
         return this.nome.compareTo(outroPessoa.nome);
     }
-    
+
     // --------------------------------- toString ---------------------------------
     @Override
     public String toString() {

@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JRadioButton;
 
 /**
- * Classe que cria um botão radial, com a identidade visual do projeto.
+ * Classe que modela um botão radial, com a identidade visual do projeto.
  */
 public class BotaoRadialCustomizado extends JRadioButton {
     /**

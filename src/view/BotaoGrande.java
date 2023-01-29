@@ -7,7 +7,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
 /**
- * Classe que cria um botão grande (muito usado no menu principal), com a
+ * Classe que modela um botão grande (muito usado no menu principal), com a
  * identidade visual do projeto.
  */
 public class BotaoGrande extends JButton {

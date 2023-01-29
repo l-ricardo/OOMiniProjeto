@@ -3,13 +3,13 @@ package model;
 import java.util.ArrayList;
 
 /**
- * Uma classe que estende programa e que pode representar qualquer tipo de
+ * Classe que estende programa e que pode modelar qualquer tipo de
  * jornal ou noticiario.
  */
 public class Jornal extends Programa {
     private ArrayList<Artista> ancoras;
     private String localidade;
-    
+
     // -------------------------------- Contrutores --------------------------------
     /**
      * Construtor que recebe o nome de um Jornal, os dias da semana que o Jornal
@@ -65,7 +65,7 @@ public class Jornal extends Programa {
     public void setLocalidade(String localidade) {
         this.localidade = localidade;
     }
-    
+
     // ---------------------------- Metodos Auxiliares ----------------------------
     /**
      * 
@@ -82,7 +82,7 @@ public class Jornal extends Programa {
         }
         return false;
     }
-    
+
     // --------------------------------- toString ---------------------------------
     @Override
     public String toString() {

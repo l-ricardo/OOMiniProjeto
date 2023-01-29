@@ -7,8 +7,8 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
 /**
- * Classe que cria um botão pequeno (muito usado nos submenus para funções como
- * editar, atualizar, visualizar), com a identidade visual do projeto.
+ * Classe que modela um botão pequeno (muito usado nos submenus para funções
+ * como editar, atualizar, visualizar), com a identidade visual do projeto.
  */
 public class BotaoPequeno extends JButton {
     /**

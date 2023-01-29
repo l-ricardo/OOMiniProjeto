@@ -19,18 +19,17 @@ import model.Dados;
 import model.Programa;
 
 /**
- * Cria uma tela de conteúdo que estende de JPanel e faz uma listagem de
- * programas
- * cadastrados.
+ * Classe que modela uma tela de conteúdo que estende de JPanel e faz uma
+ * listagem de programas cadastrados.
  */
 public class TelaListaProgramas extends JPanel implements ActionListener {
-    Dados d;
-    String programaSelecionado;
+    private Dados d;
+    private String programaSelecionado;
 
-    ArrayList<BotaoRadialCustomizado> rbProgramas;
-    BotaoPequeno visualizar, deletar;
-    JPanel listaProgramas;
-    JScrollPane listaProgramasRolavel;
+    private ArrayList<BotaoRadialCustomizado> rbProgramas;
+    private BotaoPequeno visualizar, deletar;
+    private JPanel listaProgramas;
+    private JScrollPane listaProgramasRolavel;
 
     /**
      * Constroi um painel para listagem de dados da Classe Programa.

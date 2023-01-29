@@ -9,7 +9,7 @@ import javax.swing.JCheckBox;
 import javax.swing.border.EmptyBorder;
 
 /**
- * Classe que cria uma checkbox, com a identidade visual do projeto.
+ * Classe que modela uma checkbox, com a identidade visual do projeto.
  */
 public class CheckBoxCustomizada extends JCheckBox {
     /**

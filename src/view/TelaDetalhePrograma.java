@@ -24,26 +24,30 @@ import model.Programa;
 import model.TalkShow;
 
 /**
- * Cria uma tela de conteúdo que estende de JPanel, com as funcionalidades de
- * criação e edição de programas.
+ * Classe que modela uma tela de conteúdo que estende de JPanel, com as
+ * funcionalidades de criação e edição de programas.
  */
 public class TelaDetalhePrograma extends JPanel implements ActionListener {
-    Dados d;
-    Programa programaDetalhado;
+    private Dados d;
+    private Programa programaDetalhado;
 
-    BotaoPequeno salvar, atualizar;
-    BotaoRadialCustomizado talkShow, jornal, novelaFilmeSerie;
-    CheckBoxCustomizada animado, fav;
-    CheckBoxCustomizada dom, seg, ter, qua, qui, sex, sab;
-    ArrayList<CheckBoxCustomizada> cbPersonagens, cbAncoras, cbApresentadores,
-            cbMusicos, cbConvidados;
-    JLabel dicaTipoPrograma, dicaNumTemporadas, dicaNumEpisodios, dicaAnimacao,
-            dicaPersonagem, dicaAncora, dicaApresentador, dicaMusico,
-            dicaConvidado, dicaLocalidade, legendaTipoPrograma;
-    CampoDados caixaNome, caixaHorario, caixaDuracao, caixaDescricao,
-            caixaNumTemporadas, caixaNumEpisodios, caixaLocalidade;
-    JScrollPane painelPersonagensRolavel, painelAncorasRolavel,
-            painelApresentadoresRolavel, painelMusicosRolavel, painelConvidadosRolavel;
+    private BotaoPequeno salvar, atualizar;
+    private BotaoRadialCustomizado talkShow, jornal, novelaFilmeSerie;
+    private CheckBoxCustomizada animado, fav;
+    private CheckBoxCustomizada dom, seg, ter, qua, qui, sex, sab;
+    private ArrayList<CheckBoxCustomizada> cbPersonagens;
+    private ArrayList<CheckBoxCustomizada> cbAncoras, cbApresentadores, cbMusicos;
+    private ArrayList<CheckBoxCustomizada> cbConvidados;
+    private JLabel dicaTipoPrograma, legendaTipoPrograma;
+    private JLabel dicaPersonagem, dicaNumTemporadas, dicaNumEpisodios, dicaAnimacao;
+    private JLabel dicaAncora, dicaLocalidade;
+    private JLabel dicaConvidado, dicaApresentador, dicaMusico;
+    private CampoDados caixaNome, caixaHorario, caixaDuracao, caixaDescricao;
+    private CampoDados caixaNumTemporadas, caixaNumEpisodios;
+    private CampoDados caixaLocalidade;
+    private JScrollPane painelPersonagensRolavel;
+    private JScrollPane painelAncorasRolavel, painelApresentadoresRolavel, painelMusicosRolavel;
+    private JScrollPane painelConvidadosRolavel;
 
     /**
      * Constroi um painel para cadastro de dados da Classe Programa.
@@ -422,7 +426,7 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
     // ---------------------------- Metodos Auxiliares ----------------------------
     /**
      * Cria um novo objeto com base nos dados entrados pelo usuário nos campos de
-     * texto e ce checkbox.
+     * texto e de checkbox.
      * 
      * @return Um novo programa cadastrado da classe Programa
      */

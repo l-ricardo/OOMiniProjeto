@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 
 /**
- * Classe que representa um canal de televisão.
+ * Classe que modela um canal de televisão.
  */
 public class Canal implements Comparable<Canal> {
     private String nome;

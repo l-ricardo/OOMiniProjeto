@@ -10,11 +10,11 @@ import javax.swing.BorderFactory;
 import javax.swing.JTextField;
 
 /**
- * Controi um campo de texto para a função de captura de dados com a identidade
- * visual do projeto.
+ * Classe que modela um campo de texto para a função de captura de dados com a
+ * identidade visual do projeto.
  */
 public class CampoDados extends JTextField implements FocusListener {
-    String texto;
+    private String texto;
 
     /**
      * Constrói o campo de texto e o customiza
@@ -35,7 +35,7 @@ public class CampoDados extends JTextField implements FocusListener {
         this.setCaretColor(Color.white);
         this.addFocusListener(this);
     }
-    
+
     // ---------------------------- Metodos Auxiliares ----------------------------
     /**
      * Checa se o texto digitado pelo usuario é valido, os casos invalidos são
@@ -47,7 +47,7 @@ public class CampoDados extends JTextField implements FocusListener {
     public boolean ehTextoInvalido() {
         return this.getText().equals(texto) || this.getText().isEmpty();
     }
-    
+
     // --------------------------------- Listeners ---------------------------------
     /**
      * Quando o usuário clicar no campo de texto e o campo estiver preenchido com o
@@ -63,7 +63,7 @@ public class CampoDados extends JTextField implements FocusListener {
             this.setText("");
         }
     }
-    
+
     /**
      * Se o campo de texto estiver vazio e o usuário perder o foco do campo,
      * ele será preenchido como o texto padrão

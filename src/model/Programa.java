@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.time.DayOfWeek;
 
 /**
- * Uma classe abstrata que representa um programa generico que é transmitido na
+ * Classe abstrata que modela um programa generico que é transmitido na
  * televisão.
  */
 public abstract class Programa implements Comparable<Programa> {

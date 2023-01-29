@@ -18,15 +18,15 @@ import model.Dados;
  * com o conteudo das outras telas.
  */
 public class App extends JFrame implements ActionListener {
-    Dados d;
+    private Dados d;
 
-    JPanel conteudo = new JPanel();
-    BotaoGrande bListarCanais, bCadastrarCanais;
-    BotaoGrande bListarProgramas, bCadastrarProgramas;
-    BotaoGrande bListarPessoas, bCadastrarPessoas;
-    BotaoGrande limparFiltros;
-    CampoFiltragem filtroCanal, filtroPrograma, filtroPessoa;
-    CheckBoxCustomizada dom, seg, ter, qua, qui, sex, sab;
+    private JPanel conteudo = new JPanel();
+    private BotaoGrande bListarCanais, bCadastrarCanais;
+    private BotaoGrande bListarProgramas, bCadastrarProgramas;
+    private BotaoGrande bListarPessoas, bCadastrarPessoas;
+    private BotaoGrande limparFiltros;
+    private CampoFiltragem filtroCanal, filtroPrograma, filtroPessoa;
+    private CheckBoxCustomizada dom, seg, ter, qua, qui, sex, sab;
 
     /**
      * Constroi um painel para com o menu principal.
@@ -234,7 +234,6 @@ public class App extends JFrame implements ActionListener {
         // TODO: Atualizar diagramas de classes e pacotes (Herança abstrata pontilhado)
         // TODO: Criar UniTests
         // TODO: Otimizar todos os Override se actionPerformed
-        // TODO: Documentar metodos auxiliares de telaCadastroPrograma e ver outras
     }
     // -----------------------------------------------------------------------------
 }

@@ -10,11 +10,11 @@ import javax.swing.BorderFactory;
 import javax.swing.JTextField;
 
 /**
- * Controi um campo de texto para a função de filtragem com a identidade visual
- * do projeto.
+ * Classe que modela um campo de texto para a função de filtragem com a
+ * identidade visual do projeto.
  */
 public class CampoFiltragem extends JTextField implements FocusListener {
-    String texto;
+    private String texto;
 
     /**
      * Constrói o campo de texto e o customiza
@@ -35,7 +35,7 @@ public class CampoFiltragem extends JTextField implements FocusListener {
         this.setCaretColor(Color.white);
         this.addFocusListener(this);
     }
-    
+
     // --------------------------------- Listeners ---------------------------------
     /**
      * Quando o usuário clicar no campo de texto e o campo estiver preenchido com o

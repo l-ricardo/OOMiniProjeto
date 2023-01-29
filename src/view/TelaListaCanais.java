@@ -18,15 +18,15 @@ import model.Canal;
 import model.Dados;
 
 /**
- * Cria uma tela de conteúdo que estende de JPanel e faz uma listagem de canais
- * cadastrados.
+ * Classe que modela uma tela de conteúdo que estende de JPanel e faz uma
+ * listagem de canais cadastrados.
  */
 public class TelaListaCanais extends JPanel implements ActionListener {
-    Dados d;
-    String canalSelecionado;
+    private Dados d;
+    private String canalSelecionado;
 
-    ArrayList<BotaoRadialCustomizado> rbCanais;
-    BotaoPequeno visualizar, deletar;
+    private ArrayList<BotaoRadialCustomizado> rbCanais;
+    private BotaoPequeno visualizar, deletar;
 
     /**
      * Constroi um painel para listagem de dados da Classe Canal.

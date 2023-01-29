@@ -9,11 +9,10 @@ import javax.swing.JPanel;
 import model.Dados;
 
 /**
- * Cria uma tela de conteúdo que estende de JPanel, com as funcionalidades de
- * criação e edição de pessoas.
+ * Classe que modela uma tela de conteúdo que estende de JPanel, com as
+ * funcionalidades de criação e edição de pessoas.
  */
 public class TelaDetalhePessoa extends JPanel {
-    Dados d;
 
     /**
      * Constroi um painel para cadastro de dados da Classe pessoa.
@@ -21,8 +20,6 @@ public class TelaDetalhePessoa extends JPanel {
      * @param dados Base de dados
      */
     public TelaDetalhePessoa(Dados dados) {
-        this.d = dados;
-
         // Configurando painel
         this.setLayout(null);
         this.setBounds(0, 200, 1200, 600);

@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Uma classe que estende de pessoa e representa uma pessoa real que tem algum
+ * Classe que estende de pessoa e modela uma pessoa real que tem algum
  * grau de notoriedade por fazer parte de programs de tv, como por exemplo:
  * Humoristas, Jornalistas, Entrevistadores, Atores, Dubladores, Músicos, etc...
  */
@@ -85,6 +85,6 @@ public class Artista extends Pessoa {
         // return tipo + " " + nome + " no " + instrumento;
         // }
         // return tipo + " " + nome;
-        return nome;
+        return getNome();
     }
 }

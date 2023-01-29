@@ -18,15 +18,15 @@ import model.Dados;
 import model.Pessoa;
 
 /**
- * Cria uma tela de conteúdo que estende de JPanel e faz uma listagem de pessoas
- * cadastradas.
+ * Classe que modela uma tela de conteúdo que estende de JPanel e faz uma
+ * listagem de pessoas cadastradas.
  */
 public class TelaListaPessoas extends JPanel implements ActionListener {
-    Dados d;
-    String pessoaSelecionada;
+    private Dados d;
+    private String pessoaSelecionada;
 
-    ArrayList<BotaoRadialCustomizado> rbPessoas;
-    BotaoPequeno visualizar, deletar;
+    private ArrayList<BotaoRadialCustomizado> rbPessoas;
+    private BotaoPequeno visualizar, deletar;
 
     /**
      * Constroi um painel para listagem de dados da Classe Pessoa.

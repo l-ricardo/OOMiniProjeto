@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Uma classe que estende de pessoa e representa uma pessoa ficticia de um
+ * Classe que estende de pessoa e modela uma pessoa ficticia de um
  * programa de entreterimento que pode ou não ser protagonista de dado show.
  */
 public class Personagem extends Pessoa {
@@ -76,14 +76,14 @@ public class Personagem extends Pessoa {
         }
         return false;
     }
-    
+
     // --------------------------------- toString ---------------------------------
     @Override
     public String toString() {
-        if (ator != null) {
-            // return ator.toString() + " como " + nome;
-            return nome;
-        }
-        return nome;
+        // if (ator != null) {
+        // // return ator.toString() + " como " + nome;
+        // return nome;
+        // }
+        return getNome();
     }
 }

@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 
 /**
- * Uma classe que estende programa e que pode representar qualquer tipo de
+ * Classe que estende programa e que pode modelar qualquer tipo de
  * TalkShow, programa de entreterimento ou auditorio onde se tem opcionalmente
  * mas não obrigatorimente pessoas o fazendo como apresentadores, musicos e
  * convidados.
@@ -12,7 +12,7 @@ public class TalkShow extends Programa {
     private ArrayList<Artista> apresentadores = new ArrayList<>();
     private ArrayList<Artista> musicos = new ArrayList<>();
     private ArrayList<Pessoa> convidados = new ArrayList<>();
-    
+
     // -------------------------------- Contrutores --------------------------------
     /**
      * Construtor que recebe o nome de um TalkShow, os dias da semana que o TalkShow
@@ -127,7 +127,7 @@ public class TalkShow extends Programa {
         }
         return false;
     }
-    
+
     // --------------------------------- toString ---------------------------------
     @Override
     public String toString() {

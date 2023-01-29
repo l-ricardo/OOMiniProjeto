@@ -18,16 +18,16 @@ import model.Dados;
 import model.Programa;
 
 /**
- * Cria uma tela de conteúdo que estende de JPanel, com as funcionalidades de
- * criação e edição de canais.
+ * Classe que modela uma tela de conteúdo que estende de JPanel, com as
+ * funcionalidades de criação e edição de canais.
  */
 public class TelaDetalheCanal extends JPanel implements ActionListener {
-    Dados d;
-    Canal canalDetalhado;
+    private Dados d;
+    private Canal canalDetalhado;
 
-    CampoDados caixaNome, caixaNumero;
-    BotaoPequeno salvar, atualizar;
-    ArrayList<CheckBoxCustomizada> cbProgramas;
+    private CampoDados caixaNome, caixaNumero;
+    private BotaoPequeno salvar, atualizar;
+    private ArrayList<CheckBoxCustomizada> cbProgramas;
 
     /**
      * Constroi um painel para cadastro de dados da Classe Canal.
@@ -122,7 +122,7 @@ public class TelaDetalheCanal extends JPanel implements ActionListener {
         this.add(atualizar);
         this.updateUI();
     }
-    
+
     // --------------------------------- Listeners ---------------------------------
     /**
      * Detecta quando os botões "salvar" e "atualizar" são clicados além de

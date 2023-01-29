@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 
 /**
- * Uma classe que estende programa e que pode representar qualquer tipo de
+ * Classe que estende programa e que pode modelar qualquer tipo de
  * Novela, Serie, Filme ou obra de ficção, que sera composta por pessoas
  * ficticias.
  */
