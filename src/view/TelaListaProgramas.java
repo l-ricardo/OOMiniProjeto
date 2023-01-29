@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import model.Canal;
 import model.Dados;
 import model.Programa;
 
@@ -28,6 +29,8 @@ public class TelaListaProgramas extends JPanel implements ActionListener {
 
     ArrayList<BotaoRadialCustomizado> rbProgramas;
     BotaoPequeno visualizar, deletar;
+    JPanel listaProgramas;
+    JScrollPane listaProgramasRolavel;
 
     /**
      * Constroi um painel para listagem de dados da Classe Programa.
@@ -58,7 +61,7 @@ public class TelaListaProgramas extends JPanel implements ActionListener {
         }
 
         // Criando e adicionando os botões radiais à um painel
-        JPanel listaProgramas = new JPanel();
+        listaProgramas = new JPanel();
         listaProgramas.setLayout(new BoxLayout(listaProgramas, BoxLayout.Y_AXIS));
         listaProgramas.setBackground(new Color(50, 48, 48));
         for (BotaoRadialCustomizado rb : rbProgramas) {
@@ -67,7 +70,7 @@ public class TelaListaProgramas extends JPanel implements ActionListener {
         }
 
         // Criando e adicionando o painel com os botões radiais à um painel rolável
-        JScrollPane listaProgramasRolavel = new JScrollPane(listaProgramas);
+        listaProgramasRolavel = new JScrollPane(listaProgramas);
         listaProgramasRolavel.setBounds(450, 60, 300, 400);
         listaProgramasRolavel.setBorder(BorderFactory.createEtchedBorder());
         listaProgramasRolavel.setBackground(new Color(50, 48, 48));
@@ -86,6 +89,52 @@ public class TelaListaProgramas extends JPanel implements ActionListener {
         this.add(listaProgramasRolavel);
         this.add(visualizar);
         this.add(deletar);
+    }
+
+    /**
+     * Constroi um painel para listagem de dados da Classe Programa com base nos
+     * filtros de dia de exibição e canal no qual esta cadastrado.
+     * 
+     * @param dados            Base de dados
+     * @param filtroCanal      Canal ao qual os programas listados devem pertencer
+     * @param diasSelecionados Dias nos quais os programas listados devem ser
+     *                         exibidos
+     */
+    public TelaListaProgramas(Dados dados, String filtroCanal, ArrayList<Integer> diasSelecionados) {
+        this(dados, null);
+        // TODO: COMO PEGAR APENAS PROGRMAS DO CANAL filtroCanal E COM O DIA PRESENTE EM
+        // TODO: diasSelecionados
+        // Canal a qual pertencem os programas que serão potencialmente listados
+        Canal canalAnalizado = d.getCanal(filtroCanal);
+
+        // Cria novo array apenas com botoes de programas presentes no canal
+        ArrayList<BotaoRadialCustomizado> rbProgramasFiltragemPorCanal = new ArrayList<>();
+        for (BotaoRadialCustomizado rb : rbProgramas) {
+            if (canalAnalizado.existePrograma(rb.getText())) {
+                rbProgramasFiltragemPorCanal.add(rb);
+            }
+        }
+
+        // Cria novo array apenas com botoes de programas exibidos nos dias selecionados
+        ArrayList<BotaoRadialCustomizado> rbProgramasFiltragemCompleta = new ArrayList<>();
+        for (BotaoRadialCustomizado rb : rbProgramasFiltragemPorCanal) {
+            Programa programa = d.getPrograma(rb.getText());
+            if (programa.isExibido(diasSelecionados)) {
+                rbProgramasFiltragemCompleta.add(rb);
+            }
+        }
+
+        // Remove botoes de radio que foram construidos pelo metodo this() e coloca os
+        // que passaram nos filtros
+        for (BotaoRadialCustomizado rb : rbProgramas) {
+            listaProgramas.remove(rb);
+        }
+        for (BotaoRadialCustomizado rb : rbProgramasFiltragemCompleta) {
+            listaProgramas.add(rb);
+        }
+        listaProgramas.revalidate();
+        listaProgramas.repaint();
+
     }
 
     // --------------------------------- Listeners ---------------------------------

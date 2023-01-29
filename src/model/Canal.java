@@ -82,27 +82,6 @@ public class Canal implements Comparable<Canal> {
     }
 
     /**
-     * Retorna um array de programas que fazem pertencem a esse canal, e tem o nome
-     * parecido com o do filtro
-     * 
-     * @param filtro Nome do canal alvo
-     * @return Retorna progrmas que estao nesse canal e tem o nome igual ao filtro
-     */
-    public ArrayList<Programa> getProgramaPorCanal(String filtro) { // TODO: URGENTE E WIP
-        if (filtro != null) {
-            System.out.println("Estou filtrando para:" + filtro);
-            ArrayList<Programa> programasFiltrados = new ArrayList<>();
-            for (Programa programa : programas) {
-                if (programa.getNome().contains(filtro)) {
-                    programasFiltrados.add(programa);
-                }
-            }
-            return programasFiltrados;
-        }
-        return programas;
-    }
-
-    /**
      * Esse override ensina a biblioteca java.util qual atributo de canal deve
      * ser usado na comparação entre canais. Possibilita o uso do método
      * Collections.sort() para ordernar canais alfabeticamente.

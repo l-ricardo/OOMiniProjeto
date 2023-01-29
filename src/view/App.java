@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -147,8 +148,10 @@ public class App extends JFrame implements ActionListener {
         }
 
         if (clicado == bListarProgramas) {
-            if (!filtroPrograma.getText().contains("Insira o nome do programa...")) {
-
+            if (!filtroCanal.getText().contains("Insira o nome do canal...")
+                    && getDiasSelecionados().size() != 0) {
+                conteudo = new TelaListaProgramas(d, filtroCanal.getText(), getDiasSelecionados());
+            } else if (!filtroPrograma.getText().contains("Insira o nome do programa...")) {
                 conteudo = new TelaListaProgramas(d, filtroPrograma.getText());
             } else {
                 conteudo = new TelaListaProgramas(d, null);
@@ -189,6 +192,39 @@ public class App extends JFrame implements ActionListener {
         conteudo.updateUI();
     }
 
+    // ---------------------------- Metodos Auxiliares ----------------------------
+    /**
+     * Cria um array com os dias selecionados no filtro de dias.
+     * 
+     * @return Array de inteiros onde 1 representa domingo, 2 representa segunda,
+     *         3 representa terça, etc...
+     */
+    private ArrayList<Integer> getDiasSelecionados() {
+        ArrayList<Integer> dias = new ArrayList<Integer>();
+        if (dom.isSelected()) {
+            dias.add(1);
+        }
+        if (seg.isSelected()) {
+            dias.add(2);
+        }
+        if (ter.isSelected()) {
+            dias.add(3);
+        }
+        if (qua.isSelected()) {
+            dias.add(4);
+        }
+        if (qui.isSelected()) {
+            dias.add(5);
+        }
+        if (sex.isSelected()) {
+            dias.add(6);
+        }
+        if (sab.isSelected()) {
+            dias.add(7);
+        }
+        return dias;
+    }
+
     // -----------------------------------------------------------------------------
     // ----------------------------------- MAIN -----------------------------------
     // -----------------------------------------------------------------------------
@@ -198,6 +234,7 @@ public class App extends JFrame implements ActionListener {
         // TODO: Atualizar diagramas de classes e pacotes (Herança abstrata pontilhado)
         // TODO: Criar UniTests
         // TODO: Otimizar todos os Override se actionPerformed
+        // TODO: Documentar metodos auxiliares de telaCadastroPrograma e ver outras
     }
     // -----------------------------------------------------------------------------
 }

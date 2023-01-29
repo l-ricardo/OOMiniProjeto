@@ -18,7 +18,7 @@ public abstract class Programa implements Comparable<Programa> {
         favorito = false;
         descricao = "Nenhuma descrição foi fornecida";
     }
-    
+
     // -------------------------------- Contrutores --------------------------------
     /**
      * Construtor que recebe o nome do programa, os dias da semana que o programa é
@@ -113,6 +113,23 @@ public abstract class Programa implements Comparable<Programa> {
 
     // ---------------------------- Metodos Auxiliares ----------------------------
     /**
+     * Checa se esse programa é exibido em pelo menos um de um array de
+     * diasSelecionados.
+     * 
+     * @param diasSelecionados dias que se quer verificar se o programa é exibido
+     * @return Retona true se pelo menos um dos diasSelecionados esta cadastrado
+     *         como dia de exibição, se não retorna false.
+     */
+    public boolean isExibido(ArrayList<Integer> diasSelecionados) {
+        for (int dia : diasSelecionados) {
+            if (getDiasExibicao().contains(dia)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Esse override ensina a biblioteca java.util qual atributo de programa deve
      * ser usado na comparação entre programas. Possibilita o uso do método
      * Collections.sort() para ordernar programas alfabeticamente.
@@ -124,4 +141,5 @@ public abstract class Programa implements Comparable<Programa> {
     public int compareTo(Programa outroPrograma) {
         return this.nome.compareTo(outroPrograma.nome);
     }
+
 }

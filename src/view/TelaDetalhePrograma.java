@@ -420,6 +420,12 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
     }
 
     // ---------------------------- Metodos Auxiliares ----------------------------
+    /**
+     * Cria um novo objeto com base nos dados entrados pelo usuário nos campos de
+     * texto e ce checkbox.
+     * 
+     * @return Um novo programa cadastrado da classe Programa
+     */
     private Programa cadastroPrograma() {
         ArrayList<Integer> dias = getDiasSelecionados();
         if (talkShow.isSelected()) {
@@ -493,6 +499,9 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
         }
     }
 
+    /**
+     * Configura a interface para o cadastro de um programa do tipo Jornal.
+     */
     private void modoJornal() {
         dicaNumTemporadas.setVisible(false);
         caixaNumTemporadas.setVisible(false);
@@ -516,6 +525,10 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
         painelConvidadosRolavel.setVisible(false);
     }
 
+    /**
+     * Configura a interface para o cadastro de um programa do tipo Novela, Filme ou
+     * Serie.
+     */
     private void modoNovelaFilmeSerie() {
         dicaNumTemporadas.setVisible(true);
         caixaNumTemporadas.setVisible(true);
@@ -539,6 +552,9 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
         painelConvidadosRolavel.setVisible(false);
     }
 
+    /**
+     * Configura a interface para o cadastro de um programa do tipo TalkShow.
+     */
     private void modoTalkShow() {
         dicaNumTemporadas.setVisible(false);
         caixaNumTemporadas.setVisible(false);
@@ -562,6 +578,12 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
         painelConvidadosRolavel.setVisible(true);
     }
 
+    /**
+     * Cria um array com os dias selecionados no filtro de dias.
+     * 
+     * @return Array de inteiros onde 1 representa domingo, 2 representa segunda,
+     *         3 representa terça, etc...
+     */
     private ArrayList<Integer> getDiasSelecionados() {
         ArrayList<Integer> dias = new ArrayList<Integer>();
         if (dom.isSelected()) {
@@ -587,7 +609,7 @@ public class TelaDetalhePrograma extends JPanel implements ActionListener {
         }
         return dias;
     }
-    
+
     // --------------------------------- Listeners ---------------------------------
     /**
      * Detecta quando os botões "salvar" e "atualizar" são clicados além de
