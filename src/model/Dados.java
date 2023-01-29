@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Arrays;
 
+/**
+ * Classe que simula um banco de dados bem como faz o gerenciamento deles.
+ */
 public class Dados {
         private ArrayList<Canal> canais = new ArrayList<>();
         private ArrayList<Artista> artistas = new ArrayList<>();
