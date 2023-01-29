@@ -119,8 +119,7 @@ public class TelaListaPessoas extends JPanel implements ActionListener {
         }
 
         // Se o objeto clicado for um dos botões radiais, pessoaSelecionada recebe o
-        // texto
-        // do último botão radial slecionado
+        // texto do último botão radial slecionado
         if (rbPessoas.contains(clicado)) {
             pessoaSelecionada = e.getActionCommand();
         }

@@ -120,8 +120,7 @@ public class TelaListaCanais extends JPanel implements ActionListener {
         }
 
         // Se o objeto clicado for um dos botões radiais, canalSelecionado recebe o
-        // texto
-        // do último botão radial slecionado
+        // texto do último botão radial slecionado
         if (rbCanais.contains(clicado)) {
             canalSelecionado = e.getActionCommand();
         }

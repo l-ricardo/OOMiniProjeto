@@ -166,8 +166,7 @@ public class TelaListaProgramas extends JPanel implements ActionListener {
         }
 
         // Se o objeto clicado for um dos botões radiais, programaSelecionado recebe o
-        // texto
-        // do último botão radial slecionado
+        // texto do último botão radial slecionado
         if (rbProgramas.contains(clicado)) {
             programaSelecionado = e.getActionCommand();
         }
