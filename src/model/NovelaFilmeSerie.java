@@ -98,22 +98,6 @@ public class NovelaFilmeSerie extends Programa {
     }
 
     // ---------------------------- Metodos Auxiliares ----------------------------
-    public void listarPersonagens() { // TODO: AINDA NECESSARIO?
-        listarPersonagens(false);
-    }
-
-    public void listarPersonagens(boolean apenasProtagonistas) { // TODO: AINDA NECESSARIO?
-        String result = "";
-        for (Personagem personagem : personagens) {
-            if (apenasProtagonistas) {
-                result += personagem.isProtagonista() ? personagem.toString() + "\n" : "";
-            } else {
-                result += personagem.toString() + "\n";
-            }
-        }
-        System.out.println(result);
-    }
-
     /**
      * 
      * Verifica se existe um personagem com o nome especificado agregado a essa

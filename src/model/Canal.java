@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Classe que representa um canal de televisão.
@@ -10,7 +9,7 @@ public class Canal implements Comparable<Canal> {
     private String nome;
     private int numero;
     private ArrayList<Programa> programas = new ArrayList<>();
-    
+
     // -------------------------------- Contrutores --------------------------------
     /**
      * Contrutor que recebe o nome do canal e o número em que ele pode ser
@@ -60,11 +59,8 @@ public class Canal implements Comparable<Canal> {
         return programas;
     }
 
-    // TODO: Checar se isso aqui esta funcinando com a caixa de multiselecao
-    public void setProgramas(List<Programa> list) {
-        for (Programa programa : list) {
-            this.programas.add(programa);
-        }
+    public void setProgramas(ArrayList<Programa> programas) {
+        this.programas = programas;
     }
 
     // ---------------------------- Metodos Auxiliares ----------------------------
