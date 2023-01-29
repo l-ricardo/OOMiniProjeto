@@ -42,12 +42,12 @@ public class Pessoa implements Comparable<Pessoa> {
      * ser usado na comparação entre pessoas. Possibilita o uso do método
      * Collections.sort() para ordernar pessoas alfabeticamente.
      * 
-     * @param outroPessoa A outra pessoa ao qual será feita a comparação
+     * @param outraPessoa A outra pessoa ao qual será feita a comparação
      * @return O nome da pessoa
      */
     @Override
-    public int compareTo(Pessoa outroPessoa) {
-        return this.nome.compareTo(outroPessoa.nome);
+    public int compareTo(Pessoa outraPessoa) {
+        return this.nome.compareTo(outraPessoa.nome);
     }
 
     // --------------------------------- toString ---------------------------------
