@@ -13,6 +13,7 @@ public class Artista extends Pessoa {
     {
         musico = false;
         ancora = false;
+        instrumento = "Nenhum";
     }
 
     // -------------------------------- Contrutores --------------------------------

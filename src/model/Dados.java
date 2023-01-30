@@ -30,28 +30,39 @@ public class Dados {
                 ((Artista) getPessoa("Renata Vasconcelos")).setAncora(true);
 
                 personagens.add(new Personagem("Carminha", 'F',
-                                new Pessoa("Adriana Esteves", 'F'), true));
+                                getPessoa("Adriana Esteves"), true));
                 personagens.add(new Personagem("Tufão", 'M',
-                                new Pessoa("Murilo Benicio", 'M')));
+                                getPessoa("Murilo Benicio")));
                 personagens.add(new Personagem("Nina/Rita", 'F',
-                                new Pessoa("Debora Falabella", 'F'), true));
+                                getPessoa("Debora Falabella"), true));
                 personagens.add(new Personagem("11", 'F',
-                                new Pessoa("Millie Bobby Brown", 'F'), true));
+                                getPessoa("Millie Bobby Brown"), true));
                 personagens.add(new Personagem("Mike", 'M',
-                                new Pessoa("Finn Wolfhard", 'M'), true));
+                                getPessoa("Finn Wolfhard"), true));
                 personagens.add(new Personagem("Will Byers", 'M',
-                                new Pessoa("Noah Schnapp", 'M'), true));
+                                getPessoa("Noah Schnapp"), true));
                 personagens.add(new Personagem("Lucas Sinclair", 'M',
-                                new Pessoa("Caleb McLaughlin", 'M'), true));
+                                getPessoa("Caleb McLaughlin"), true));
                 personagens.add(new Personagem("Dustin Henderson", 'M',
-                                new Pessoa("Gaten Matarazzo", 'M'), true));
+                                getPessoa("Gaten Matarazzo"), true));
                 personagens.add(new Personagem("Bob Newby", 'M',
-                                new Pessoa("Sean Astin", 'M'), false));
+                                getPessoa("Sean Astin"), false));
                 personagens.add(new Personagem("Bob Esponja", 'M',
-                                new Pessoa("Wendell Bezerra", 'M'), true));
+                                getPessoa("Wendell Bezerra"), true));
 
                 pessoas.add(new Pessoa("Dona Maria", 'F'));
                 pessoas.add(new Pessoa("Seu João", 'M'));
+                pessoas.add(new Pessoa("Adriana Esteves", 'F'));
+                pessoas.add(new Pessoa("Murilo Benicio", 'M'));
+                pessoas.add( new Pessoa("Debora Falabella", 'F'));
+                pessoas.add(new Pessoa("Millie Bobby Brown", 'F'));
+                pessoas.add(new Pessoa("Finn Wolfhard", 'M'));
+                pessoas.add( new Pessoa("Noah Schnapp", 'M'));
+                pessoas.add( new Pessoa("Caleb McLaughlin", 'M'));
+                pessoas.add(new Pessoa("Gaten Matarazzo", 'M'));
+                pessoas.add(new Pessoa("Sean Astin", 'M'));
+                pessoas.add( new Pessoa("Sean Astin", 'M'));
+                pessoas.add( new Pessoa("Wendell Bezerra", 'M'));
 
                 programaTipoNovelaFilmeSerie.add(new NovelaFilmeSerie("Avenida Brasil",
                                 new ArrayList<Integer>(Arrays.asList(2, 3, 4, 5, 6)), "21:00", 120,

@@ -71,11 +71,15 @@ public class Personagem extends Pessoa {
      * @return Retorna 'true' se o ator existir e 'false' caso contrário.
      */
     public boolean existeAtor(String nome) {
-        if (nome == ator.getNome()) {
-            return true;
+        System.out.println();
+        if (this.ator != null) {
+            if (this.ator.getNome().equals(nome)) {
+                return true;
+            }
         }
         return false;
     }
+    
 
     // --------------------------------- toString ---------------------------------
     @Override
