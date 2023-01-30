@@ -46,7 +46,7 @@ Já [BotaoPequeno](src\view\BotaoPequeno.java), [BotaoGrande](src\view\BotaoGran
 ## Funcionalidades:
 - CRUD de canal
 - CRUD de programa
-- RD de pessoa
+- CRUD de pessoa
 - Listagem da programação de um canal em um determinado dia (Basta digitar o nome do canal no campo de filtragem de canais, selecionar pelo menos um dia e clicar em listar programas)
 - Busca por um programa específico (Basta digitar o nome no campo de filtragem de programas e clicar em listar programas)
 - Busca por um canal específico (Basta digitar o nome no campo de filtragem de canais e clicar em listar canais)
